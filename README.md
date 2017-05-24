@@ -3,8 +3,9 @@
 XQHttp.py 文件需要配置你自己的Cookie  也就是header 中’Cookie': 值  xq_a_token 和bid 
 
 ReadList.txt  填写需要抓取的雪球大V 地址 例如：https://xueqiu.com/2733321298
-抓取贴子，言论，API \_url = "http://xueqiu.com/v4/statuses/user\_timeline.json?user\_id={0}&page={1}&type=2"  2主贴  5 回复 ""为全部
-可自行修改
+抓取贴子，言论，API说明：
+ \_url = "http://xueqiu.com/v4/statuses/user\_timeline.json?user\_id={0}&page={1}&type=2"  2主贴  5 回复 ""为全部
+可自行修改，位于xueqiu_workerpy
 ### 淘股吧
 如果TGBHttp.py 中Cookie过期，需要更新，
 淘股吧（只发布抓取帖子版，***完整抓取用户所有日志，跟帖不在此发布***）
@@ -12,8 +13,8 @@ ReadList.txt  填写需要抓取的雪球大V 地址 例如：https://xueqiu.com
 ReadList.txt配置 帖子地址 例如 龙飞虎 [我相信这个帐号的未来会很灿烂！][1]
  https://www.taoguba.com.cn/Article/175600/0  原贴地址/0 表示默认抓取完全部帖子，原贴地址/x 表示抓取到第x页 ,默认 0 
 默认配置 提取主贴 + 点亮 + 捧场 + 作者所有回复 
-如需帖子完整版，配置taoguba\_article  解析\_
-https://www.taoguba.com.cn/Article/175600/0
+如需帖子完整版，配置taoguba\_article  解析
+ 
 
 ### after all 
 看看人家巴菲特 
