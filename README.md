@@ -21,7 +21,7 @@ ReadList.txt配置 帖子地址 例如 龙飞虎 [我相信这个帐号的未来
 其他[知乎助手][1] 抓微信（传送门文章）[山石观市][2]  
 
 [1]:	https://github.com/YaoZeyuan/ZhihuHelp
-[2]:	https://pan.baidu.com/s/1bQFQFG
+[2]:	https://github.com/macbookpro2100/taoguba_xueqiu_book/blob/master/%E4%B8%93%E6%A0%8F%E5%B1%B1%E7%9F%B3%E8%A7%82%E5%B8%82(cssstock)%E6%96%87%E7%AB%A0%E9%9B%86.epub
 
 ### 程序fork自 [EE-Book][2] [知乎助手][3]
 原EE-Book介绍：
