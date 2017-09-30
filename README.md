@@ -5,7 +5,7 @@ XQHttp.py 文件需要配置你自己的Cookie  也就是header 中’Cookie': �
 ReadList.txt  填写需要抓取的雪球大V 地址 例如：https://xueqiu.com/2733321298
 抓取贴子，言论，API说明：
  \_url = "http://xueqiu.com/v4/statuses/user\_timeline.json?user\_id={0}&page={1}&type=2"  2主贴  5 回复 ""为全部
-可自行修改，位于xueqiu_workerpy
+可自行修改，位于xueqiu_worker.py
 ### 淘股吧
 如果TGBHttp.py 中Cookie过期，需要更新，
 淘股吧（只发布抓取帖子版，***完整抓取用户所有日志，跟帖不在此发布***）
