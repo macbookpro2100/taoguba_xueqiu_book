@@ -1,4 +1,16 @@
 ## python抓取雪球 淘股吧文章
+
+### Last跟新
+add [简书地址][31]  
+发布任正非华为讲话集合 心声社区 + 新浪博客整理
+
+
+[31]:	https://www.jianshu.com/p/cc1dc1f8502c
+ 
+
+ 
+ 
+
 ### 雪球使用 
 XQHttp.py 文件需要配置你自己的Cookie  也就是header 中’Cookie': 值  xq_a_token 和bid 
 
