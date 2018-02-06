@@ -4,9 +4,13 @@
 add [简书地址][31]  
 发布任正非华为讲话集合 心声社区 + 新浪博客整理
 
-
-
-[31]:	https://www.jianshu.com/p/cc1dc1f8502c
+多看阅读效果
+### 标题
+![directory][img-1]  
+### 内容
+![scheme][img-2]
+### 目录
+![scheme][img-3]
  
 
  
@@ -148,6 +152,11 @@ $ pip install -r requirements.txt
 [28]:	https://github.com/soimort/you-get
 [29]:	./LICENSE
 
+[31]:	https://www.jianshu.com/p/cc1dc1f8502c
+
 [image-1]:	http://7xi5vu.com1.z0.glb.clouddn.com/2016-03-09directory.png
 [image-2]:	http://7xi5vu.com1.z0.glb.clouddn.com/2016-03-09Scheme.png
 
+[img-1]:	https://github.com/macbookpro2100/taoguba_xueqiu_book/blob/master/%E4%BB%BB%E6%AD%A3%E9%9D%9E%E9%A9%AC%E4%BA%91%E9%A9%AC%E5%8C%96%E8%85%BE%E2%80%A6%E2%80%A6/r1.jpg
+[img-2]:	https://github.com/macbookpro2100/taoguba_xueqiu_book/blob/master/%E4%BB%BB%E6%AD%A3%E9%9D%9E%E9%A9%AC%E4%BA%91%E9%A9%AC%E5%8C%96%E8%85%BE%E2%80%A6%E2%80%A6/r2.jpg
+[img-3]:	https://github.com/macbookpro2100/taoguba_xueqiu_book/blob/master/%E4%BB%BB%E6%AD%A3%E9%9D%9E%E9%A9%AC%E4%BA%91%E9%A9%AC%E5%8C%96%E8%85%BE%E2%80%A6%E2%80%A6/r3.jpg
