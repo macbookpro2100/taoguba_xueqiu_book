@@ -33,10 +33,7 @@ ReadList.txt配置 帖子地址 例如 龙飞虎 [我相信这个帐号的未来
 看看人家巴菲特 
 其他[知乎助手][1] 抓微信（传送门文章）[山石观市][2]  
 
-[1]:	https://github.com/YaoZeyuan/ZhihuHelp
-[2]:	https://github.com/macbookpro2100/taoguba_xueqiu_book/blob/master/%E4%B8%93%E6%A0%8F%E5%B1%B1%E7%9F%B3%E8%A7%82%E5%B8%82(cssstock)%E6%96%87%E7%AB%A0%E9%9B%86.epub
-
-### 程序fork自 [EE-Book][2] [知乎助手][3]
+### 程序fork自 [EE-Book][222] [知乎助手][3]
 原EE-Book介绍：
 # EE-Book
 
@@ -120,8 +117,9 @@ $ pip install -r requirements.txt
 
 [MIT license][29].
 
-[1]:	https://www.taoguba.com.cn/Article/175600/1
-[2]:	https://github.com/ee-book/EE-Book
+[1]:	https://github.com/YaoZeyuan/ZhihuHelp
+[2]:	https://github.com/macbookpro2100/taoguba_xueqiu_book/blob/master/%E4%B8%93%E6%A0%8F%E5%B1%B1%E7%9F%B3%E8%A7%82%E5%B8%82(cssstock)%E6%96%87%E7%AB%A0%E9%9B%86.epub
+[222]:	https://github.com/ee-book/EE-Book
 [3]:	https://github.com/YaoZeyuan/ZhihuHelp
 [4]:	./README.md
 [5]:	./README_en.md
