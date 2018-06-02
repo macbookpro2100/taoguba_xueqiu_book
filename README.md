@@ -1,5 +1,5 @@
 ## python抓取雪球 淘股吧文章
-
+![scheme][wechat]
 ### Last 更新虎嗅上 任正非马云马化腾演讲访谈等
 add [简书地址][31]  
 发布任正非华为讲话集合 心声社区 + 新浪博客整理
@@ -160,3 +160,5 @@ $ pip install -r requirements.txt
 [img-1]:	https://github.com/macbookpro2100/taoguba_xueqiu_book/blob/master/%E4%BB%BB%E6%AD%A3%E9%9D%9E%E9%A9%AC%E4%BA%91%E9%A9%AC%E5%8C%96%E8%85%BE%E2%80%A6%E2%80%A6/r1.jpg
 [img-2]:	https://github.com/macbookpro2100/taoguba_xueqiu_book/blob/master/%E4%BB%BB%E6%AD%A3%E9%9D%9E%E9%A9%AC%E4%BA%91%E9%A9%AC%E5%8C%96%E8%85%BE%E2%80%A6%E2%80%A6/r2.jpg
 [img-3]:	https://github.com/macbookpro2100/taoguba_xueqiu_book/blob/master/%E4%BB%BB%E6%AD%A3%E9%9D%9E%E9%A9%AC%E4%BA%91%E9%A9%AC%E5%8C%96%E8%85%BE%E2%80%A6%E2%80%A6/r3.jpg
+
+[wechat]:	https://github.com/macbookpro2100/taoguba_xueqiu_book/blob/master/%E4%BB%BB%E6%AD%A3%E9%9D%9E%E9%A9%AC%E4%BA%91%E9%A9%AC%E5%8C%96%E8%85%BE%E2%80%A6%E2%80%A6/ink.jpeg
