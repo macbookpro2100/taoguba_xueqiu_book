@@ -1,5 +1,9 @@
 ## python抓取雪球 淘股吧文章
+### 2018-7-20 更新 巴菲特芒格在BerkshireHathaway 历年年股东大会问答Google中英对照翻译 
+来源网址是：https://buffett.cnbc.com/warren-buffett-archive/
+ 
 ![scheme][wechat]
+
 ### Last 更新虎嗅上 任正非马云马化腾演讲访谈等
 add [简书地址][31]  
 发布任正非华为讲话集合 心声社区 + 新浪博客整理
