@@ -3,6 +3,11 @@
 ### 2018-8-15 更新 换回ZhihuHelp 爬 [武侠评论][34] [吃瓜群众岱][35] [顾子明政事堂][36]  [今天看啥][37] 
 
 部分代码没写完 下次爬的时候添上
+股社区 政事堂 吃瓜群众岱   
+补充链接:https://pan.baidu.com/s/1869bKc9V1w5n1j10gCepbw  密码:qo0g
+感慨时过境迁，bye
+
+
 ### 2018-7-20 更新 巴菲特芒格在BerkshireHathaway 历年年股东大会问答Google机器翻译 
 来源网址是：https://buffett.cnbc.com/warren-buffett-archive/
  
@@ -60,7 +65,7 @@ add [简书地址][31]  
 | 新浪博客   | [blog.sina.com.cn][17] | **用户的所有文章：** `blog.csdn.net/{people_id}` |
 | 博客园     | [www.cnblogs.com][18] | **用户的所有文章：** `cnblogs.com/{people_id}/`  |
 | 易百教程   | [www.yiibai.com][19] | **某个教程的文章：** `yiibai.com/{tutorial_kind}`|
-| Talk Python To Me | [www.talkpython.fm][20]| **文稿:** `https://talkpython.fm/episodes/all/`|
+
 
 ## 用法
 
