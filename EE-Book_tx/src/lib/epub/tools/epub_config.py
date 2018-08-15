@@ -14,36 +14,37 @@ class EpubConfig(object):
 
     # OEBPS
 
-    # # OPF
+    ## OPF
     opf_content_uri = base_path + u'/OEBPS/opf/content.xml'
 
-    # ## guide
+    ### guide
     guide_item_uri = base_path + u'/OEBPS/opf/guide/item.xml'
 
-    # ## metadata
+    ### metadata
     metadata_cover_uri = base_path + u'/OEBPS/opf/metadata/cover.xml'
     metadata_creator_uri = base_path + u'/OEBPS/opf/metadata/creator.xml'
     metadata_book_id_uri = base_path + u'/OEBPS/opf/metadata/book_id.xml'
     metadata_title_uri = base_path + u'/OEBPS/opf/metadata/title.xml'
     metadata_language_uri = base_path + u'/OEBPS/opf/metadata/language.xml'
 
-    # ## manifest
+    ### manifest
     manifest_item_uri = base_path + u'/OEBPS/opf/manifest/item.xml'
 
-    # ## spine
+    ### spine
     spine_item_uri = base_path + u'/OEBPS/opf/spine/item.xml'
     spine_item_nolinear_uri = base_path + u'/OEBPS/opf/spine/item_nolinear.xml'
 
-    # # TOC
+
+    ## TOC
     toc_content_uri = base_path + u'/OEBPS/toc/content.xml'
-    # ##head
+    ###head
     head_uid_uri = base_path + u'/OEBPS/toc/head/uid.xml'
     head_depth_uri = base_path + u'/OEBPS/toc/head/depth.xml'
 
     # doc_title
     doc_title_title_uri = base_path + u'/OEBPS/toc/docTitle/title.xml'
 
-    # ## ncx
+    ### ncx
     ncx_item_uri = base_path + u'/OEBPS/toc/navMap/item.xml'
 
     # Directory
@@ -54,9 +55,9 @@ class EpubConfig(object):
     directory_content_uri = base_path + u'/directory/content.html'
 
     # Default
-    book_id = u'create_by_knarfeh'
+    book_id = u'create_by_yaozeyuan'
     book_title = u'no_title'
-    creator = u'ee-book'
-    uid = u'urn:uuid:create-by-knarfeh'
+    creator = u'zhihuhelp'
+    uid = u'urn:uuid:create-by-yao-ze-yuan-Tsingtao'
     identifier = u''
     language = u'zh'

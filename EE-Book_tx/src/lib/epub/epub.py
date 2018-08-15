@@ -2,8 +2,6 @@
 import os
 import zipfile
 
-import shutil
-
 from .directory import Directory
 from .inf import INF
 from .mime_type import MimeType
@@ -11,8 +9,8 @@ from .opf import OPF
 from .toc import TOC
 from .tools.epub_config import EpubConfig
 from .tools.epub_path import EpubPath
-from ...tools.debug import Debug
-from ...tools.path import Path
+from .zhihuhelp_tools.debug import Debug
+from .zhihuhelp_tools.path import Path
 
 
 class Epub(object):
@@ -107,34 +105,21 @@ class Epub(object):
         self.toc.create()
         self.write_index()
         self.zip_to_epub()
-        # self.moveFileTotagertFolder()
         return
 
     def zip_to_epub(self):
         epub_name = self.title + u'.epub'
         file_path = EpubPath.output_path + '/' + epub_name
         EpubPath.reset_path()
-        epub = zipfile.ZipFile(file=file_path, mode='w', compression=zipfile.ZIP_STORED, allowZip64=True)
-        epub.write('./mimetype')
+        epub = zipfile.ZipFile(file=file_path, mode='w', allowZip64=True)
+        epub.write('./mimetype', compress_type=zipfile.ZIP_STORED)
         for parent, dirnames, filenames in os.walk('.'):
             for filename in filenames:
                 if filename in [epub_name, 'mimetype']:
                     continue
-                Debug.print_in_single_line(u'add {} to e-book'.format(filename))
-                epub.write(parent + '/' + filename, compress_type=zipfile.ZIP_STORED)
+                Debug.print_in_single_line(u'将{}添加至电子书内'.format(filename))
+                epub.write(parent + '/' + filename, compress_type=zipfile.ZIP_DEFLATED)
         epub.close()
-
-        print u'\n\n', u'e-book', epub_name, u"has been built successfully!"
-        return
-
-    def moveFileTotagertFolder(self):
-        epub_name = self.title + u'.epub'
-        file_path = EpubPath.output_path + '/' + epub_name
-
-        shutil.move(file_path, u'/Volumes/MacintoshHD/E_work/EpubCreat/')
-
-        shutil.move(EpubPath.output_path + '/' + self.title, u'/Volumes/MacintoshHD/E_work/EpubCreat/')
-        print u'\n\n', u'e-book', epub_name, u"has been move to target folder successfully!"
         return
 
     def create_chapter(self, src, title):

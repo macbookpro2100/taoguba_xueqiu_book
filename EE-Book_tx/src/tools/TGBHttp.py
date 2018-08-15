@@ -32,7 +32,7 @@ class Http(object):
             'Accept-Language': 'en-US,en;q=0.8',
             'Cache-Control': 'no-cache',
             'Connection': 'keep-alive',
-            'Cookie': 'tgbuser=929400; tgbpwd=034188E14447lc8hzuwuiqmwsh; zhihu=1; bdshare_firstime=1483542961720; JSESSIONID=0c7d8acf-c113-4916-9a4d-4e025c8bc940; CNZZDATA1574657=cnzz_eid%3D1317696300-1483321904-%26ntime%3D1484132693',
+            'Cookie': 'JSESSIONID=73f9e31e-7af3-4c49-944f-1cf39199eb7c; notActiveUserIDPC=16840365; UM_distinctid=15fc8ba284d68f-02dc762b037072-31657c00-1fa400-15fc8ba284e51a; tgbuser=929400; tgbpwd=034188E14447lc8hzuwuiqmwsh; bdshare_firstime=1510901502217; CNZZDATA1574657=cnzz_eid%3D1506431376-1510895892-https%253A%252F%252Fwww.baidu.com%252F%26ntime%3D1510901602',
             'Host': 'www.taoguba.com.cn',
             'Referer': url,
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36',

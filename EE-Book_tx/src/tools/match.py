@@ -1,14 +1,11 @@
 # -*- coding: utf-8 -*-
 import re
 
-from type import Type
-from ..exception import UnsupportTypeException
-
-r1 = u'[a-zA-Z0-9’!"#$%&\'()*+,-./:;<=>?@，。?★、…【】《》？“”‘’！[\\]^_`{|}~]+'
+from src.tools.debug import Debug
+from src.tools.type import ImgQuality
 
 
 class Match(object):
-    # zhihu
     @staticmethod
     def xsrf(content=''):
         xsrf = re.search(r'(?<=name="_xsrf" value=")[^"]*(?="/>)', content)
@@ -26,7 +23,7 @@ class Match(object):
 
     @staticmethod
     def author(content=''):
-        return re.search(r'(?<=zhihu\.com/)people/(?P<author_id>[^/\n\r]*)', content)
+        return re.search(r'(?<=zhihu\.com/)people/(?P<author_page_id>[^/\n\r]*)', content)
 
     @staticmethod
     def collection(content=''):
@@ -45,49 +42,50 @@ class Match(object):
         return re.search(r'(?<=zhuanlan\.zhihu\.com/)(?P<column_id>[^/\n\r]*)', content)
 
     @staticmethod
-    def html_body(content=''):
-        return re.search('(?<=<body>).*(?=</body>)', content, re.S).group(0)
-
-    # jianshu
-    @staticmethod
-    def jianshu_author(content=''):
-        u"""
-
-        :param content: jianshu个人主页的地址
-        :return: re.match object
-        """
-        return re.search(r'(?<=jianshu\.com/users/)(?P<jianshu_id>[^/\n\r]*)(/latest_articles)', content)
+    def wechat(content=''):
+        return re.search(r'(?<=chuansong\.me/account/)(?P<account_id>[^/?\n\r]*)', content)
 
     @staticmethod
-    def jianshu_collection(content=''):
+    def wuxia(content=''):
         u"""
-
-        :param content: jianshu collection url
-        :return: re.match object
-        """
-        return re.search(r'(?<=jianshu\.com/c/)(?P<collection_id>[^/\n\r]*)', content)
-
-    @staticmethod
-    def jianshu_notebooks(content=''):
-        u"""
-
-        :param content: jianshu notebooks url
+https://www.wuxiareview.com/category/
         :return:
         """
-        return re.search(r'(?<=jianshu\.com/notebooks/)(?P<notebooks_id>[^/\n\r]*)(/)', content)
+        return re.search(r'(?<=wuxiareview\.com/category/)(?P<account_id>[^/\n\r]*)', content)
+    @staticmethod
+    def jinwankansa(content=''):
+        u"""
+http://www.jintiankansha.me/column/2u6annmY7Q
+        :return:
+        """
+        return re.search(r'(?<=jintiankansha\.me/column/)(?P<account_id>[^/\n\r]*)', content)
 
     @staticmethod
-    def jianshu_article_id(content=''):
+    def doc360(content=''):
         u"""
+http://www.360doc.com/userhome/40033985
+        :return:
+        """
+        return re.search(r'(?<=360doc\.com/userhome/)(?P<account_id>[^/\n\r]*)', content)
 
+
+
+    @staticmethod
+    def wechat_article_index(content=''):
+        """
+        直接在文件中匹配出微信文章地址
         :param content:
         :return:
         """
-        return re.search(r'(?<=www\.jianshu\.com/p/)(?P<jianshu_article_id>[^/\n\r\']*)()', content)
+        return re.findall(r'(?<=href="/n/)\d+', content)
 
-    # sinablog
     @staticmethod
-    def sinablog_author(content=''):
+    def html_body(content=''):
+        return re.search('(?<=<body>).*(?=</body>)', content, re.S).group(0)
+
+
+    @staticmethod
+    def sina(content=''):
         u"""
         TODO: 这样的链接也是可以的: http://blog.sina.com.cn/1340398703, 以及这样的:
         http://blog.sina.com.cn/caicui
@@ -97,80 +95,168 @@ class Match(object):
         return re.search(r'(?<=blog\.sina\.com\.cn/u/)(?P<sinablog_people_id>[^/\n\r]*)', content)
 
     @staticmethod
-    def sinablog_profile(content=''):
+    def huxiu(content=''):
         u"""
 
-        :param content: Sina博客"博客目录"的网址, 如:
-            http://blog.sina.com.cn/s/articlelist_1287694611_0_1.html
+        :param content: huxiu 博主主页地址, http://www.huxiu.com/buptzym/
         :return:
         """
-        return re.search(r'(?<=blog\.sina\.com\.cn/s/articlelist_)(?P<sinablog_people_id>[^/\n\r]*)(_0_1\.)', content)
-
-    # cnblogs
-    @staticmethod
-    def cnblogs_author(content=''):
-        u"""
-
-        :param content: cnblogs 博主主页地址, http://www.cnblogs.com/buptzym/
-        :return:
-        """
-        return re.search(r'(?<=cnblogs\.com/)(?P<cnblogs_id>[^/\n\r]*)(/)', content)
-
-    # csdn
-    @staticmethod
-    def csdnblog_author(content=''):
-        u"""
-
-        :param content: csdn 博主主页地址, http://blog.csdn.net/elton_xiao
-        :return: re.match object
-        """
-        return re.search(r'(?<=blog\.csdn\.net/)(?P<csdnblog_author_id>[^/\n\r]*)', content)
-
-    # generic
-    @staticmethod
-    def yiibai(content=''):
-        u"""
-
-        :param content: yiibai , http://www.yiibai.com,
-        :return:
-        """
-        return re.search(r'(?<=yiibai\.com/)(?P<subject_id>[^/\n\r]*)(/)', content)
+        return re.search(r'(?<=huxiu\.com/)(?P<huxiu_id>[^/\n\r]*)', content)
 
     @staticmethod
-    def talkpython(content=''):
-        u"""
-
-        :param content: http://talkpython.fm
-        :return:
-        """
-        return re.search(r'(?<=talkpython\.fm/episodes/)(?P<subject_id>[^/\n\r]*)(/)', content)
-
-    # taoguba
-    @staticmethod
-    def taoguba_author(content=''):
-        u"""
-        :param content: http://www.taoguba.com.cn/Article/1483634/
-        :return:
-        """
-        return re.search(r'(?<=taoguba\.com\.cn/Article/)(?P<article_id>[^/\n\r]*)(/)', content)
-
-    @staticmethod
-    def taoguba_article(content=''):
-        u"""
-
-        :param content:
-            http://blog.sina.com.cn/s/articlelist_1287694611_0_1.html
-        :return:
-        """
-        return re.search(r'(?<=taoguba\.com\.cn/Article/)(?P<article_id>[^/\n\r]*)(/)(?P<range_id>[^/\n\r]*)', content)
-
-    @staticmethod
-    def xueqiu_author(content=''):
+    def xueqiu(content=''):
         u"""
         :param content: https://xueqiu.com/4065977305
         :return:
         """
         return re.search(r'(?<=xueqiu\.com/)(?P<xueqiu_author_id>[^/\n\r]*)', content)
+
+
+    @staticmethod
+    def huawei(content=''):
+        u"""
+        :param content: https://xueqiu.com/4065977305
+        :return:
+        """
+        return re.search(r'(?<=huawei\.com/)(?P<h_author_id>[^/\n\r]*)', content)
+
+    @staticmethod
+    def zhengshitang(content=''):
+        u"""
+        :param content: https://xueqiu.com/4065977305
+        :return:
+        """
+        return re.search(r'(?<=zhengshitang\.com/)(?P<z_author_id>[^/\n\r]*)', content)
+
+
+
+
+    @staticmethod
+    def fix_html(content=''):
+        content = content.replace('</br>', '').replace('</img>', '')
+        content = content.replace('<br>', '<br/>')
+        content = content.replace('href="//link.zhihu.com', 'href="https://link.zhihu.com')  # 修复跳转链接
+        for item in re.findall(r'\<noscript\>.*?\</noscript\>', content, re.S):
+            content = content.replace(item, '')
+        return content
+
+    @staticmethod
+    def fix_filename(filename):
+        return Match.replace_danger_char_for_filesystem(filename)[:80]
+
+    @staticmethod
+    def replace_danger_char_for_filesystem(filename):
+        illegal = {
+            '\\': '＼',
+            '/': '',
+            ':': '：',
+            '*': '＊',
+            '?': '？',
+            '<': '《',
+            '>': '》',
+            '|': '｜',
+            '"': '〃',
+            '!': '！',
+            '\n': '',
+            '\r': '',
+            '&': 'and',
+        }
+        for key, value in illegal.items():
+            filename = filename.replace(key, value)
+        return unicode(filename)
+
+    @staticmethod
+    def generate_img_src(img_file_name ='da8e974dc.jpg', img_quality=ImgQuality.big):
+        """
+        生成特殊的图片地址(知乎头像/专栏信息等存在于数据库中的图片)
+        :param img_file_name: 图片名
+        :param img_quality: 图片质量
+        :return:
+        """
+        result = re.search(r'(?<=zhimg.com/)(?P<name>[^_]*)[^\.]*\.(?P<ext>.*)', img_file_name)
+        if not result:
+            # 地址不符合规范，直接返回false
+            return None
+
+        filename = result.group('name')
+        ext = result.group('ext')
+
+        if img_quality == ImgQuality.raw:
+            img_file_name = filename + '.' + ext
+        elif img_quality == ImgQuality.big:
+            img_file_name = filename + '_b.' + ext
+        elif img_quality == ImgQuality.none:
+            return ''
+        else:
+            Debug.logger.info('警告：图片类型设置不正确！')
+            return None
+        url = ImgQuality.add_random_download_address_header_for_img_filename(img_file_name)
+        return url
+
+    def fix_image(self, content):
+        content = Match.fix_html(content)
+        for img in re.findall(r'<img[^>]*', content):
+            # fix img
+            if img[-1] == '/':
+                img = img[:-1]
+            img += '>'
+
+            src = re.search(r'(?<=src=").*?(?=")', img)
+            if not src:
+                new_image = img + '</img>'
+                content = content.replace(img, new_image)
+                continue
+            else:
+                src = src.group(0)
+                if src.replace(' ', '') == '':
+                    new_image = img + '</img>'
+                    content = content.replace(img, new_image)
+                    continue
+                else:
+                    new_image = '<img>'
+
+            new_image += '</img>'
+            content = content.replace(img, '<div class="duokan-image-single">{}</div>'.format(new_image))
+
+        return content
+
+    @staticmethod
+    def match_img_with_src_dict(content):
+        img_src_dict = {}
+        img_list = re.findall(r'<img[^>]*>', content)
+        for img in img_list:
+            result = re.search(r'(?<=src=").*?(?=")', img)
+            if not result:
+                img_src_dict[img] = ''
+            else:
+                src = result.group(0)
+                if 'zhstatic.zhihu.com/assets/zhihu/ztext/whitedot.jpg' in src :
+                    result = re.search(r'(?<=data-original=").*?(?=")', img)
+                    img_src_dict[img] = result.group(0)
+                if 'read.html5.qq.com/image' in src:
+                    result = re.search(r'(?<=imageUrl=).*?(?=")', img)
+                    img_src_dict[img] = result.group(0)
+                else:
+                    img_src_dict[img] = src
+        return img_src_dict
+
+    @staticmethod
+    def create_img_element_with_file_name(filename):
+        src = Match.create_local_img_src(filename)
+        return u'<div class="duokan-image-single"><img src="{}"></img></div>'.format(src)
+
+    @staticmethod
+    def create_local_img_src(filename):
+        u"""
+        生成本地电子书图片地址
+        :param filename:
+        :return:
+        """
+        src = '{}'.format(u'../images/' + filename)
+        return src
+
+
+
 
     @staticmethod
     def stripTags(s):
@@ -188,118 +274,6 @@ class Match(object):
         return ''.join(c for c in s if chk(c))
 
 
-    @staticmethod
-    def fix_filename(filename):
-        illegal = {
-            '\\': '＼',
-            '/': '',
-            ':': '：',
-            '*': '＊',
-            '?': '？',
-            '<': '《',
-            '>': '》',
-            '|': '｜',
-            '"': '〃',
-            '!': '！',
-            '\n': '',
-            '\r': ''
-        }
-        for key, value in illegal.items():
-            filename = filename.replace(key, value)
-        return unicode(filename[:80])
-
-    @staticmethod
-    def fix_html(content='', recipe_kind=''):
-        content = content.replace('</br>', '').replace('</img>', '')
-        content = content.replace('<br>', '<br/>')
-        content = content.replace('<wbr>', '').replace('</wbr>', '<br/>')  # for sinablog
-        content = content.replace('href="//link.zhihu.com', 'href="https://link.zhihu.com')  # 修复跳转链接
-        # 修复 taoguba 跳转链接
-
-        content = content.replace('href="blog/', 'href="http://www.taoguba.com.cn/blog/')
-
-        # for SinaBlog
-        if recipe_kind in Type.sinablog:
-            for item in re.findall(r'\<span class="img2"\>.*?\</span\>', content):
-                content = content.replace(item, '')
-            for item in re.findall(r'\<script\>.*?\</script\>', content, re.S):
-                content = content.replace(item, '')
-            for item in re.findall(r'height=\".*?\" ', content):  # 因为新浪博客的图片的高,宽是js控制的,不加
-                content = content.replace(item, '')  # 这一段会导致无法匹配图片
-            for item in re.findall(r'width=\".*?\" ', content):
-                content = content.replace(item, '')
-            for item in re.findall(r'\<cite\>.*?\</cite\>', content):
-                content = content.replace(item, '')
-
-        for item in re.findall(r'\<noscript\>.*?\</noscript\>', content, re.S):
-            content = content.replace(item, '')
-        return content
-
-    @staticmethod
-    def detect_recipe_kind(command):
-        u"""
-
-        :param command:
-        :return: command_type, e.g. sinablog_author, answer, column
-        """
-        for command_type in Type.type_list:
-            result = getattr(Match, command_type)(command)
-            if result:
-                return command_type
-        return 'unknown'
-
-    @staticmethod
-    def get_url_kind(url):
-        u"""
-        for --info, Similar to get_recipe_kind, but accept more general type
-        :param url:
-        :return: website kind,
-        """
-        split_url = url.split('#')[0]  # remove comment of raw url
-        split_url = split_url.split('$')[0]  # the first one determine type
-
-        kind = 'Unknow type'
-        for keyword in Type.key_word_to_website_type.keys():
-            if split_url.find(keyword) >= 0:
-                kind = Type.key_word_to_website_type[keyword]
-        if kind == 'Unknow type':
-            raise UnsupportTypeException('Getting website info..')
-        return kind
-
-    @staticmethod
-    def isUrlOk(url):
-
-        return re.match(r'^https?:/{2}\w.+$', url) or re.match(r'^http?:/{2}\w.+$', url)
-
-    @staticmethod
-    def get_website_kind(url):
-        u"""
-
-        :param url: one line
-        :return: website kind, e.g. 'zhihu', 'jianshu', 'sinablog', 'csdnblog'
-
-        """
-        print url
-        split_url = url.split('#')[0]  # remove comment of raw url
-        split_url = split_url.split('$')[0]  # the first one determine type
-        url_type = Match.detect_recipe_kind(split_url)
-
-        website_kind = 'Unsupport type'
-        for website in Type.website_type.keys():
-            if url_type in getattr(Type, website):
-                website_kind = website
-        if website_kind == 'Unsupport type':
-            raise UnsupportTypeException('Detecting website kind...')
-        return website_kind
-
-    @staticmethod
-    def replace_words(text, word_dic):
-        re_obj = re.compile('|'.join(map(re.escape, word_dic)))
-
-        def translate(mat):
-            return word_dic[mat.group(0)]
-
-        return re_obj.sub(translate, text)
 
     @staticmethod
     def replace_specile_chars(text):

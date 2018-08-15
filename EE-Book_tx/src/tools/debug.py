@@ -3,30 +3,18 @@ import logging
 import logging.handlers
 import sys
 
-from config import Config
+from src.tools.config import Config
 
 
 class Debug(object):
     u"""
     打印日志
     """
-    handler = logging.StreamHandler()    # 实例化handler
-    detail_fmt = '%(asctime)s - %(filename)s:%(lineno)s - %(name)s - %(message)s'
-    clean_fmt = '%(message)s'
-
-    formatter = logging.Formatter(detail_fmt)
-    handler.setFormatter(formatter)
-
     logger = logging.getLogger('main')  # 获取名为main的logger
-    logger.addHandler(handler)
-
-    # formatter = logging.Formatter(clean_fmt)
-    # handler.setFormatter(formatter)
-
     if Config.debug:
-        logger.setLevel(logging.DEBUG)     # debug模式, 显示 debug, info, warning, error, critical 信息
+        logger.setLevel(logging.DEBUG)  # debug模式
     else:
-        logger.setLevel(logging.INFO)      # 发布时关闭log输出,只显示 info, warning, error, critical信息
+        logger.setLevel(logging.INFO)  # 发布时关闭log输出
 
     # 辅助函数
     @staticmethod
@@ -54,7 +42,7 @@ class Debug(object):
         except UnicodeEncodeError as error:
             Debug.logger.info(u'编码异常')
             Debug.logger.info(u'系统默认编码为：' + sys.getdefaultencoding())
-            raise error
+            # raise error
         return
 
     @staticmethod

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from ...tools.path import Path
+from .zhihuhelp_tools.path import Path
 from .tools.base import Base
 
 

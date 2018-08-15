@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
-from ....tools.path import Path
-
+from ..zhihuhelp_tools.path import Path
 
 class EpubPath(object):
-
     file_path = os.path.realpath(__file__)
     base_path = os.path.dirname(file_path)
-    base_path = unicode(os.path.dirname(base_path).decode('UTF-8'))  # 库文件位置
+    base_path = unicode(os.path.dirname(base_path).decode(sys.stdout.encoding))  # 库文件位置
 
     work_path = base_path  # 默认以库位置作为初始工作地址
     output_path = os.path.dirname(work_path)  # 默认以工作目录的上一级为输出目录
@@ -35,7 +33,7 @@ class EpubPath(object):
 
     @staticmethod
     def init_epub_path(work_path):
-        u"""
+        """
         设置工作地址，根据该路径进行创建文件夹，生成epub，压缩等操作
         """
         EpubPath.set_work_path(work_path)

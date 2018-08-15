@@ -1,7 +1,21 @@
 <div class="answer">
 
     <div class="author">
-        {author_info}
+        <div class="author-info">
+            <div class="author-base">
+                <!--<div class="author-logo">-->
+                    <!--<img src="{author_avatar_url}" width="25" height="25"></img>-->
+                <!--</div>-->
+
+                <span class="author-name">
+             {author_name}
+        </span>
+
+                <span class="author-sign">{author_headline}</span>
+            </div>
+
+            <div class="clear-float"></div>
+        </div>
     </div>
 
     <div class="content">
@@ -9,7 +23,14 @@
     </div>
 
     <div class="comment">
-        {comment}
+        <div class="extra-info">
+            <p class="comment">{comment_count}</p>
+
+            <p class="agree">{voteup_count}</p>
+
+            <p class="update-date">{updated_time}</p>
+        </div>
     </div>
 </div>
+
 <hr/>

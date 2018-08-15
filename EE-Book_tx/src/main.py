@@ -1,132 +1,137 @@
 # -*- coding: utf-8 -*-
+import os
 import sqlite3
 
-
-from tools.path import Path
-from book import Book
-from tools.config import Config
-from tools.debug import Debug
-from tools.db import DB
+from src.container.book import Book
+from src.container.task import ColumnTask
+from src.container.task_result import TaskResult
+from src.tools.config import Config
+from src.tools.db import DB
+from src.tools.debug import Debug
+from src.tools.http import Http
+from src.tools.path import Path
 from login import Login
-from url_parser import UrlParser
-from worker import worker_factory
-from utils import log
+from command_parser import CommandParser
+from src.tools.type import Type
+from src.worker import Worker
 
 
-class EEBook(object):
-    def __init__(self, recipe_kind='Notset', read_list='ReadList.txt', url=None, debug=False):
-        u"""
-        配置文件使用$符区隔，同一行内的配置文件归并至一本电子书内
-        :param recipe_kind:
-        :param read_list: default value: ReadList.txt
-        :param url:
-        :param debug:
-        :return:
-        """
-        self.recipe_kind = recipe_kind
-        self.read_list = read_list
-        self.url = url
-        log.warning_log(u"website type: " + str(self.recipe_kind) + '\n')
-        import logging
-        if debug is True:
-            Debug.logger.setLevel(logging.DEBUG)
-        else:
-            Debug.logger.setLevel(logging.INFO)
-
-        Debug.logger.debug(u"read_list: " + str(self.read_list))
-        Debug.logger.debug(u"url: " + str(self.url))
-        Debug.logger.debug(u"recipe type:" + str(recipe_kind))
-
-        Path.init_base_path(recipe_kind)        # 设置路径
-        Path.init_work_directory()              # 创建路径
-        self.init_database()                    # 初始化数据库
-        Config._load()
+class ZhihuHelp(object):
+    def __init__(self):
+        #   初始化目录结构
+        Path.init_base_path()
+        Path.init_work_directory()
+        #   初始化数据库链接
+        DB.init_database()
+        #   初始化配置
+        Config.init_config()
         return
 
-    @staticmethod
-    def init_config(recipe_kind):
-        if recipe_kind == 'zhihu':      # TODO: 再有一个需要登录的网站, 改掉硬编码
-            login = Login(recipe_kind='zhihu')
-        else:
-            return
-        # !!!!!发布的时候把Config.remember_account改成false!!!!!,第一次需要登录,之后用cookie即可
-        # 登陆成功了,自动记录账户
-        if Config.remember_account_set:
-            Debug.logger.info(u'Detected settings file，use it.')
-            Config.picture_quality = 1
-        else:
-            log.warning_log(u"Please login...")
-            login.start()
-            Config.picture_quality = 1
-            Config.remember_account_set = True
-        Config._save()
-        return
+    def start(self):
+        #   检查更新
+        # self.check_update()
 
-    def begin(self):
-        u"""
-        程序运行的主函数
-        :return: book file 的列表
-        """
-        Debug.logger.debug(u"#DEBUG MODE#: don't check update")
-        self.init_config(recipe_kind=self.recipe_kind)
-        if self.url is None:
-            Debug.logger.debug(u"Reading ReadList.txt...")
-        else:
-            Debug.logger.debug(u"Got url: " + str(self.url))
-        book_files = []
-        if self.url is not None:
-            file_name = self.create_book(self.url, 1)
-            book_files.append(file_name)
-            return book_files
+        #   登录
+        # login = Login()
+        # zhihu_client = login.get_login_client()
+        # Worker.set_zhihu_client(zhihu_client)
 
-        counter = 1
-        try:
-            with open(self.read_list, 'r') as read_list:
-                for line in read_list:
-                    line = line.replace(' ', '').replace('\r', '').replace('\n', '').replace('\t', '')  # 移除空白字符
-                    file_name = self.create_book(line, counter)
-                    book_files.append(file_name)
-                    counter += 1
-        except IOError as e:
-            Debug.logger.debug(u"\nCreating " + self.read_list + "...")
-            with open(self.read_list, 'w') as read_list:
+        Debug.logger.info(u"开始读取ReadList.txt设置信息")
+
+        if not Path.is_file(u'./ReadList.txt'):
+            #  当ReadList不存在的时候自动创建之
+            with open(u'./ReadList.txt', u'w') as read_list:
                 read_list.close()
-        if 1 == counter:
-            print(u"\nOops! No content in " + self.read_list + ". Please check it out.")
+            print Debug.logger.info(u"ReadList.txt 内容为空，自动退出")
             return
-        return book_files
+        book_counter = self.read_list()
 
-    @staticmethod
-    def create_book(command, counter):
+        Debug.logger.info(u"所有书籍制作完成。")
+        Debug.logger.info(u"本次共制作书籍{0}本".format(book_counter))
+        Debug.logger.info(u"感谢您的使用")
+        Debug.logger.info(u"点按任意键退出")
+        return
+
+    def read_list(self):
+        book_counter = 0  # 统计累计制作了多少本书籍
+        #   遍历ReadList，根据指令生成电子书
+        with open(u'./ReadList.txt', u'r') as read_list:
+            for line in read_list:
+                line = line.replace(' ', '').replace('\r', '').replace('\n', '').replace('\t', '').split('#')[0]  # 移除空白字符
+                if len(line) == 0:
+                    continue
+                book_counter += 1
+                self.create_book(line, book_counter)
+        return book_counter
+
+    def create_book(self, command, counter):
         Path.reset_path()
+        Debug.logger.info(u"开始制作第 {} 本电子书".format(counter))
+        Debug.logger.info(u"对记录 {} 进行分析".format(command))
+        task_list = CommandParser.get_task_list(command)  # 分析命令
 
-        Debug.logger.info(u"Ready to make No.{} e-book".format(counter))
-        Debug.logger.info(u"Analyzes {} ".format(command))
-        task_package = UrlParser.get_task(command)  # 分析命令
-        if not task_package.is_work_list_empty():
-            worker_factory(task_package.work_list)  # 执行抓取程序
-            Debug.logger.info(u"Complete fetching from web")
+        if len(task_list) == 0:
+            return
 
-        file_name_set = None
-        if not task_package.is_book_list_empty():
-            Debug.logger.info(u"Start generating e-book from the database")
-            book = Book(task_package.book_list)
-            file_name_set = book.create()
-        if file_name_set is not None:
-            file_name_set2list = list(file_name_set)
-            file_name = '-'.join(file_name_set2list[0:3])
-            return file_name
-        return u"Oops! no epub file produced"
+        for task in task_list:
+            if Config.debug_for_create_book:
+                pass
+            else:
+                Worker.distribute(task)
+        Debug.logger.info(u"网页信息抓取完毕")
+
+        task_result_list = []
+        toTo_list = [Type.wechat,Type.huxiu,Type.huawei,Type.xueqiu,Type.sina,Type.zhengshitang,Type.jinwankansa,Type.wuxia ,Type.doc360]
+        for task in task_list:
+            if task.get_task_type() in toTo_list :
+                task = ColumnTask(task.account_id)
+            task_result = TaskResult(task)
+            task_result.extract_data()
+            task_result_list.append(task_result)
+        Debug.logger.info(u"数据库信息获取完毕")
+
+        #   下载图片
+        for task_result in task_result_list:
+            task_result.download_img()
+        Debug.logger.info(u"所有任务图片获取完毕")
+
+        #   按体积自动分卷
+        #   渲染html && 压缩为电子书
+        book = Book(task_result_list)
+        book_list = book.auto_split(Config.max_book_size_mb * 1024)
+        for chapter in book_list:
+            chapter.create_book()
+        return
 
     @staticmethod
-    def init_database():
-        if Path.is_file(Path.db_path):
-            Debug.logger.debug(u"Connect to the database...")
-            Debug.logger.debug(u"db_path: " + str(Path.db_path))
-            DB.set_conn(sqlite3.connect(Path.db_path))
-        else:
-            Debug.logger.debug(u"Create db file...")
-            DB.set_conn(sqlite3.connect(Path.db_path))
-            with open(Path.sql_path) as sql_script:
-                DB.cursor.executescript(sql_script.read())
-            DB.commit()
+    def check_update():  # 强制更新
+        u"""
+            *   功能
+                *   检测更新。
+                *   若在服务器端检测到新版本，自动打开浏览器进入新版下载页面
+                *   网页请求超时或者版本号正确都将自动跳过
+            *   输入
+                *   无
+            *   返回
+                *   无
+        """
+        print u"检查更新。。。"
+        if Config.debug:
+            # 当位于debug模式时，不检查更新
+            return
+        try:
+            content = Http.get_content(u"https://www.yaozeyuan.online/zhihuhelp/upgrade.txt")
+            if not content:
+                raise Exception(u'HttpError')
+            time, url = [x.strip() for x in content.strip('\n').split('\n')]
+            if time == Config.update_time:
+                return
+            else:
+                print u"发现新版本，\n更新日期:{} ，点按回车进入更新页面".format(time)
+                print u'新版本下载地址:' + url
+                raw_input()
+                import webbrowser
+                webbrowser.open_new_tab(url)
+        except Exception:
+            # 不论发生任何异常均直接返回
+            return

@@ -21,7 +21,7 @@ header = {
     'Accept-Encoding': 'gzip, deflate, sdch, br',
     'Accept-Language': 'zh-CN,zh;q=0.8',
     'Connection': 'keep-alive',
-    'Cookie': 'xq_a_token=77e4b9a1edef364cca019f41f3e85842e1caa48c; bid=140b75475571da90d7d573a14ca9957a_j2igz2vj;',
+    'Cookie': 'xq_a_token=aa4a37278c05fdb6c3e5ef56d4bc51cad83c662c;bid=140b75475571da90d7d573a14ca9957a_j96klyix;',
     'Host': 'xueqiu.com',
     'Upgrade-Insecure-Requests': '1',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.89 Safari/537.36'
