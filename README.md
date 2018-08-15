@@ -3,6 +3,9 @@
 ### 2018-8-15 更新 换回ZhihuHelp 爬 [武侠评论][34] [吃瓜群众岱][35] [顾子明政事堂][36]  [今天看啥][37] 
 
 部分代码没写完 下次爬的时候添上
+股社区 政事堂 吃瓜群众岱  微云分享都挂了 改天百度补一下
+
+
 ### 2018-7-20 更新 巴菲特芒格在BerkshireHathaway 历年年股东大会问答Google机器翻译 
 来源网址是：https://buffett.cnbc.com/warren-buffett-archive/
  
