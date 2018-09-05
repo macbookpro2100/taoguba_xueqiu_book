@@ -1,11 +1,23 @@
-## python抓取~~雪球 淘股吧~~ 公众号文章
-
+## python抓取 微信公众号 雪球 文章
+### Tips http://chuansong.me/ 容易被屏蔽，延时要加大
 ### 2018-8-15 更新 换回ZhihuHelp 爬 [武侠评论][34] [吃瓜群众岱][35] [顾子明政事堂][36]  [今天看啥][37] 
 
 部分代码没写完 下次爬的时候添上
 股社区 政事堂 吃瓜群众岱   
 补充链接:https://pan.baidu.com/s/1869bKc9V1w5n1j10gCepbw  密码:qo0g
 感慨时过境迁，bye
+
+## 支持的网站
+
+| 名称 | 主页                               | 支持类型                          |
+| :------ | ---------------------------------------- | ---------------------------------------- |
+| 武侠评论      | [https://www.wuxiareview.com/][34]    | **用户：** `https://www.wuxiareview.com/category/daidai/{}`<br/>  |
+| 传送门      |  http://chuansong.me/ |   **主页：** `http://chuansong.me/account/{}`<br/>  |
+| 股社区  |  http://www.gushequ.com/    | **用户的所有文章：** `http://www.gushequ.com/{2018}` |
+| 雪球   | https://xueqiu.com/ | **用户的所有文章：** `https://xueqiu.com/u/{id}#{id名称}`|
+| 今天看啥     | http://www.jintiankansha.me | **用户的所有文章：** `http://www.jintiankansha.me/column/{id}/#{用户名}#{页数}`  |
+| 虎嗅   | https://www.huxiu.com/ | **所有{Seach}：** `https://www.huxiu.com/{}#{}`例如https://www.huxiu.com/华为#36|
+| 心声社区   | 华为家事 | **所有内部公开邮件：** `http://huawei.com/2018/` 
 
 
 ### 2018-7-20 更新 巴菲特芒格在BerkshireHathaway 历年年股东大会问答Google机器翻译 
@@ -29,7 +41,7 @@ add [简书地址][31]  
  
  
 
-## ~~淘股吧~~ ~~雪球~~ 抓取已废弃使用 
+## ~~淘股吧~~  抓取已废弃使用 
  
 ### after all 
 看看人家巴菲特 
@@ -54,17 +66,6 @@ add [简书地址][31]  
 * [License][13]
 
 ---
-
-## 支持的网站
-
-| 名称 | 主页                               | 支持类型                          |
-| :------ | ---------------------------------------- | ---------------------------------------- |
-| 知乎      | [www.zhihu.com][14]    | **问题：** `zhihu.com/question/{question_id}`<br/>**答案：** `zhihu.com/question/{question_id}/answer/{answer_id}`<br/>**话题：** `zhihu.com/topic/{topic_id}`<br/>**用户的全部回答：** `zhihu.com/people/{people_id}` or `zhihu.com/people/{people_id}/answers`<br/>**收藏夹：** `zhihu.com/collection/{collection_id}` <br/> **专栏：** `zhuanlan.zhihu.com/{zhuanlan_id}` |
-| 简书      | [www.jianshu.com][15] | **用户的所有文章：** `jianshu.com/users/{people_id}/latest_articles`<br/>**专题：** `jianshu.com/collection/{collection_id}`<br/>**文集：** `jianshu.com/notebooks/{notebooks_id}/latest` or `jianshu.com/notebooks/{notebooks_id}/top` |
-| csdn博客  | [blog.csdn.net][16]    | **用户的所有文章：** `blog.sina.com.cn/u/{people_id}` |
-| 新浪博客   | [blog.sina.com.cn][17] | **用户的所有文章：** `blog.csdn.net/{people_id}` |
-| 博客园     | [www.cnblogs.com][18] | **用户的所有文章：** `cnblogs.com/{people_id}/`  |
-| 易百教程   | [www.yiibai.com][19] | **某个教程的文章：** `yiibai.com/{tutorial_kind}`|
 
 
 ## 用法
