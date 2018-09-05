@@ -10,7 +10,6 @@ from collections import OrderedDict
 from src.lib.parser.xueqiu_parser import XueQiuColumnParser, XueQiuArticleParser
 import time
 
-
 import json
 
 
@@ -32,7 +31,7 @@ class XueQiuWorker(object):
         # max_page = XueQiuWorker.parse_max_page(front_page_content)
 
         # _url = "http://xueqiu.com/v4/statuses/user_timeline.json?user_id={0}&page={1}&type=2" ''是all  2主贴  5 回复
-        _url = "https://xueqiu.com/v4/statuses/user_timeline.json?user_id={0}&page={1}&type="
+        _url = "https://xueqiu.com/v4/statuses/user_timeline.json?user_id={0}&page={1}&type=2"
         first = _url.format(account_id, 1)
         r = Http.get_json_content(first)
         max_page = 1
@@ -45,10 +44,17 @@ class XueQiuWorker(object):
         #   分析网页内容，存到数据库里
         #   需要验证码
 
-        content_profile = Http.get_content(u'https://xueqiu.com/{}/profile'.format(account_id))
+        content_profile = Http.get_content(u'https://xueqiu.com/u/{}/profile'.format(account_id))
 
         column_info = XueQiuColumnParser(content_profile).get_column_info()
         column_info[u'column_id'] = account_id
+        column_info[u'title'] = ""
+        with open('ReadList.txt', 'r') as read_list:
+            read_list = read_list.readlines()
+            for line in read_list:
+                split_url = line.split('#')[0]
+                if split_url.split('/')[-1] == account_id:
+                    column_info[u'title'] = line.split('#')[1]
 
         from src.worker import Worker
         Worker.save_record_list(u'Column', [column_info])
@@ -81,10 +87,9 @@ class XueQiuWorker(object):
 
                     article_info = XueQiuArticleParser(article).get_article_info()
                     if len(article_info) > 0:
-                        article_info['article_id'] = article_url_index
                         article_info['column_id'] = account_id
                         Worker.save_record_list(u'Article', [article_info])
-                        del index_work_set[article_url_index]
+                del index_work_set[article_url_index]
 
                 Debug.logger.debug(u' {} 的内容抓取完成'.format(request_url))
 

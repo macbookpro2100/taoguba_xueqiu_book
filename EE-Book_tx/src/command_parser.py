@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from src.container.task import QuestionTask, AnswerTask, AuthorTask, CollectionTask, TopicTask, \
-    ArticleTask, ColumnTask, WechatTask,HuaWeiTask,HuXiuTask,ZhengshitangTask,XueQiuTask,SinaTask,WuXiaTask,JinWanKanShaTask,Doc360Task
+    ArticleTask, ColumnTask, WechatTask,HuaWeiTask,HuXiuTask,ZhengshitangTask,XueQiuTask,SinaTask,WuXiaTask,JinWanKanShaTask,Doc360Task,TodoTask,Todo1Task,Todo2Task
 from src.tools.debug import Debug
 from src.tools.match import Match
 from src.tools.type import Type
@@ -40,7 +40,7 @@ class CommandParser(object):
             Type.article, Type.column,  # 文章必须放在专栏之前（否则检测类别的时候就一律检测为专栏了）
             Type.wechat,
             Type.huxiu, Type.huawei, Type.sina, Type.zhengshitang, Type.xueqiu,Type.wuxia,Type.jinwankansa,
-            Type.doc360
+            Type.doc360,Type.todo,Type.todo1,Type.todo2
         ]:
             result = getattr(Match, command_type)(command)
             if result:
@@ -69,6 +69,9 @@ class CommandParser(object):
             Type.wuxia: CommandParser.parse_wuxia,
             Type.jinwankansa: CommandParser.parse_jinwankansa,
             Type.doc360: CommandParser.parse_doc360,
+            Type.todo: CommandParser.parse_todo,
+            Type.todo1: CommandParser.parse_todo1,
+            Type.todo2: CommandParser.parse_todo2,
             Type.unknown: CommandParser.parse_error,
         }
         kind = CommandParser.detect(raw_command)
@@ -142,7 +145,7 @@ class CommandParser(object):
     @staticmethod
     def parse_huawei(command):
         result = Match.huawei(command)
-        account_id = result.group(u'account_id')
+        account_id = result.group(u'haccount_id')
         task = HuaWeiTask(account_id)
         return task
     @staticmethod
@@ -182,6 +185,25 @@ class CommandParser(object):
         account_id = result.group(u'account_id')
         task = Doc360Task(account_id)
         return task
+    @staticmethod
+    def parse_todo(command):
+        result = Match.todo(command)
+        account_id = result.group(u'account_id')
+        task = TodoTask(account_id)
+        return task
+    @staticmethod
+    def parse_todo1(command):
+        result = Match.todo1(command)
+        account_id = result.group(u'account_id')
+        task = Todo1Task(account_id)
+        return task
+    @staticmethod
+    def parse_todo2(command):
+        result = Match.todo2(command)
+        account_id = result.group(u'account_id')
+        task = Todo2Task(account_id)
+        return task
+
     @staticmethod
     def parse_error(command):
         if command:

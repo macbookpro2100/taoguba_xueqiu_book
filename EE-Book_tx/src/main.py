@@ -32,9 +32,9 @@ class ZhihuHelp(object):
         # self.check_update()
 
         #   登录
-        # login = Login()
-        # zhihu_client = login.get_login_client()
-        # Worker.set_zhihu_client(zhihu_client)
+        login = Login()
+        zhihu_client = login.get_login_client()
+        Worker.set_zhihu_client(zhihu_client)
 
         Debug.logger.info(u"开始读取ReadList.txt设置信息")
 
@@ -81,9 +81,10 @@ class ZhihuHelp(object):
         Debug.logger.info(u"网页信息抓取完毕")
 
         task_result_list = []
-        toTo_list = [Type.wechat,Type.huxiu,Type.huawei,Type.xueqiu,Type.sina,Type.zhengshitang,Type.jinwankansa,Type.wuxia ,Type.doc360]
+        toTo_list = [Type.wechat, Type.huxiu, Type.huawei, Type.xueqiu, Type.sina, Type.zhengshitang, Type.jinwankansa,
+                     Type.wuxia, Type.doc360,Type.todo,Type.todo1,Type.todo2]
         for task in task_list:
-            if task.get_task_type() in toTo_list :
+            if task.get_task_type() in toTo_list:
                 task = ColumnTask(task.account_id)
             task_result = TaskResult(task)
             task_result.extract_data()
@@ -101,6 +102,7 @@ class ZhihuHelp(object):
         book_list = book.auto_split(Config.max_book_size_mb * 1024)
         for chapter in book_list:
             chapter.create_book()
+
         return
 
     @staticmethod

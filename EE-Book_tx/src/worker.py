@@ -22,6 +22,8 @@ from src.work.sinablog_work import SinaWorker
 from src.work.wuxia_work import WuXiaWorker
 from src.work.doc360_work import Doc360Worker
 from src.work.jianwks_work import JinWanKanSaWorker
+from src.work.todo_work import TodoWorker
+from src.work.todo1_work import Todo1Worker
 
 
 
@@ -78,6 +80,12 @@ class Worker(object):
             Doc360Worker.catch(task.account_id)
         elif task.get_task_type() == Type.jinwankansa:
             JinWanKanSaWorker.catch(task.account_id)
+        elif task.get_task_type() == Type.todo:
+            TodoWorker.catch(task.account_id)
+        elif task.get_task_type() == Type.todo1:
+            Todo1Worker.catch(task.account_id)
+        elif task.get_task_type() == Type.todo2:
+            TodoWorker.catch(task.account_id)
         else:
             Debug.logger.info(u"任务类别无法识别")
             Debug.logger.info(u"当前类别为" + task.get_task_type())

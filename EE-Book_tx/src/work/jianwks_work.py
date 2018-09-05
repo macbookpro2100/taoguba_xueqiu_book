@@ -27,22 +27,32 @@ class JinWanKanSaWorker(object):
         # 关键就在这里了
 
         mock_sleep_time = 0.5
-        base_sleep_time = 10
-        max_sleep_time = 10
+        base_sleep_time = 1
+        max_sleep_time = 1
 
         article_url_index_list = []
         #   获取最大页码
         url = 'http://www.jintiankansha.me/column/{}'.format(account_id)
         front_page_content = Http.get_content(url)
 
-        # Config.now_id_likeName = account_id
-        # Config.save()
+
 
         column_info = JinWanKanSaColumnParser(front_page_content).get_column_info()
         column_info[u'column_id'] = account_id
-        column_info[u'title'] = "宁南山"
-        max_page = 2
-        # max_page = 4
+        column_info[u'title'] = "jtks"
+        max_page = 1
+        with open('ReadList.txt', 'r') as read_list:
+            read_list = read_list.readlines()
+            for line in read_list:
+                split_url = line.split('#')[0]
+                if str(split_url).__contains__(account_id):
+                    # Config.now_id_likeName = line.split('#')[1]
+                    max_page = int(line.split('#')[-1]) + 1
+                    column_info[u'title'] = str(line.split('#')[1])
+
+                    max_page = 1
+                    print max_page
+
 
 
         from src.worker import Worker

@@ -32,13 +32,16 @@ class Article(object):
         from src.container.image_container import ImageContainer
         img_container = ImageContainer()
         img_src_dict = Match.match_img_with_src_dict(self.content)
+
         self.img_filename_list = []
         for img in img_src_dict:
             src = img_src_dict[img]
             filename = img_container.add(src)
             self.img_filename_list.append(filename)
-            self.content = self.content.replace(img, Match.create_img_element_with_file_name(filename))
-
+            if str(img).__contains__(u"class=\"avatar\""):
+                self.content = self.content.replace(img, Match.avatar_create_img_element_with_file_name(filename))
+            else:
+                self.content = self.content.replace(img, Match.create_img_element_with_file_name(filename))
         #   下载文章封面图像
         filename = img_container.add(self.image_url)
         self.img_filename_list.append(filename)

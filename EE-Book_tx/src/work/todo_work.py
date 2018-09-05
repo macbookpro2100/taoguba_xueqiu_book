@@ -13,9 +13,15 @@ from src.tools.http import Http
 from src.tools.match import Match
 from src.tools.type import Type
 from collections import OrderedDict
-from src.lib.parser.huawei_parser import HuaWeiColumnParser, HuaWeiArticleParser
+from src.lib.parser.todo_parser import TodoArticleParser, TodoColumnParser
+import re
 
-class HuaWeiWorker(object):
+import urllib
+
+import sys
+
+
+class TodoWorker(object):
     @staticmethod
     def catch(account_id):
         # 关键就在这里了
@@ -25,25 +31,42 @@ class HuaWeiWorker(object):
         max_sleep_time = 10
 
         article_url_index_list = []
-        #
-        url = 'http://xinsheng.huawei.com/{}'.format(account_id)
+        #   获取最大页码
+        url = 'http://www.gushequ.com/{}/'.format(account_id)
         front_page_content = Http.get_content(url)
 
-        column_info = HuaWeiColumnParser(front_page_content).get_column_info()
+
+
+        column_info = TodoColumnParser(front_page_content).get_column_info()
         column_info[u'column_id'] = account_id
-        column_info[u'title'] = "华为家事"
+        column_info[u'title'] = "股社区"
+
+        from src.worker import Worker
+        Worker.save_record_list(u'Column', [column_info])
+        star_page = 0
+        max_page = 24
+        if account_id == '2018':
+            star_page = 0
+            max_page = 24
+
+        elif account_id == '2017':
+            star_page = 24
+            max_page = 58
+
+        elif account_id == '2016':
+            star_page = 58
+            max_page = 92
+
+
 
         from src.worker import Worker
         Worker.save_record_list(u'Column', [column_info])
 
-
-        max_page = 1
-
         Debug.logger.info(u"最大页数抓取完毕，共{max_page}页".format(max_page=max_page))
         index_work_set = OrderedDict()
-        #   获取每一页中文章的地址的地址
-        for raw_front_page_index in range(0, max_page):
-            request_url = u'http://xinsheng.huawei.com/cn/index.php?app=forum&mod=List&act=index&class=461&order=cTime&type=&sign=&special=&cate=155&p={}'.format(raw_front_page_index)
+        #获取每一页中文章的地址的地址
+        for raw_front_page_index in range(star_page, max_page):
+            request_url = u'http://www.gushequ.com/page/{}/'.format(raw_front_page_index)
             index_work_set[raw_front_page_index] = request_url
 
         re_catch_counter = 0
@@ -59,22 +82,18 @@ class HuaWeiWorker(object):
                         raw_front_page_index=raw_front_page_index, max_page=len(index_work_set)))
                 request_url_content = Http.get_content(request_url)
 
-                soup = BeautifulSoup(request_url_content, "lxml")
-                content_dom = soup.find_all('div', class_="bbs_list")[0]
+                soup = BeautifulSoup(request_url_content, 'lxml')
+                list_p_list = soup.find_all('article')
+                for p in list_p_list:
+                    # print p
+                    list_pcyc_li = p.find_all('a')
+                    for li in list_pcyc_li:
 
-                # print content_dom.text
-                #     t_dom = dom.find_all('tbody')
-                #     # print t_dom
-
-
-                font_box_dom = content_dom.find_all('div', class_="font_box")
-                # print time_dom
-                for xx in font_box_dom:
-                    linkl = xx.findAll('a')
-
-                    tarUrl = linkl[0].get('href')
-                    print tarUrl
-                    article_url_index_list.append(tarUrl)
+                        tarUrl = li.get('href')
+                        ttt = str(tarUrl).split("#")[-1]
+                        print ttt
+                        if not (ttt is None):
+                            article_url_index_list.append(ttt)
 
                 del index_work_set[raw_front_page_index]
 
@@ -83,8 +102,9 @@ class HuaWeiWorker(object):
 
         index_work_set = OrderedDict()
         for article_url_index in article_url_index_list:
-            print  'query : '+ article_url_index
-            article_db = DB.query_row('select count(*) as article_count from Article where article_id = "{}"'.format(article_url_index))
+            print  'query : ' + article_url_index
+            article_db = DB.query_row(
+                'select count(*) as article_count from Article where article_id = "{}"'.format(article_url_index))
             if article_db['article_count'] > 0:
                 continue
 
@@ -101,7 +121,7 @@ class HuaWeiWorker(object):
                                                                                  article_count=len(index_work_set)))
                 request_url_content = Http.get_content(request_url)
 
-                article_info = HuaWeiArticleParser(request_url_content).get_article_info()
+                article_info = TodoArticleParser(request_url_content).get_article_info()
                 if len(article_info) > 0:
                     article_info['article_id'] = article_url_index
                     article_info['column_id'] = account_id

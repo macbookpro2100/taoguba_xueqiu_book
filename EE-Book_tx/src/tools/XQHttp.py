@@ -21,7 +21,7 @@ header = {
     'Accept-Encoding': 'gzip, deflate, sdch, br',
     'Accept-Language': 'zh-CN,zh;q=0.8',
     'Connection': 'keep-alive',
-    'Cookie': 'xq_a_token=aa4a37278c05fdb6c3e5ef56d4bc51cad83c662c;bid=140b75475571da90d7d573a14ca9957a_j96klyix;',
+    'Cookie': 'bid=140b75475571da90d7d573a14ca9957a_j96klyix; xq_a_token=efa03ce47c20e557dc732f5a3aa2a7adffae89b0; ',
     'Host': 'xueqiu.com',
     'Upgrade-Insecure-Requests': '1',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.89 Safari/537.36'
@@ -133,8 +133,8 @@ class Http(object):
         jar = cookielib.LWPCookieJar()
         if account:
             result = DB.cursor.execute(
-                    "select cookieStr, recordDate from LoginRecord order by recordDate desc where account = `{}`".format(
-                            account))
+                "select cookieStr, recordDate from LoginRecord order by recordDate desc where account = `{}`".format(
+                    account))
         else:
             result = DB.cursor.execute("select cookieStr, recordDate from LoginRecord order by recordDate desc")
 

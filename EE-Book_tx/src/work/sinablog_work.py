@@ -79,7 +79,7 @@ class SinaWorker(object):
                     article_info['article_id'] = article_url_index
                     article_info['column_id'] = account_id
                     Worker.save_record_list(u'Article', [article_info])
-                del index_work_set[article_url_index]
+            del index_work_set[article_url_index]
         return
 
     @staticmethod

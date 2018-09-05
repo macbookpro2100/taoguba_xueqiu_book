@@ -44,7 +44,7 @@ class WuXiaWorker(object):
         if account_id == 'daidai':
 
             column_info[u'title'] = "吃瓜群众岱岱"
-            max_page = 1
+            max_page = 2
         elif account_id == 'gzmdzst':
 
             column_info[u'title'] = "顾子明的政事堂"
@@ -52,7 +52,7 @@ class WuXiaWorker(object):
         else:
 
             column_info[u'title'] = "时文"
-            max_page = 1
+            max_page = 2
 
         from src.worker import Worker
         Worker.save_record_list(u'Column', [column_info])

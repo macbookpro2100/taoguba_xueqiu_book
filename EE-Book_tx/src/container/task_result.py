@@ -260,7 +260,10 @@ class TaskResult(object):
         elif self.task.task_type == Type.collection:
             return u'知乎收藏夹{name}({collection_id})答案集'.format(name=self.info_page.title, collection_id=self.task.collection_id)
         elif self.task.task_type == Type.column:
-            return u'专栏{name}({column_id})文章集'.format(name=self.info_page.title, column_id=self.task.column_id)
+            if self.info_page.title == self.task.column_id:
+                return u'专栏({name})文章集'.format(name=self.info_page.title)
+            else:
+                return u'专栏{name}({column_id})文章集'.format(name=self.info_page.title, column_id=self.task.column_id)
         elif self.task.task_type == Type.article:
             return u'知乎文章({article_id})'.format(article_id=self.task.article_id)
         elif self.task.task_type == Type.huxiu:

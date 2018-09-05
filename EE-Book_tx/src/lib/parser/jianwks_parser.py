@@ -4,6 +4,9 @@ from src.lib.wechat_parser.tools.parser_tools import ParserTools
 from src.tools.config import Config
 from src.tools.match import Match
 
+from src.lib.googlet.translate import translate
+import time
+from collections import OrderedDict
 
 class JinWanKanSaColumnParser(ParserTools):
     def __init__(self, content):
@@ -45,11 +48,64 @@ class JinWanKanSaArticleParser(ParserTools):
                 data['title'] = Match.replace_specile_chars(self.dom.title)
             data['title'] = str(data['title']).strip()
             article_body = ""
-            content = self.dom.find_all('div', id="img-content")[0]
+            istwiterForTurmp = False
+            istwiter = False
+            if istwiterForTurmp :
+                content  = self.dom.find_all('article', class_="weibo-main")[0]
+                index_work_sett = OrderedDict()
+                #   获取每一页中文章的地址的地址
+                for raw_front_page_index in range(0, content.__len__()):
+                    index_work_sett[raw_front_page_index] = content[raw_front_page_index]
 
-            article_body += str(content)
+                re_catch_counter = 0
+                while len(index_work_sett) > 0 and re_catch_counter <= 20:
+                    re_catch_counter += 1
+                    for article_url_index in index_work_sett:
+                        ll = index_work_sett[article_url_index]
+                        tll = ll.text
+                        try:
+                            ret = translate(tll)
+                            tempEn = ''
+                            tempCn = ''
 
-            data['content'] = str(article_body)
+                            if not ret:
+                                raise Exception('Empty Response')
+                            for item in ret:
+                                tempEn =tempEn + item[1]
+                                tempCn =tempCn + item[0]
+
+                            toreplaced = (
+                                u"""<div class="Chapter-chapterSpeakerWrapper"> <p data-speaker="" class="">{0}<br/> {1} </p> </div>""".format(
+                                    tempEn, tempCn))
+                            print ('{}\n{}\n'.format(item[1], item[0]))
+                            article_body += str(toreplaced)
+                            # transed += ('\n')  # 每段间隔一行
+
+
+                            del index_work_sett[article_url_index]
+
+                            tempEn = ''
+                            tempCn = ''
+                            re_catch_counter = 0
+                        except Exception as ex:
+                            # print('[-]ERROR: ' + str(ex))
+                            time.sleep(0.0)
+                            re_catch_counter += 1
+
+                            # translate
+                data['content'] = str(article_body)
+            else:
+                if istwiter:
+                    content = self.dom.find_all('article', class_="weibo-main")[0]
+                else:
+                    content = self.dom.find_all('div', id="img-content")[0]
+
+
+                article_body += str(content)
+
+                data['content'] = str(article_body)
+
+
 
             time_tationl = self.dom.find_all('small', class_="gray")
 

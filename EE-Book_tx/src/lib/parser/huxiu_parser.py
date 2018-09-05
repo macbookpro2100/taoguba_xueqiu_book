@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from bs4 import BeautifulSoup
 from src.lib.wechat_parser.tools.parser_tools import ParserTools
-from src.tools.config import Config
+
 from src.tools.match import Match
 
 

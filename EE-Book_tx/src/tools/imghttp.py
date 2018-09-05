@@ -34,6 +34,12 @@ class Http(object):
         # 没UA知乎分分钟只返回给你首页看- -
 
 
+
+        if not str(url).startswith('http'):
+            if str(url).startswith('wp-content'):
+                url = u"http://www.199it.com/{}".format(url)
+
+
         my_headers = [
             "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36",
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36",
@@ -59,7 +65,7 @@ class Http(object):
                 'Upgrade-Insecure-Requests':'1',
                 'Cache-Control':'max-age=0',
                 'Connection':'keep-alive',
-                'Cookie':'traid=4196e041984e47be948ffa522a9ade00; Hm_lvt_723459747aa85ac30c7586a117fc73d9=1533364692,1534136773,1534245942,1534328969; Hm_lpvt_723459747aa85ac30c7586a117fc73d9=1534330531',
+                'Cookie':'traid=4196e041984e47be948ffa522a9ade00; Hm_lvt_723459747aa85ac30c7586a117fc73d9=1535114936,1535379292,1535618269,1535696406; Hm_lpvt_723459747aa85ac30c7586a117fc73d9=1535696406',
             }
 
         elif str(url).__contains__('mmbiz.qpic.cn'):

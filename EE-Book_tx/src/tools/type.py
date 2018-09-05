@@ -20,11 +20,14 @@ class Type(object):
     huawei = 'huawei' # 华为心声社区= =
     huxiu= 'huxiu' # 虎嗅= =
     xueqiu= 'xueqiu' # 雪球=
-    todo= 'todo' #
+
     wuxia= 'wuxia' # =
     jinwankansa= 'jinwankansa' # =
 
     doc360 = 'doc360'
+    todo = 'todo'
+    todo1 = 'todo1'
+    todo2 = 'todo2'
 
     pass
 

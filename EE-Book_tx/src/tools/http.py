@@ -34,6 +34,9 @@ class Http(object):
         # 没UA知乎分分钟只返回给你首页看- -
 
 
+
+
+
         my_headers = [
             "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36",
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36",
@@ -51,6 +54,21 @@ class Http(object):
                 'Host': "img.chuansong.me",
 
             }
+
+
+        # header = {
+        #     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        #     'Accept-Encoding': ' gzip, deflate',
+        #     'Accept-Language': ' zh-CN,zh;q=0.9',
+        #     'Cache-Control': ' max-age=0',
+        #     'Connection': ' keep-alive',
+        #     'Cookie': 'traid=4196e041984e47be948ffa522a9ade00; Hm_lvt_723459747aa85ac30c7586a117fc73d9=1534476689,1535114936,1535379292,1535618269; Hm_lpvt_723459747aa85ac30c7586a117fc73d9=1535623774',
+        #     'Host':'www.jintiankansha.me' ,
+        #     'If-None-Match':' W/"acd4d87df75374da21c7f22810e8db90e2fe3009"',
+        #     'Referer': url,
+        #     'Upgrade-Insecure-Requests': ' 1',
+        #     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+        # }
 
 
         if data:

@@ -68,7 +68,14 @@ http://www.360doc.com/userhome/40033985
         """
         return re.search(r'(?<=360doc\.com/userhome/)(?P<account_id>[^/\n\r]*)', content)
 
+    @staticmethod
+    def huawei(content=''):
+        u"""
+http://xinsheng.huawei.com/cn/index.php?app=forum&mod=List&act=index&class=461&cate=155&search=%E4%BB%BB%E6%80%BB&p=1
 
+        :return:
+        """
+        return re.search(r'(?<=huawei\.com/)(?P<haccount_id>[^/\n\r]*)', content)
 
     @staticmethod
     def wechat_article_index(content=''):
@@ -109,16 +116,29 @@ http://www.360doc.com/userhome/40033985
         :param content: https://xueqiu.com/4065977305
         :return:
         """
-        return re.search(r'(?<=xueqiu\.com/)(?P<xueqiu_author_id>[^/\n\r]*)', content)
-
+        return re.search(r'(?<=xueqiu\.com/u/)(?P<xueqiu_author_id>[^/\n\r]*)', content)
 
     @staticmethod
-    def huawei(content=''):
+    def todo(content=''):
         u"""
         :param content: https://xueqiu.com/4065977305
         :return:
         """
-        return re.search(r'(?<=huawei\.com/)(?P<h_author_id>[^/\n\r]*)', content)
+        return re.search(r'(?<=gushequ\.com/)(?P<account_id>[^/\n\r]*)', content)
+    @staticmethod
+    def todo1(content=''):
+        u"""
+        :param content:  
+        :return:
+        """
+        return re.search(r'(?<=199it\.com/archives/category/)(?P<account_id>[^/\n\r]*)', content)
+    @staticmethod
+    def todo2(content=''):
+        u"""
+        :param content: https://xueqiu.com/4065977305
+        :return:
+        """
+        return re.search(r'(?<=todo2\.com/)(?P<account_id>[^/\n\r]*)', content)
 
     @staticmethod
     def zhengshitang(content=''):
@@ -244,7 +264,10 @@ http://www.360doc.com/userhome/40033985
     def create_img_element_with_file_name(filename):
         src = Match.create_local_img_src(filename)
         return u'<div class="duokan-image-single"><img src="{}"></img></div>'.format(src)
-
+    @staticmethod
+    def avatar_create_img_element_with_file_name(filename):
+        src = Match.create_local_img_src(filename)
+        return u'<div class="duokan-image-single"><img src="{}" height="30" width="30"></img></div>'.format(src)
     @staticmethod
     def create_local_img_src(filename):
         u"""
@@ -278,6 +301,12 @@ http://www.360doc.com/userhome/40033985
     @staticmethod
     def replace_specile_chars(text):
         r1 = u'[a-zA-Z0-9’!"#$%&\'()*+,-./:;<=>?@，。?★、…【】《》？“”‘’！[\\]^_`{|}~\s+\.\!\/_,$%^*(+\"\']+|[+——！，。？、~@#￥%……&*（）]+'
+
+        text = text.decode("utf8")
+        return re.sub(r1.decode("utf8"), "".decode("utf8"), text)
+    @staticmethod
+    def replace_stimespecile_chars(text):
+        r1 = u'[a-zA-Z’!"#$%&\'()*+,./;<=>?@，。?★、…【】《》？“”‘’！[\\]^_`{|}~\s+\.\!\/_,$%^*(+\"\']+|[+——！，。？、~@#￥%……&*（）]+'
 
         text = text.decode("utf8")
         return re.sub(r1.decode("utf8"), "".decode("utf8"), text)

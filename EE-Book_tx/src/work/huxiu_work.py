@@ -48,6 +48,8 @@ class HuXiuWorker(object):
         u_result = urllib.quote(account_id.decode(sys.stdin.encoding).encode('utf8'))
         print account_id
         max_page = 2
+
+        idds = ''
         #
         with open('ReadList.txt', 'r') as read_list:
             read_list = read_list.readlines()
@@ -56,6 +58,7 @@ class HuXiuWorker(object):
                 if split_url.split('/')[-1] == account_id:
                     # Config.now_id_likeName = line.split('#')[1]
                     max_page = int(line.split('#')[-1]) + 1
+                    idds = str(line.split('#')[1])
                     print max_page
         # max_page = 1
         #   分析网页内容，存到数据库里
@@ -64,8 +67,10 @@ class HuXiuWorker(object):
         Debug.logger.info(u"最大页数抓取完毕，共{max_page}页".format(max_page=max_page))
         index_work_set = OrderedDict()
         #   获取每一页中文章的地址的地址
-        for raw_front_page_index in range(0, max_page):
-            request_url = u'https://www.huxiu.com/search.html?s={}&per_page={}'.format(u_result, raw_front_page_index)
+        for raw_front_page_index in range(0, max_page+1):
+            # request_url = u'https://www.huxiu.com/search.html?s={}&per_page={}'.format(u_result, raw_front_page_index)
+            request_url = u'https://www.huxiu.com/member/{}/article/{}.html'.format(idds,raw_front_page_index)
+            # request_url = 'https://www.huxiu.com/member/1872007.html'
             index_work_set[raw_front_page_index] = request_url
 
         re_catch_counter = 0
@@ -83,7 +88,8 @@ class HuXiuWorker(object):
 
                 soup = BeautifulSoup(request_url_content, "lxml")
 
-                list_pcyc_l_ = soup.find_all('li')
+                # list_pcyc_l_ = soup.find_all('li')
+                list_pcyc_l_ = soup.find_all('div',class_='mob-ctt')
                 for tgo_right in list_pcyc_l_:
                     for link in tgo_right.findAll('a'):
                         hre = str(link.get('href'))

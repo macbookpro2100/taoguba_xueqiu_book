@@ -55,9 +55,9 @@ class XueQiuArticleParser(ParserTools):
     def __init__(self, content):
         # self.dom = BeautifulSoup(content, 'html.parser')
 
-        # .replace('\'','\"')  .replace('u\"','\"')
+        # strarticle = str(content).replace("\'", '"', 1000)
 
-        self.set_dom(content)
+        self.set_dom(json.dumps(content))
         # self.dom = content
 
     def set_dom(self, dom):
@@ -71,7 +71,12 @@ class XueQiuArticleParser(ParserTools):
             获得博文的标题
             :return:
             """
-            article = json.loads(self.dom, encoding='utf-8')
+            article = json.loads(self.dom)
+
+
+            data['article_id'] = article['id']
+
+
 
             title_ = '回复'
             title_ = article['title']

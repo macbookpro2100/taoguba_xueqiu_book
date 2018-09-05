@@ -116,3 +116,18 @@ class Doc360Task(Task):
         self.account_id = account_id
         return
 
+class TodoTask(Task):
+    def __init__(self, account_id):
+        Task.__init__(self, Type.todo)
+        self.account_id = account_id
+        return
+class Todo1Task(Task):
+    def __init__(self, account_id):
+        Task.__init__(self, Type.todo1)
+        self.account_id = account_id
+        return
+class Todo2Task(Task):
+    def __init__(self, account_id):
+        Task.__init__(self, Type.todo2)
+        self.account_id = account_id
+        return
