@@ -1,9 +1,8 @@
 ## python抓取 微信公众号 雪球 文章
 
 Add 微信文章 郭树清，周小川，刘鹤，易纲，埃隆·马斯克，沃伦·巴菲特，贝索斯，孙正义等访谈演讲文章集
-![scheme][img_macbookpro2100]
- 
 
+ ![img_macbookpro2100](img_macbookpro2100)
 
 ### Tips http://chuansong.me/ 容易被屏蔽，延时要加大
 ### 2018-8-15 更新 换回ZhihuHelp 爬 [武侠评论][34] [吃瓜群众岱岱][35] [顾子明政事堂][36]  [今天看啥][37] 
