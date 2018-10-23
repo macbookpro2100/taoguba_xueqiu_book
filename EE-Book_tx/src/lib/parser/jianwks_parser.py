@@ -7,7 +7,7 @@ from src.tools.match import Match
 from src.lib.googlet.translate import translate
 import time
 from collections import OrderedDict
-
+import datetime
 class JinWanKanSaColumnParser(ParserTools):
     def __init__(self, content):
         self.dom = BeautifulSoup(content, 'html.parser')
@@ -99,13 +99,12 @@ class JinWanKanSaArticleParser(ParserTools):
                     content = self.dom.find_all('article', class_="weibo-main")[0]
                 else:
                     content = self.dom.find_all('div', id="img-content")[0]
+                    topcontent = self.dom.find_all('div', id="collect_topic")[0]
+                    content = str(content).replace(str(topcontent),'',1)
 
 
                 article_body += str(content)
-
                 data['content'] = str(article_body)
-
-
 
             time_tationl = self.dom.find_all('small', class_="gray")
 
@@ -113,7 +112,16 @@ class JinWanKanSaArticleParser(ParserTools):
             ss = tt.split('·')[0]
             ttt = tt.split('·')[-1]
 
-            data['updated_time'] = ttt
+            # print ttt
+            rt = str(ttt).strip('\n                    ').strip('\n                ')
+            # print rt
+            date_time = datetime.datetime.strptime(rt, "%Y-%m-%d %H:%M")
+            # print '转化后时间'
+            print date_time.strftime('%Y-%m-%d')
+
+            data['updated_time'] = date_time.strftime('%Y-%m-%d')
+
+
 
             # print data['updated_time']
             data['voteup_count'] =  ""

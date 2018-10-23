@@ -27,15 +27,13 @@ class Config(object):
     timeout_download_html = 5
     # 微信按发表时间排序
     # article_order_by = ' order by updated_time desc '  # 文章排序顺序，默认：时间顺序正序
+    # article_order_by = ' order by updated_time asc '
     article_order_by = ' order by updated_time asc '
     # article_limit = 'and (comment_count > 80000  or voteup_count >1000 or comment_count =10)'  #  阅读 and 收藏数量限制
     article_limit = ''  # 阅读 and 收藏数量限制
     # article_limit = ''  #  阅读 and 收藏数量限制
     answer_order_by = ' order by voteup_count desc '  # 答案排序顺序，默认：赞同数降序
     topic_or_collection_answer_order_by = ' '  # 话题/收藏夹中答案排序顺序，默认：按在话题/收藏夹中的顺序排列
-
-    now_id_likeName = ''
-    now_id = ''
 
     @staticmethod
     def init_config():

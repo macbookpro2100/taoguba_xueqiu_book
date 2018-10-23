@@ -261,9 +261,10 @@ class TaskResult(object):
             return u'知乎收藏夹{name}({collection_id})答案集'.format(name=self.info_page.title, collection_id=self.task.collection_id)
         elif self.task.task_type == Type.column:
             if self.info_page.title == self.task.column_id:
-                return u'专栏({name})文章集'.format(name=self.info_page.title)
+                return u'({name})文章集'.format(name=self.info_page.title)
             else:
-                return u'专栏{name}({column_id})文章集'.format(name=self.info_page.title, column_id=self.task.column_id)
+                # return u'专栏{name}({column_id})文章集'.format(name=self.info_page.title, column_id=self.task.column_id)
+                return u'TGB_{name}({column_id})'.format(name=self.info_page.title, column_id=self.task.column_id)
         elif self.task.task_type == Type.article:
             return u'知乎文章({article_id})'.format(article_id=self.task.article_id)
         elif self.task.task_type == Type.huxiu:
@@ -455,7 +456,7 @@ class TaskResult(object):
 
     def query_article_list_by_column_id(self, column_id):
         #   根据发表时间正序获取文章列表，方便浏览
-        print u"query_article_list_by_column_id {}".format(column_id)
+        print u'select * from Article where column_id = "{column_id}"    {order_by}'.format(column_id=column_id,  order_by=Config.article_order_by)
         raw_article_list = DB.query_all(u'select * from Article where column_id = "{column_id}"    {order_by}'.format(column_id=column_id,  order_by=Config.article_order_by))
         article_list = []
         for raw_article in raw_article_list:

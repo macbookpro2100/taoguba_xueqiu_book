@@ -9,8 +9,9 @@ class WechatColumnParser(ParserTools):
 
     def get_column_info(self):
         data = {}
-        title_dom = self.dom.select('div.topic_name_editor h1.inline span')[0]
-        data['title'] = title_dom.get_text()
+        # title_dom = self.dom.select('div.topic_name_editor h1.inline span')[0]
+        # data['title'] = title_dom.get_text()
+        data['title'] = ''
 
 
         data['article_count'] = 0

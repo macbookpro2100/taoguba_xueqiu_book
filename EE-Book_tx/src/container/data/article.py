@@ -3,12 +3,14 @@ from src.container.data.author import Author
 from src.tools.db import DB
 from src.tools.match import Match
 from src.tools.path import Path
+from bs4 import BeautifulSoup
 
 
 class Article(object):
     u"""
     文章容器
     """
+
     def __init__(self, data):
         self.article_id = data['article_id']
         self.title = data['title']
@@ -30,6 +32,30 @@ class Article(object):
 
     def download_img(self):
         from src.container.image_container import ImageContainer
+
+        if str(self.content).__contains__('<div class="duokan-image-single">'):
+            # print img_src_dict
+
+            xtep = str(self.content)
+            xxsoup = BeautifulSoup(xtep, 'lxml')
+            list_tiezhi_tit = xxsoup.find_all('div', class_="duokan-image-single")
+            for x in list_tiezhi_tit:
+
+                list_pcyc_li = x.find_all('img')
+                for li in list_pcyc_li:
+                    # print li
+                    src = li.get('src')
+
+                    st = str(src).split('/images/')[-1]
+
+                    newT = u'<img class="ke_img" src="file:///Users/ink/Desktop/images/{}"  />'.format(st)
+
+                    xtep = xtep.replace(str(x), newT, 1)
+
+            self.content = xtep
+
+            # print xtep
+
         img_container = ImageContainer()
         img_src_dict = Match.match_img_with_src_dict(self.content)
 
@@ -37,12 +63,15 @@ class Article(object):
         for img in img_src_dict:
             src = img_src_dict[img]
             filename = img_container.add(src)
+
+            # print 'src:' + src + '  and filename  ' + filename
+
             self.img_filename_list.append(filename)
             if str(img).__contains__(u"class=\"avatar\""):
                 self.content = self.content.replace(img, Match.avatar_create_img_element_with_file_name(filename))
             else:
                 self.content = self.content.replace(img, Match.create_img_element_with_file_name(filename))
-        #   下载文章封面图像
+        # 下载文章封面图像
         filename = img_container.add(self.image_url)
         self.img_filename_list.append(filename)
         self.image_url = Match.create_local_img_src(filename)

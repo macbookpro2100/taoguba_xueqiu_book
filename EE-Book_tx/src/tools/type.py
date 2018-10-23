@@ -28,6 +28,8 @@ class Type(object):
     todo = 'todo'
     todo1 = 'todo1'
     todo2 = 'todo2'
+    fiel = 'fiel'
+    taoguba_article = 'taoguba_article'
 
     pass
 

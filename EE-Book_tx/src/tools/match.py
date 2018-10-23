@@ -128,18 +128,24 @@ http://xinsheng.huawei.com/cn/index.php?app=forum&mod=List&act=index&class=461&c
     @staticmethod
     def todo1(content=''):
         u"""
-        :param content:  
+        :param content:   guancha.cn
         :return:
         """
-        return re.search(r'(?<=199it\.com/archives/category/)(?P<account_id>[^/\n\r]*)', content)
+        return re.search(r'(?<=guancha\.cn/)(?P<account_id>[^/\n\r]*)', content)
     @staticmethod
     def todo2(content=''):
         u"""
-        :param content: https://xueqiu.com/4065977305
+        :param content: https://xueqiu.com/4065977305 cn.nytimes.com
         :return:
         """
-        return re.search(r'(?<=todo2\.com/)(?P<account_id>[^/\n\r]*)', content)
-
+        return re.search(r'(?<=cn\.nytimes\.com/)(?P<account_id>[^/\n\r]*)', content)
+    @staticmethod
+    def fiel(content=''):
+        u"""
+        :param content: https://xueqiu.com/4065977305 cn.nytimes.com
+        :return:
+        """
+        return re.search(r'(?<=fiel\.com/)(?P<account_id>[^/\n\r]*)', content)
     @staticmethod
     def zhengshitang(content=''):
         u"""
@@ -148,6 +154,24 @@ http://xinsheng.huawei.com/cn/index.php?app=forum&mod=List&act=index&class=461&c
         """
         return re.search(r'(?<=zhengshitang\.com/)(?P<z_author_id>[^/\n\r]*)', content)
 
+    @staticmethod
+    def buffett(content=''):
+        u"""
+        :param content: https://xueqiu.com/4065977305
+        :return:
+        """
+        return re.search(r'(?<=cnbc\.com/)(?P<todo_id>[^\n\r]*)', content)
+
+
+
+    @staticmethod
+    def taoguba_article(content=''):
+        u"""
+        :param content:
+            http://blog.sina.com.cn/s/articlelist_1287694611_0_1.html
+        :return:
+        """
+        return re.search(r'(?<=taoguba\.com\.cn/Article/)(?P<article_id>[^/\n\r]*)(/)(?P<range_id>[^/\n\r]*)', content)
 
 
 
@@ -246,6 +270,7 @@ http://xinsheng.huawei.com/cn/index.php?app=forum&mod=List&act=index&class=461&c
         img_list = re.findall(r'<img[^>]*>', content)
         for img in img_list:
             result = re.search(r'(?<=src=").*?(?=")', img)
+
             if not result:
                 img_src_dict[img] = ''
             else:
@@ -257,6 +282,8 @@ http://xinsheng.huawei.com/cn/index.php?app=forum&mod=List&act=index&class=461&c
                     result = re.search(r'(?<=imageUrl=).*?(?=")', img)
                     img_src_dict[img] = result.group(0)
                 else:
+                    if str(src).__len__() < 1:
+                        print img
                     img_src_dict[img] = src
         return img_src_dict
 

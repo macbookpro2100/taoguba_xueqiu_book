@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from src.container.task import QuestionTask, AnswerTask, AuthorTask, CollectionTask, TopicTask, \
-    ArticleTask, ColumnTask, WechatTask,HuaWeiTask,HuXiuTask,ZhengshitangTask,XueQiuTask,SinaTask,WuXiaTask,JinWanKanShaTask,Doc360Task,TodoTask,Todo1Task,Todo2Task
+    ArticleTask, ColumnTask, WechatTask,HuaWeiTask,HuXiuTask,ZhengshitangTask,XueQiuTask,SinaTask,WuXiaTask,JinWanKanShaTask,Doc360Task,TodoTask,\
+    Todo1Task,Todo2Task,FielTask,TGBArticleTask
 from src.tools.debug import Debug
 from src.tools.match import Match
 from src.tools.type import Type
@@ -40,7 +41,7 @@ class CommandParser(object):
             Type.article, Type.column,  # 文章必须放在专栏之前（否则检测类别的时候就一律检测为专栏了）
             Type.wechat,
             Type.huxiu, Type.huawei, Type.sina, Type.zhengshitang, Type.xueqiu,Type.wuxia,Type.jinwankansa,
-            Type.doc360,Type.todo,Type.todo1,Type.todo2
+            Type.doc360,Type.todo,Type.todo1,Type.todo2,Type.fiel,Type.taoguba_article
         ]:
             result = getattr(Match, command_type)(command)
             if result:
@@ -72,6 +73,8 @@ class CommandParser(object):
             Type.todo: CommandParser.parse_todo,
             Type.todo1: CommandParser.parse_todo1,
             Type.todo2: CommandParser.parse_todo2,
+            Type.fiel: CommandParser.parse_fiel,
+            Type.taoguba_article: CommandParser.parse_taoguba_article,
             Type.unknown: CommandParser.parse_error,
         }
         kind = CommandParser.detect(raw_command)
@@ -203,6 +206,21 @@ class CommandParser(object):
         account_id = result.group(u'account_id')
         task = Todo2Task(account_id)
         return task
+    @staticmethod
+    def parse_fiel(command):
+        result = Match.fiel(command)
+        account_id = result.group(u'account_id')
+        task = FielTask(account_id)
+        return task
+
+    @staticmethod
+    def parse_taoguba_article(command):
+        result = Match.taoguba_article(command)
+        account_id = result.group(u'article_id')
+        task = TGBArticleTask(account_id)
+        return task
+
+
 
     @staticmethod
     def parse_error(command):

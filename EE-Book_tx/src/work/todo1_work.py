@@ -32,19 +32,27 @@ class Todo1Worker(object):
 
         article_url_index_list = []
         #   获取最大页码
-        url = 'http://www.199it.com/'
-        front_page_content = Http.get_content(url)
 
-
-
-        column_info = Todo1ColumnParser(front_page_content).get_column_info()
+        star_page = 1
+        max_page = 1
+        column_info = Todo1ColumnParser("").get_column_info()
         column_info[u'column_id'] = account_id
-        column_info[u'title'] = "人工智能"
+
+        with open('ReadList.txt', 'r') as read_list:
+            read_list = read_list.readlines()
+            for line in read_list:
+                split_url = line.split('#')[0]
+                if str(split_url).__contains__(account_id):
+                    # Config.now_id_likeName = line.split('#')[1]
+                    max_page = int(line.split('#')[-1]) + 1
+                    column_info[u'title'] = str(line.split('#')[1])
+
+                    # max_page = 1
+                    print max_page
 
         from src.worker import Worker
         Worker.save_record_list(u'Column', [column_info])
-        star_page = 0
-        max_page = 10
+
 
 
         from src.worker import Worker
@@ -54,7 +62,7 @@ class Todo1Worker(object):
         index_work_set = OrderedDict()
         #获取每一页中文章的地址的地址
         for raw_front_page_index in range(star_page, max_page):
-            request_url = u'http://www.199it.com/archives/category/emerging/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/page/{}'.format(raw_front_page_index)
+            request_url = u'https://www.guancha.cn/{}/list_{}.shtml'.format(account_id ,raw_front_page_index)
             index_work_set[raw_front_page_index] = request_url
 
         re_catch_counter = 0
@@ -71,17 +79,17 @@ class Todo1Worker(object):
                 request_url_content = Http.get_content(request_url)
 
                 soup = BeautifulSoup(request_url_content, 'lxml')
-                list_p_list = soup.find_all(class_="entry-title")
+                list_p_list = soup.find_all('h4',class_="module-title")
                 for p in list_p_list:
                     # print p
                     list_pcyc_li = p.find_all('a')
                     for li in list_pcyc_li:
-
-                        tarUrl = li.get('href')
-                        ttt = str(tarUrl).split("#")[-1]
+                        ttt = li.get('href')
                         print ttt
                         if not (ttt is None):
-                            article_url_index_list.append(ttt)
+
+                            ss = str(ttt).split('.')
+                            article_url_index_list.append(u"https://www.guancha.cn{}_s.{}".format(ss[0],ss[1]))
 
                 del index_work_set[raw_front_page_index]
 

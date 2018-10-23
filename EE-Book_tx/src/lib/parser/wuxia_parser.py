@@ -50,8 +50,14 @@ class WuXiaArticleParser(ParserTools):
 
             content = self.dom.find_all('article', class_="article-content")[0]
 
+ 
 
             article_body += str(content)
+
+
+            strOfinfos=self.dom.find_all('p', style="text-align: center;")
+            for x in strOfinfos:
+                article_body = article_body.replace(str(x),'',1)
 
             data['content'] = str(article_body)
 

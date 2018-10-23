@@ -82,7 +82,7 @@ class ZhihuHelp(object):
 
         task_result_list = []
         toTo_list = [Type.wechat, Type.huxiu, Type.huawei, Type.xueqiu, Type.sina, Type.zhengshitang, Type.jinwankansa,
-                     Type.wuxia, Type.doc360,Type.todo,Type.todo1,Type.todo2]
+                     Type.wuxia, Type.doc360,Type.todo,Type.todo1,Type.todo2,Type.fiel,Type.taoguba_article]
         for task in task_list:
             if task.get_task_type() in toTo_list:
                 task = ColumnTask(task.account_id)

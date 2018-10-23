@@ -24,6 +24,10 @@ from src.work.doc360_work import Doc360Worker
 from src.work.jianwks_work import JinWanKanSaWorker
 from src.work.todo_work import TodoWorker
 from src.work.todo1_work import Todo1Worker
+from src.work.todo2_work import Todo2Worker
+from src.work.file_work import FileWorker
+from src.work.wxhttp_work import WeiXinWorker
+from src.work.tgb_article_work import TGBArticleWorker
 
 
 
@@ -79,13 +83,20 @@ class Worker(object):
         elif task.get_task_type() == Type.doc360:
             Doc360Worker.catch(task.account_id)
         elif task.get_task_type() == Type.jinwankansa:
-            JinWanKanSaWorker.catch(task.account_id)
+            #JinWanKanSaWorker.catch(task.account_id)
+            WeiXinWorker.catch(task.account_id)
         elif task.get_task_type() == Type.todo:
             TodoWorker.catch(task.account_id)
         elif task.get_task_type() == Type.todo1:
             Todo1Worker.catch(task.account_id)
         elif task.get_task_type() == Type.todo2:
-            TodoWorker.catch(task.account_id)
+            Todo2Worker.catch(task.account_id)
+        elif task.get_task_type() == Type.fiel:
+            FileWorker.catch(task.account_id)
+        elif task.get_task_type() == Type.taoguba_article:
+            TGBArticleWorker.catch(task.account_id)
+
+
         else:
             Debug.logger.info(u"任务类别无法识别")
             Debug.logger.info(u"当前类别为" + task.get_task_type())

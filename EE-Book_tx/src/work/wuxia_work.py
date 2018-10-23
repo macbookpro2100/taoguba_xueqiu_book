@@ -35,8 +35,6 @@ class WuXiaWorker(object):
         url = 'https://www.wuxiareview.com/category/{}'.format(account_id)
         front_page_content = Http.get_content(url)
 
-        # Config.now_id_likeName = account_id
-        # Config.save()
 
         column_info = WuXiaColumnParser(front_page_content).get_column_info()
         column_info[u'column_id'] = account_id
@@ -44,11 +42,11 @@ class WuXiaWorker(object):
         if account_id == 'daidai':
 
             column_info[u'title'] = "吃瓜群众岱岱"
-            max_page = 2
+            max_page = 1
         elif account_id == 'gzmdzst':
 
             column_info[u'title'] = "顾子明的政事堂"
-            max_page = 1
+            max_page = 70
         else:
 
             column_info[u'title'] = "时文"

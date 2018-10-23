@@ -33,7 +33,7 @@ class Todo1ArticleParser(ParserTools):
         try:
 
             try:
-                title_tationl = self.dom.find_all('h1', class_="entry-title")
+                title_tationl = self.dom.find_all('h3')
                 # print  u"标题 {}".format(span_dom.text.strip()),
                 resultstr = title_tationl[0].text
 
@@ -50,31 +50,27 @@ class Todo1ArticleParser(ParserTools):
 
             article_body = ""
 
-            allcontent = self.dom.find_all('div', class_="entry-content articlebody")[0]
-            # delete no used
-            nocontent = self.dom.find_all('div', class_="wp_rp_wrap  wp_rp_plain")[0]
+            article_body = self.dom.find_all('div', class_="content all-txt")[0]
 
-            content = str(allcontent).replace(str(nocontent),'',1)
-            article_body += str(content)
 
             data['content'] = str(article_body)
 
+            time_dom = self.dom.find_all('div', class_="time fix")[0]
+
+            sp = time_dom.find_all('span')
+            ttd = str((sp[0]).text)
+            print ttd
+
+            ttdsorc = str((sp[2]).text)
+            sorc = ttdsorc.split('：')[-1]
+            print sorc
+
+            ddt = ttd.split(' ')[0]
+
+            data['updated_time'] = ddt
 
 
-            time_tationl = self.dom.find_all('li', class_="post-time")[0]
-            ttd = str(time_tationl.text)
-
-            date_time = datetime.datetime.strptime(ttd, '%Y年%m月%d日')
-
-            print date_time.strftime('%Y-%m-%d')
-
-            data['updated_time'] = date_time.strftime('%Y-%m-%d')
-
-
-            name_tationl = self.dom.find_all('ul', class_="post-categories single")[0]
-
-
-            data['author_name'] = str(name_tationl.text).strip()
+            data['author_name'] = str(sorc).strip()
             # print data['updated_time']
 
             data['voteup_count'] =  ""

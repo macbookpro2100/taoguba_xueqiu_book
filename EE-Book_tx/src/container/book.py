@@ -140,7 +140,9 @@ class Book(object):
                     epub.add_html(article_src, article.title)
             epub.finish_chapter()
 
-        epub.set_creator(u'ZhihuHelp1.8.0')
+        # epub.add_cover_image('/Users/li/Desktop/cover.jpg')
+
+        epub.set_creator(u'macbookpro2100')
         epub.set_language(u'zh-cn')
         epub.set_book_id()
         epub.set_output_path(Path.result_path)

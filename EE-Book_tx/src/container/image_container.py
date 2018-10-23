@@ -31,6 +31,7 @@ class ImageContainer(object):
         :return:
         """
         self.container[href] = self.create_image(href)
+
         return self.get_filename(href)
 
     def delete(self, href):
@@ -59,8 +60,7 @@ class ImageContainer(object):
             if os.path.isfile(self.save_path + '/' + filename):
                return
 
-
-            Debug.print_in_single_line(u'开始下载图片{}'.format(href))
+            Debug.print_in_single_line(u'开始下载图片  {}'.format(href))
             if href:
                 content = Http.get_content(url=href, timeout=Config.timeout_download_picture)
                 if not content:

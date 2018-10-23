@@ -131,3 +131,14 @@ class Todo2Task(Task):
         Task.__init__(self, Type.todo2)
         self.account_id = account_id
         return
+class FielTask(Task):
+    def __init__(self, account_id):
+        Task.__init__(self, Type.fiel)
+        self.account_id = account_id
+        return
+
+class TGBArticleTask(Task):
+    def __init__(self, account_id):
+        Task.__init__(self, Type.taoguba_article)
+        self.account_id = account_id
+        return

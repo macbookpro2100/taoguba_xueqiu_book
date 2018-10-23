@@ -19,21 +19,31 @@ class WechatWorker(object):
     def catch(account_id):
         # 关键就在这里了
 
-        mock_sleep_time = 0.8
-        base_sleep_time = 5
-        max_sleep_time = 20
+        mock_sleep_time = 28
+        base_sleep_time = 62
+        max_sleep_time = 80
 
         article_url_index_list =[]
         #   获取最大页码
         url = 'http://chuansong.me/account/{}'.format(account_id)
-        front_page_content = Http.get_content(url)
-        max_page =WechatWorker.parse_max_page(front_page_content)
+        # front_page_content = Http.get_content(url)
+        front_page_content =''
+        # max_page =WechatWorker.parse_max_page(front_page_content)
         # if max_page > 200:
         #     max_page =200
-        # max_page = 0
+        max_page = 0
         #   分析网页内容，存到数据库里
         column_info = WechatColumnParser(front_page_content).get_column_info()
         column_info[u'column_id'] = account_id
+
+        with open('ReadList.txt', 'r') as read_list:
+             read_list = read_list.readlines()
+             for line in read_list:
+                 split_url = line.split('#')[0]
+                 if str(split_url).__contains__(account_id):
+                    column_info[u'title'] = str(line.split('#')[1])
+
+
         from src.worker import Worker
         Worker.save_record_list(u'Column', [column_info])
 
@@ -62,6 +72,11 @@ class WechatWorker(object):
                     Debug.logger.info(u"随机休眠{}秒".format(random_sleep_time))
                     time.sleep(random_sleep_time)
                     continue
+
+
+                random_sleep_time = base_sleep_time + random.randint(0, max_sleep_time) / 10.0
+                Debug.logger.info(u"随机休眠{}秒".format(random_sleep_time))
+                time.sleep(random_sleep_time)
 
                 article_url_index_list += Match.wechat_article_index(content=request_url_content)
                 del index_work_set[raw_front_page_index]
@@ -92,6 +107,10 @@ class WechatWorker(object):
                     Debug.logger.info(u"随机休眠{}秒".format(random_sleep_time))
                     time.sleep(random_sleep_time)
                     continue
+
+                random_sleep_time = base_sleep_time + random.randint(0, max_sleep_time) / 10.0
+                Debug.logger.info(u"随机休眠{}秒".format(random_sleep_time))
+                time.sleep(random_sleep_time)
 
                 article_info = WechatArticleParser(request_url_content).get_article_info()
                 if len(article_info) > 0:

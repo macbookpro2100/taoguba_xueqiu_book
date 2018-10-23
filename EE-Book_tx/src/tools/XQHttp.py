@@ -21,7 +21,7 @@ header = {
     'Accept-Encoding': 'gzip, deflate, sdch, br',
     'Accept-Language': 'zh-CN,zh;q=0.8',
     'Connection': 'keep-alive',
-    'Cookie': 'bid=140b75475571da90d7d573a14ca9957a_j96klyix; xq_a_token=efa03ce47c20e557dc732f5a3aa2a7adffae89b0; ',
+    'Cookie': 'bid=140b75475571da90d7d573a14ca9957a_j96klyix; _ga=GA1.2.929204296.1505188122; device_id=6b0b3f27aace1653d2cc7eea479f748c; s=dl11y7nrab; _gid=GA1.2.514189796.1538699195; xq_a_token.sig=5SWm2kWrzAOTikx7CWCYDxJo-3o; xq_r_token.sig=OeiO8iiNsHe_ULfkOZX6eIdXtZI; Hm_lvt_1db88642e346389874251b5a1eded6e3=1538124831,1538699192,1538714460,1538730224; xq_a_token=5fb25b27260ee1ee130a45f48c701ac83e949ea0; xqat=5fb25b27260ee1ee130a45f48c701ac83e949ea0; xq_r_token=64fe11c9672c076e7e597dd0b9fc9b53a9ffe2d0; xq_token_expire=Tue%20Oct%2030%202018%2017%3A04%3A30%20GMT%2B0800%20(CST); xq_is_login=1; u=3324441494; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1538730273; snbim_minify=true',
     'Host': 'xueqiu.com',
     'Upgrade-Insecure-Requests': '1',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.89 Safari/537.36'

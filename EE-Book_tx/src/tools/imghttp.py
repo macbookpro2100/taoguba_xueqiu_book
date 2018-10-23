@@ -34,10 +34,14 @@ class Http(object):
         # 没UA知乎分分钟只返回给你首页看- -
 
 
-
+        print 'xz '+url
         if not str(url).startswith('http'):
             if str(url).startswith('wp-content'):
                 url = u"http://www.199it.com/{}".format(url)
+            if str(url).startswith('//assets'):
+                url = u"https://xqimg.imedao.com{}".format(url)
+            if str(url).startswith('//upload-images') or str(url).startswith('//res.wx.qq.com'):
+                url = u"https:{}".format(url)
 
 
         my_headers = [
@@ -58,6 +62,13 @@ class Http(object):
                 'Host': "img.3ygk.com",
 
             }
+        elif str(url).__contains__('img.huxiucdn.com'):
+            header = {
+                'User-Agent': random.choice(my_headers),
+                'Host': "img.huxiucdn.com",
+
+            }
+
         elif str(url).__contains__('img2.jintiankansha.me'):
             header = {
                 'User-Agent': random.choice(my_headers),

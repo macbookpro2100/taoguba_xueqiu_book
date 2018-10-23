@@ -50,7 +50,7 @@ class JinWanKanSaWorker(object):
                     max_page = int(line.split('#')[-1]) + 1
                     column_info[u'title'] = str(line.split('#')[1])
 
-                    max_page = 1
+                    # max_page = 1
                     print max_page
 
 
@@ -89,7 +89,12 @@ class JinWanKanSaWorker(object):
                         if not (ttt is None):
                             article_url_index_list.append(ttt)
 
+
+
+
                 del index_work_set[raw_front_page_index]
+
+        # article_url_index_list.append('http://www.jintiankansha.me/t/u8MygoqKI8')
 
         article_count = len(article_url_index_list)
         Debug.logger.info(u"文章链接抓取完毕，共{article_count}篇文章待抓取".format(article_count=article_count))
