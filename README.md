@@ -20,7 +20,7 @@
 | 今天看啥     | http://www.jintiankansha.me | **用户的所有文章：** `http://www.jintiankansha.me/column/{id}/#{用户名}#{页数}`  |
 | 虎嗅   | https://www.huxiu.com/ | **所有{Seach}：** `https://www.huxiu.com/{}#{}`例如https://www.huxiu.com/华为#36|
 | 心声社区   | 华为家事 | **所有内部公开邮件：** `http://huawei.com/2018/` |
-| 淘股吧   | 帖子+跟帖 |   https://www.taoguba.com.cn/Article/1483634/1
+
 
 
 ### 2018-7-20 更新 巴菲特芒格在BerkshireHathaway 历年年股东大会问答Google机器翻译 
