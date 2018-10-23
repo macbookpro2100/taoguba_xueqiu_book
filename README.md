@@ -1,7 +1,5 @@
 ## python抓取 微信公众号 雪球 文章
-
-Add 微信文章 郭树清，周小川，刘鹤，易纲，埃隆·马斯克，沃伦·巴菲特，贝索斯，孙正义等访谈演讲文章集
-
+### Last 更新 Add 微信文章 郭树清，周小川，刘鹤，易纲，埃隆·马斯克，沃伦·巴菲特，贝索斯，孙正义等访谈演讲文章集
 ![scheme][img_macbookpro2100]
 
 ### Tips http://chuansong.me/ 容易被屏蔽，延时要加大
@@ -10,7 +8,6 @@ Add 微信文章 郭树清，周小川，刘鹤，易纲，埃隆·马斯克，�
 微信文章需手动添加列表生成book
 股社区 政事堂 吃瓜群众岱   
 补充链接:https://pan.baidu.com/s/1869bKc9V1w5n1j10gCepbw  密码:qo0g
-感慨时过境迁，bye
 
 ## 支持的网站
 
@@ -31,7 +28,7 @@ Add 微信文章 郭树清，周小川，刘鹤，易纲，埃隆·马斯克，�
  
 ![scheme][wechat]
 
-### Last 更新虎嗅上 任正非马云马化腾演讲访谈等
+### 更新虎嗅上 任正非马云马化腾演讲访谈等
 add [简书地址][31]  
 发布任正非华为讲话集合 心声社区 + 新浪博客整理
 
@@ -171,6 +168,5 @@ $ pip install -r requirements.txt
 [img-3]:	https://github.com/macbookpro2100/taoguba_xueqiu_book/blob/master/%E4%BB%BB%E6%AD%A3%E9%9D%9E%E9%A9%AC%E4%BA%91%E9%A9%AC%E5%8C%96%E8%85%BE%E2%80%A6%E2%80%A6/r3.jpg
 
 [wechat]:	https://github.com/macbookpro2100/taoguba_xueqiu_book/blob/master/%E4%BB%BB%E6%AD%A3%E9%9D%9E%E9%A9%AC%E4%BA%91%E9%A9%AC%E5%8C%96%E8%85%BE%E2%80%A6%E2%80%A6/ink.jpeg
-
 [img_macbookpro2100]:	https://github.com/macbookpro2100/taoguba_xueqiu_book/tree/master/weChat/macbookpro2100.jpg
-
+ 
