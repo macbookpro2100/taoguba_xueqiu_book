@@ -13,7 +13,7 @@
 
 | 名称 | 主页                               | 支持类型                          |
 | :------ | ---------------------------------------- | ---------------------------------------- |
-| 武侠评论      | [https://www.wuxiareview.com/][34]    | **用户：** `https://www.wuxiareview.com/category/daidai/{}`<br/>  |
+| 武侠评论      | [https://www.wuxiareview.com/][34]    | **用户：** `https://www.wuxiareview.com/category/daidai/`<br/>  |
 | 传送门      |  http://chuansong.me/ |   **主页：** `http://chuansong.me/account/{}`<br/>  |
 | 股社区  |  http://www.gushequ.com/    | **用户的所有文章：** `http://www.gushequ.com/{2018}` |
 | 雪球   | https://xueqiu.com/ | **用户的所有文章：** `https://xueqiu.com/u/{id}#{id名称}`|
