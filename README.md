@@ -1,4 +1,6 @@
 ## python抓取 微信公众号 雪球 文章
+微信公众号文章列表获取参考[公众号接口][30]思路
+
 ### Last 更新 Add 微信文章 郭树清，周小川，刘鹤，易纲，埃隆·马斯克，沃伦·巴菲特，贝索斯，孙正义等访谈演讲文章集
 ![scheme][img_macbookpro2100]
 
@@ -29,8 +31,9 @@
 ![scheme][wechat]
 
 ### 更新虎嗅上 任正非马云马化腾演讲访谈等
-add [简书地址][31]  
+add  
 发布任正非华为讲话集合 心声社区 + 新浪博客整理
+百度云链接:https://pan.baidu.com/s/1geEBEev密码: 8e6f
 
 多看阅读效果
 ### 标题
@@ -153,8 +156,8 @@ $ pip install -r requirements.txt
 [28]:	https://github.com/soimort/you-get
 [29]:	./LICENSE
 
-[31]:	https://www.jianshu.com/p/cc1dc1f8502c
 
+[30]:https://github.com/search?l=Python&q=%27https%3A%2F%2Fmp.weixin.qq.com%2Fcgi-bin%2Fsearchbiz%3F%27&type=Code
 [34]:	https://www.wuxiareview.com/
 [35]:	https://www.wuxiareview.com/category/daidai/
 [36]:	https://www.wuxiareview.com/category/gzmdzst/

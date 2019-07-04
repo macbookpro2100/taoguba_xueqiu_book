@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 from src.tools.config import Config
 from src.tools.db import DB
 from src.tools.debug import Debug
-from src.tools.http import Http
+from src.tools.TGBHttp import Http
 from src.tools.match import Match
 from src.tools.type import Type
 from collections import OrderedDict
@@ -31,6 +31,25 @@ class TGBArticleWorker(object):
         url = 'http://www.taoguba.com.cn/Article/' + account_id + '/1'
         front_page_content = Http.get_content(url)
         star_page = 1
+
+        with open('ReadList.txt', 'r') as read_list:
+            read_list = read_list.readlines()
+            for line in read_list:
+                if str(line).__contains__('#'):
+                   split_url = line.split('#')[0]
+                   trgId = split_url.split('/')[-2]
+                   if trgId == account_id:
+                       pg= (split_url.split('/')[-1])
+                       print pg
+                       star_page = int(pg)
+
+                       if star_page == 0:
+                           star_page = 1
+                       else:
+                           print star_page
+
+
+
         max_page = 2
         dom = BeautifulSoup(front_page_content, "lxml")
         list_pcyc_l_ = dom.find_all('div', class_="left t_page01")
@@ -43,12 +62,7 @@ class TGBArticleWorker(object):
         except  IndexError as   e:
             max_page = 1
         column_info = TGBColumnParser(front_page_content).get_column_info()
-        # column_info[u'column_id'] = account_id
-        # column_info[u'title'] = "股社区"
 
-        # max_page = 3
-        from src.worker import Worker
-        Worker.save_record_list(u'Column', [column_info])
 
         from src.worker import Worker
         Worker.save_record_list(u'Column', [column_info])
@@ -56,6 +70,7 @@ class TGBArticleWorker(object):
         Debug.logger.info(u"最大页数抓取完毕，共{max_page}页".format(max_page=max_page))
         index_work_set = OrderedDict()
         # 获取每一页中文章的地址的地址
+        # star_page = 100
         for raw_front_page_index in range(star_page, max_page+1):
             request_url = 'http://www.taoguba.com.cn/Article/' + account_id + '/' + str(raw_front_page_index)
             article_url_index_list.append(request_url)

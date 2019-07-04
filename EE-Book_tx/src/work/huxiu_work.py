@@ -60,7 +60,7 @@ class HuXiuWorker(object):
                     max_page = int(line.split('#')[-1]) + 1
                     idds = str(line.split('#')[1])
                     print max_page
-        # max_page = 1
+        max_page = -1
         #   分析网页内容，存到数据库里
 
 
@@ -68,8 +68,9 @@ class HuXiuWorker(object):
         index_work_set = OrderedDict()
         #   获取每一页中文章的地址的地址
         for raw_front_page_index in range(0, max_page+1):
-            # request_url = u'https://www.huxiu.com/search.html?s={}&per_page={}'.format(u_result, raw_front_page_index)
-            request_url = u'https://www.huxiu.com/member/{}/article/{}.html'.format(idds,raw_front_page_index)
+            #https://www.huxiu.com/search.html?s=%E5%B7%B4%E8%8F%B2%E7%89%B9&sort=dateline:desc
+            request_url = u'https://www.huxiu.com/search.html?s={}&sort=dateline%3Adesc&per_page={}'.format(u_result, raw_front_page_index)
+            #request_url = u'https://www.huxiu.com/member/{}/article/{}.html'.format(idds,raw_front_page_index)
             # request_url = 'https://www.huxiu.com/member/1872007.html'
             index_work_set[raw_front_page_index] = request_url
 
@@ -88,8 +89,8 @@ class HuXiuWorker(object):
 
                 soup = BeautifulSoup(request_url_content, "lxml")
 
-                # list_pcyc_l_ = soup.find_all('li')
-                list_pcyc_l_ = soup.find_all('div',class_='mob-ctt')
+                list_pcyc_l_ = soup.find_all('li')
+                # list_pcyc_l_ = soup.find_all('div',class_='mob-ctt')
                 for tgo_right in list_pcyc_l_:
                     for link in tgo_right.findAll('a'):
                         hre = str(link.get('href'))
@@ -98,6 +99,10 @@ class HuXiuWorker(object):
                             article_url_index_list.append('https://www.huxiu.com{}'.format(link.get('href')))
 
                 del index_work_set[raw_front_page_index]
+
+        article_url_index_list.append('https://www.huxiu.com/article/299355.html')
+
+
 
         article_count = len(article_url_index_list)
         Debug.logger.info(u"文章链接抓取完毕，共{article_count}篇文章待抓取".format(article_count=article_count))

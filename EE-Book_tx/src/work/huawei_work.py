@@ -32,12 +32,13 @@ class HuaWeiWorker(object):
         column_info = HuaWeiColumnParser(front_page_content).get_column_info()
         column_info[u'column_id'] = account_id
         column_info[u'title'] = "华为家事"
+        column_info[u'image_url'] ='file:///Users/ex-liyan010/Desktop/share/hcover.jpeg'
 
         from src.worker import Worker
         Worker.save_record_list(u'Column', [column_info])
 
 
-        max_page = 1
+        max_page = 0
 
         Debug.logger.info(u"最大页数抓取完毕，共{max_page}页".format(max_page=max_page))
         index_work_set = OrderedDict()
@@ -77,6 +78,21 @@ class HuaWeiWorker(object):
                     article_url_index_list.append(tarUrl)
 
                 del index_work_set[raw_front_page_index]
+
+
+
+
+
+        article_url_index_list.append('http://xinsheng.huawei.com/cn/index.php?app=forum&mod=Detail&act=index&id=4343641')
+        article_url_index_list.append('http://xinsheng.huawei.com/cn/index.php?app=forum&mod=Detail&act=index&id=4340813')
+        article_url_index_list.append('http://xinsheng.huawei.com/cn/index.php?app=group&mod=Bbs&act=detail&tid=4346331')
+        article_url_index_list.append('http://xinsheng.huawei.com/cn/index.php?app=group&mod=Bbs&act=detail&tid=4347493')
+        article_url_index_list.append('http://xinsheng.huawei.com/cn/index.php?app=group&mod=Bbs&act=detail&tid=4342141')
+
+
+
+
+
 
         article_count = len(article_url_index_list)
         Debug.logger.info(u"文章链接抓取完毕，共{article_count}篇文章待抓取".format(article_count=article_count))

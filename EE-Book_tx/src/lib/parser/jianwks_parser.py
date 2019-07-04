@@ -4,12 +4,14 @@ from src.lib.wechat_parser.tools.parser_tools import ParserTools
 from src.tools.config import Config
 from src.tools.match import Match
 
-from src.lib.googlet.translate import translate
+import re
 import time
 from collections import OrderedDict
 import datetime
-class JinWanKanSaColumnParser(ParserTools):
+
+class JinWanKanSaEmptColumnParser(ParserTools):
     def __init__(self, content):
+
         self.dom = BeautifulSoup(content, 'html.parser')
 
     def get_column_info(self):
@@ -17,17 +19,55 @@ class JinWanKanSaColumnParser(ParserTools):
 
 
 
+        data[u'title'] = ''
+
+        data['image_url'] = ''
+
         data['article_count'] = 0
         data['follower_count'] = 0
         data['description'] = ''
-        data['image_url'] = ''
+
+
+        return data
+
+class JinWanKanSaColumnParser(ParserTools):
+    def __init__(self, content):
+
+        self.dom = BeautifulSoup(content, 'html.parser')
+
+    def get_column_info(self):
+        data = {}
+        headcontent  = self.dom.find_all('div', class_="header")[0]
+        img_src_dict = Match.match_img_with_src_dict(str(headcontent))
+
+        for img in img_src_dict:
+            src = img_src_dict[img]
+            print src
+            data['image_url'] = src
+
+        reInfo = BeautifulSoup(str(headcontent), 'html.parser')
+        links = reInfo.findAll('a')
+        article_u = (links[1]).text
+
+        description  = self.dom.find_all('span', class_="f12 gray")[0]
+
+
+        data[u'title'] = article_u
+
+        # data['image_url'] = ''
+
+        data['article_count'] = 0
+        data['follower_count'] = 0
+        data['description'] = ''
+
 
         return data
 
 
 class JinWanKanSaArticleParser(ParserTools):
     def __init__(self, content):
-        self.dom = BeautifulSoup(content, 'lxml')
+        self.content = content
+        self.dom = BeautifulSoup(content, 'html.parser')
 
     def get_article_info(self):
         data = {}
@@ -76,7 +116,7 @@ class JinWanKanSaArticleParser(ParserTools):
 
                             toreplaced = (
                                 u"""<div class="Chapter-chapterSpeakerWrapper"> <p data-speaker="" class="">{0}<br/> {1} </p> </div>""".format(
-                                    tempEn, tempCn))
+                                        tempEn, tempCn))
                             print ('{}\n{}\n'.format(item[1], item[0]))
                             article_body += str(toreplaced)
                             # transed += ('\n')  # 每段间隔一行
@@ -98,10 +138,45 @@ class JinWanKanSaArticleParser(ParserTools):
                 if istwiter:
                     content = self.dom.find_all('article', class_="weibo-main")[0]
                 else:
-                    content = self.dom.find_all('div', id="img-content")[0]
-                    topcontent = self.dom.find_all('div', id="collect_topic")[0]
-                    content = str(content).replace(str(topcontent),'',1)
+                    # 有干扰
 
+                    # content = self.dom.find_all('div', class_="rich_media_content")[0]
+                    # print content
+
+
+
+                    cc = str(self.content)
+                    addss = u"""<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>"""
+                    addssds = u"""<span <script="" async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" style="font-family:宋体;color:#333333;background:white;"></span>"""
+
+
+                    cc = cc.replace(addss, '', 100)
+                    cc = cc.replace(addssds, '', 100)
+
+                    adds = self.dom.find_all('ins', class_="adsbygoogle")
+                    addsda = self.dom.find_all('script', async='')
+                    for ads in adds:
+                        cc = cc.replace(str(adds), '', 1)
+                    for ads in addsda:
+                        cc = cc.replace(str(adds), '', 1)
+
+                    html_script = r'<div class="rich_media_content" id="js_content">(.*?)</div>'
+                    m_script = re.findall(html_script, cc, re.S | re.M)
+
+                    if m_script.__len__() > 0:
+                        script = m_script[0]
+                        content = str(script)
+                    else:
+
+                        content = self.dom.find_all('div', class_="rich_media_content")[0]
+
+                        # id="img-content"
+
+
+
+                        # content = self.dom.find_all('div', class_="rich_media_content")[0]
 
                 article_body += str(content)
                 data['content'] = str(article_body)

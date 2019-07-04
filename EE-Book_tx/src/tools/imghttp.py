@@ -34,12 +34,13 @@ class Http(object):
         # 没UA知乎分分钟只返回给你首页看- -
 
 
-        print 'xz '+url
+        if str(url).__len__() ==0:
+            return 
         if not str(url).startswith('http'):
             if str(url).startswith('wp-content'):
                 url = u"http://www.199it.com/{}".format(url)
             if str(url).startswith('//assets'):
-                url = u"https://xqimg.imedao.com{}".format(url)
+                url = u"https:{}".format(url)
             if str(url).startswith('//upload-images') or str(url).startswith('//res.wx.qq.com'):
                 url = u"https:{}".format(url)
 

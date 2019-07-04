@@ -19,11 +19,11 @@ class Config(object):
     account = 'mengqingxue@yaozeyuan.online'  # 默认账号密码, 2017年更新
     password = '912714398d'  #
     remember_account = False  # 是否使用已有密码
-    max_thread = 10  # 最大线程数，其实设成5就行了，但下图片的时候还是得多开几个线程，所以还是设成10好了（反正冬天，CPU满了有利于室内保温 - -）
+    max_thread = 100  # 最大线程数，其实设成5就行了，但下图片的时候还是得多开几个线程，所以还是设成10好了（反正冬天，CPU满了有利于室内保温 - -）
     picture_quality = 1  # 图片质量（0/1/2，无图/标清/原图）
     max_try = 5  # 下载图片时的最大尝试次数
     max_book_size_mb = 20  # 单个文件的最大大小(MB, 兆)，超过这个数会自动分卷
-    timeout_download_picture = 18  # 多给知乎服务器点时间，批量生成tex太痛苦了- -
+    timeout_download_picture = 3  # 多给知乎服务器点时间，批量生成tex太痛苦了- -
     timeout_download_html = 5
     # 微信按发表时间排序
     # article_order_by = ' order by updated_time desc '  # 文章排序顺序，默认：时间顺序正序

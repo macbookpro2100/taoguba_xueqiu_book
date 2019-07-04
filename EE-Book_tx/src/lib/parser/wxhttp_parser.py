@@ -6,7 +6,7 @@ from src.tools.match import Match
 import re
 import datetime
 import time
-from src.lib.googlet.translate import translate
+
 
 from collections import OrderedDict
 
@@ -133,21 +133,37 @@ class WeiXinArticleParser(ParserTools):
             ddm =  BeautifulSoup(str(time_tationl), 'lxml')
             # print ddm
             lk = ddm.find_all('span', class_="rich_media_meta rich_media_meta_nickname")[0]
-            lkk = lk.find_all('a', id="js_name")[0]
+            try:
+                lkk = lk.find_all('a', id="js_name")[0]
+                data['author_name'] = str(lkk.text).strip()
+            except Exception:
+                data['author_name'] = ''
+            # try:
+            #
+            #    extract_script = self.dom.find('script', text=re.compile('var publish_time'))
+            #    extract_date = re.findall("\d+-\d+-\d+", re.findall(
+            #            'var publish_time = "\d+-\d+-\d+"', extract_script.string)[0])[0]
+            #    date_str = news_date_format(extract_date)
+            #
+            #
+            #    pubtime = datetime.datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
+            #
+            #    print pubtime.strftime('%Y-%m-%d')
+            #    data['updated_time'] = pubtime.strftime('%Y-%m-%d')
+            #
+            # except Exception:
+            #     #TODO fix time
 
-            extract_script = self.dom.find('script', text=re.compile('var publish_time'))
-            extract_date = re.findall("\d+-\d+-\d+", re.findall(
-                    'var publish_time = "\d+-\d+-\d+"', extract_script.string)[0])[0]
-            date_str = news_date_format(extract_date)
+            tk = ddm.find_all('em', id="publish_time")[0]
+
+            date_str = news_date_format(tk.text)
 
 
             pubtime = datetime.datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
 
             print pubtime.strftime('%Y-%m-%d')
-
-
-
             data['updated_time'] = pubtime.strftime('%Y-%m-%d')
+
 
             # print data['updated_time']
             data['voteup_count'] =  ""
@@ -158,7 +174,7 @@ class WeiXinArticleParser(ParserTools):
             data['author_id'] = 'meng-qing-xue-81'
 
 
-            data['author_name'] = str(lkk.text).strip()
+
             data['author_headline'] = ''
             data['author_avatar_url'] = 'https://pic4.zhimg.com/v2-38a89e42b40baa7d26d99cab9a451623_xl.jpg'
             data['author_gender'] = '0'

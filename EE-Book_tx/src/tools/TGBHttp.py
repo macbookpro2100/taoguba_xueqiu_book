@@ -32,7 +32,7 @@ class Http(object):
             'Accept-Language': 'en-US,en;q=0.8',
             'Cache-Control': 'no-cache',
             'Connection': 'keep-alive',
-            'Cookie': 'UM_distinctid=165d76cd090432-030c5d696a2739-1036685c-1fa400-165d76cd0924d9; tgbuser=929400; tgbpwd=034188E14447lc8hzuwuiqmwsh; JSESSIONID=1f39fca1-6ad9-4306-b2d7-b2e1c40c4e18; CNZZDATA1574657=cnzz_eid%3D385875478-1536916638-https%253A%252F%252Fwww.baidu.com%252F%26ntime%3D1540259889; Hm_lvt_cc6a63a887a7d811c92b7cc41c441837=1538734225,1540262816; Hm_lpvt_cc6a63a887a7d811c92b7cc41c441837=1540262831',
+            'Cookie': 'UM_distinctid=16a09d56380fe-001f41eddcd37e-163b6952-13c680-16a09d56381dcc; JSESSIONID=c10fab5d-77c5-45eb-9a1e-350efd4628aa; CNZZDATA1574657=cnzz_eid%3D1083744182-1554938916-%26ntime%3D1556182433; Hm_lvt_cc6a63a887a7d811c92b7cc41c441837=1554943143,1555980522,1556185682; notActiveUserIDPC=47884370; tgbuser=929400; tgbpwd=034188E14447lc8hzuwuiqmwsh; Hm_lpvt_cc6a63a887a7d811c92b7cc41c441837=1556186526',
             'Host': 'www.taoguba.com.cn',
             'Referer': url,
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36',

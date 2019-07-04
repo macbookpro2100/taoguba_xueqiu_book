@@ -2,6 +2,9 @@
 import uuid
 
 from src.container.image_container import ImageContainer
+from src.tools.config import Config
+from src.tools.debug import Debug
+
 from src.lib.epub.epub import Epub
 from src.tools.extra_tools import ExtraTools
 from src.tools.match import Match
@@ -10,6 +13,7 @@ from src.tools.template import Template
 from src.tools.type import Type
 
 
+from src.tools.imghttp import Http
 class Book(object):
     u"""
     正式用于渲染书籍的容器
@@ -120,6 +124,9 @@ class Book(object):
             elif task_result.task.task_type == Type.author:
                 chapter_src = self.generate_author_info_page(task_result.info_page)
             elif task_result.task.task_type == Type.column:
+
+                task_result.info_page.article_count = (task_result.column_list[0].article_list).__len__()
+
                 chapter_src = self.generate_column_info_page(task_result.info_page)
             elif task_result.task.task_type == Type.article:
                 chapter_src = self.generate_article_info_page(task_result.info_page)
@@ -131,6 +138,8 @@ class Book(object):
                 question_src = self.generate_question_page(question)
                 epub.add_html(question_src, question.question_info.title)
 
+
+
             for column in task_result.column_list:
                 #   添加图片文件
                 for filename in column.img_filename_list:
@@ -140,7 +149,34 @@ class Book(object):
                     epub.add_html(article_src, article.title)
             epub.finish_chapter()
 
-        # epub.add_cover_image('/Users/li/Desktop/cover.jpg')
+        href = self.task_result_list[0].info_page.image_url
+        if len(href) > 0:
+            print href
+
+            if href:
+                content = Http.get_content(url=href, timeout=Config.timeout_download_picture)
+                if not content:
+                    Debug.logger.debug(u'图片『{}』下载失败'.format(href))
+                    content = ''
+                else:
+                    Debug.print_in_single_line(u'图片{}下载完成'.format(href))
+            else:
+                #   当下载地址为空的时候，就没必要再去下载了
+                content = ''
+            if content.__len__() > 10:
+                filename = Path.image_pool_path + '/' + 'cover.jpg'
+                with open(filename, 'wb') as image:
+                    image.write(content)
+
+                epub.add_cover_image(filename)
+
+        else:
+            epub.add_cover_image('/Users/ex-liyan010/Desktop/cover.png')
+            # epub.add_cover_image('/Users/ex-liyan010/Desktop/cover.png')
+
+
+
+
 
         epub.set_creator(u'macbookpro2100')
         epub.set_language(u'zh-cn')
@@ -346,8 +382,8 @@ class Book(object):
         :rtype:
         """
         readCount = article.comment_count
-        if(readCount== 10):
-           readCount ='10w+'
+        # if (readCount == 10) or (readCount > 100000):
+        #     readCount = '10w+'
 
         answer_content = Template.answer.format(
             **{

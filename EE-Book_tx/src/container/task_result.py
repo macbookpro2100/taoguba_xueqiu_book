@@ -263,8 +263,9 @@ class TaskResult(object):
             if self.info_page.title == self.task.column_id:
                 return u'({name})文章集'.format(name=self.info_page.title)
             else:
-                return u'专栏{name}({column_id})文章集'.format(name=self.info_page.title, column_id=self.task.column_id)
-                # return u'TGB_{name}({column_id})'.format(name=self.info_page.title, column_id=self.task.column_id)
+                # return u'专栏{name}({column_id})文章集'.format(name=self.info_page.title, column_id=self.task.column_id)
+                return u'{name}'.format(name=self.info_page.title, column_id=self.task.column_id)
+                # return u'{name}({column_id})'.format(name=self.info_page.title, column_id=self.task.column_id)
         elif self.task.task_type == Type.article:
             return u'知乎文章({article_id})'.format(article_id=self.task.article_id)
         elif self.task.task_type == Type.huxiu:
