@@ -8,7 +8,9 @@ import requests
 import urllib
 # 修改默认编码
 import sys
-from bs4 import BeautifulSoup, Tag
+
+import sys
+from bs4 import BeautifulSoup
 
 from src.tools.http import Http
 from src.tools.path import Path
@@ -27,7 +29,7 @@ TGBHeaders = {
     'Accept-Language': 'en-US,en;q=0.8',
     'Cache-Control': 'no-cache',
     'Connection': 'keep-alive',
-    'Cookie': 'tgbuser=929400; tgbpwd=034188E14447lc8hzuwuiqmwsh; zhihu=1; bdshare_firstime=1483542961720; JSESSIONID=0c7d8acf-c113-4916-9a4d-4e025c8bc940; CNZZDATA1574657=cnzz_eid%3D1317696300-1483321904-%26ntime%3D1484132693',
+    'Cookie': 'UM_distinctid=16a09d56380fe-001f41eddcd37e-163b6952-13c680-16a09d56381dcc; JSESSIONID=c10fab5d-77c5-45eb-9a1e-350efd4628aa; CNZZDATA1574657=cnzz_eid%3D1083744182-1554938916-%26ntime%3D1556182433; Hm_lvt_cc6a63a887a7d811c92b7cc41c441837=1554943143,1555980522,1556185682; notActiveUserIDPC=47884370; tgbuser=929400; tgbpwd=034188E14447lc8hzuwuiqmwsh; Hm_lpvt_cc6a63a887a7d811c92b7cc41c441837=1556186526',
     'Host': 'www.taoguba.com.cn',
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36',
     'X-Requested-With': 'XMLHttpRequest'
@@ -61,8 +63,11 @@ def Mkdir(DirName=u''):  # PassTag
 def getTGBAticle():
     f = open(u'TGB_List页面.txt', 'a')
     url = u"http://www.taoguba.com.cn/best?pageNo={}&blockID=0&flag=0"
-    for i in range(0, 373):
+    tagrList = {}
+
+    for i in range(0, 400):
         r = requests.get(url.format(i), headers=TGBHeaders)
+
         soup = BeautifulSoup(r.text)
         # f.write(u'  精华 第{}页\n'.format(i))
         list_p_list = soup.find_all('div', class_="p_list01")
@@ -72,25 +77,26 @@ def getTGBAticle():
             list_pcyc_l_4 = p.find_all('li', class_="pcdj04")[0]
             liuyan_num = int(str(list_pcyc_l_4.text).split('/')[-1])
             huitie_num = int(str(list_pcyc_l_4.text).split('/')[-2])
-            print liuyan_num
+            # print liuyan_num
             # 加油
             list_pcyc_l_5 = p.find_all('li', class_="pcdj05")[0]
             jiayou_num = int(str(list_pcyc_l_5.text).split('/')[-1])
-            print jiayou_num
+            # print jiayou_num
             # 推荐
             list_pcyc_l_5_1 = p.find_all('li', class_="pcdj05")[1]
             tuijian_num = int(str(list_pcyc_l_5_1.text).split('/')[-1])
-            print tuijian_num
+            # print tuijian_num
 
             # if liuyan_num > 200000 or jiayou_num > 100 or tuijian_num > 800:
-            if   (huitie_num > 3000 and liuyan_num > 100000):
-            # if  liuyan_num > 200:
+            # 100万阅读  or  7000回帖
+            # if   (huitie_num > 7000 and liuyan_num > 1500000):
+            if  tuijian_num > 280:
                 list_pcyc_l_02 = p.find_all('li', class_="pcdj02")
 
                 # list_pcyc_l_ = list_pcyc_l_02.find_all('li', class_="pcdj02")
                 for tgo_right in list_pcyc_l_02:
                     for link in tgo_right.findAll('a'):
-                        print link.get('href')
+                        # print link.get('href')
                         # url_0 = u'http://www.taoguba.com.cn/{}'.format(link.get('href'))
                         # tarUrl = url_0
                         # r = requests.get(url_0, headers=TGBHeaders)
@@ -108,9 +114,28 @@ def getTGBAticle():
 
                         lllk= link.get('href')
                         lk= str(lllk).split('/')[1]
-                        f.write(u'http://www.taoguba.com.cn/Article/{}/0 #{} \n'.format(lk, link.get('title')))
+
+                        wt  = u'http://www.taoguba.com.cn/Article/{}/0 #{}\n'.format(lk, link.get('title'))
+
+                        print wt
+                        f.write(wt)
+
+
+                        tagrList.update({wt:huitie_num})
                         print link.get('title')
                         # f.write(u'\n\n\n')
+
+    #排序
+
+    #
+    # L = sorted(tagrList.items(),key=lambda item:item[1])
+    #
+    #
+    #
+    # #
+    # for xd in  L:
+    #     # print xd
+    #     f.write(str(xd))
     f.close()
 
 
@@ -157,8 +182,14 @@ def reloadtocatch():
     ff.close()
 
 
-if __name__ == '__main__':
-    print ' -----------------------------'
+class MakeHelp(object):
+    def __init__(self):
+        #   初始化目录结构
+
+        return
+
+    def start(self):
+        print 'start RecentHelp'
     # f = open('TGB_List页面.txt', 'r')
     # ff = open('TGB_List.txt', 'w')
     # for eachLine in f:
@@ -172,17 +203,15 @@ if __name__ == '__main__':
     # ff.close()
 
 
-    ff = open('/Users/li/Desktop/list1.txt', 'w')
-
-    baseU = "file 'segment{}_7_av.ts'\n"
-    for page in range(1, 251):
-
-              ff.write(baseU.format(page))
-
-
-    ff.close()
-
-
+    # ff = open('/Users/li/Desktop/list1.txt', 'w')
+    #
+    # baseU = "file 'segment{}_7_av.ts'\n"
+    # for page in range(1, 251):
+    #
+    #           ff.write(baseU.format(page))
+    #
+    #
+    # ff.close()
 
 
 
@@ -201,7 +230,7 @@ if __name__ == '__main__':
     # print  '文件名是'+  htp.split('/')[-1]
     #
     #
-
+    #获取
     # getTGBAticle()
 
     # start = 1990

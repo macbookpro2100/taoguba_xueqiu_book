@@ -25,11 +25,17 @@ from src.work.jianwks_work import JinWanKanSaWorker
 from src.work.todo_work import TodoWorker
 from src.work.todo1_work import Todo1Worker
 from src.work.todo2_work import Todo2Worker
+from src.work.todo3_work import Todo3Worker
 from src.work.file_work import FileWorker
 from src.work.wxhttp_work import WeiXinWorker
+from src.work.wbhttp_work import WeiBWorker
 from src.work.tgb_article_work import TGBArticleWorker
+#from src.work.taoguba_work import TaoGuBaWorker
 
-
+from src.work.xueqiuCompay_work import XueQiuCWorker
+from src.work.jintiankanshaToday_work import JinWanKanSaTodayWorker
+from src.work.xueqiuToday_work import XueQiuTodayWorker
+from src.work.wallstreetcn_work import WallStreetcnWorker
 
 
 class Worker(object):
@@ -71,7 +77,9 @@ class Worker(object):
         elif task.get_task_type() == Type.wechat:
             WechatWorker.catch(task.account_id)
         elif task.get_task_type() == Type.xueqiu:
-            XueQiuWorker.catch(task.account_id)
+             #XueQiuWorker.catch(task.account_id)
+             XueQiuTodayWorker.catch(task.account_id)
+             #WallStreetcnWorker.catch(task.account_id)
         elif task.get_task_type() == Type.huxiu:
             HuXiuWorker.catch(task.account_id)
         elif task.get_task_type() == Type.huawei:
@@ -84,17 +92,21 @@ class Worker(object):
             Doc360Worker.catch(task.account_id)
         elif task.get_task_type() == Type.jinwankansa:
             #JinWanKanSaWorker.catch(task.account_id)
-            WeiXinWorker.catch(task.account_id)
+            # JinWanKanSaTodayWorker.catch(task.account_id)
+            # WeiXinWorker.catch(task.account_id)
+            WeiBWorker.catch(task.account_id)
         elif task.get_task_type() == Type.todo:
             TodoWorker.catch(task.account_id)
         elif task.get_task_type() == Type.todo1:
             Todo1Worker.catch(task.account_id)
         elif task.get_task_type() == Type.todo2:
-            Todo2Worker.catch(task.account_id)
+            # Todo2Worker.catch(task.account_id)
+            Todo3Worker.catch(task.account_id)
         elif task.get_task_type() == Type.fiel:
             FileWorker.catch(task.account_id)
         elif task.get_task_type() == Type.taoguba_article:
             TGBArticleWorker.catch(task.account_id)
+            # TaoGuBaWorker.catch(task.account_id)
 
 
         else:

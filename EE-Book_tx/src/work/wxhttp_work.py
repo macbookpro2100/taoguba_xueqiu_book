@@ -13,7 +13,7 @@ from src.tools.http import Http
 from src.tools.match import Match
 from src.tools.type import Type
 from collections import OrderedDict
-from src.lib.parser.wxhttp_parser import WeiXinArticleParser, WeiXinColumnParser
+from src.lib.parser.wxhttp_parser import WeiXinArticleParser, WeiXinColumnParser ,WallStreetArticleParser
 
 from src.lib.parser.todo2_parser import Todo2ArticleParser, Todo2ColumnParser
 from src.lib.parser.huxiu_parser import HuXiuArticleParser
@@ -39,6 +39,7 @@ class WeiXinWorker(object):
         column_info = WeiXinColumnParser('').get_column_info()
         column_info[u'column_id'] = account_id
         column_info[u'title'] = account_id
+        column_info[u'image_url'] = 'https://wpimg.wallstcn.com/3598b719-ab0d-4be7-bc09-30c3ae29a3cc.jpg?imageView2/1/w/240/h/240'
         max_page = 1
         # with open('ReadList.txt', 'r') as read_list:
         #     read_list = read_list.readlines()
@@ -63,7 +64,7 @@ class WeiXinWorker(object):
         # article_url_index_list.append('https://mp.weixin.qq.com/s?__biz=MjM5MjczNDc0Mw==&mid=2650847984&idx=2&sn=b7b111e5964d2f2fb568ba0d419e3edf&chksm=bd55d1888a22589e2f3bab0613b346427079efc6b82fac869d4f78244a500c3e5cc8cb8402ed&scene=21#wechat_redirect')
         # article_url_index_list.append('https://mp.weixin.qq.com/s/yj1BT3jWyxLjlEnzz0vEtQ')
 
-        with open('/Users/li/Desktop/ijk.txt', 'r') as read_list:
+        with open('/Users/0/Desktop/list.txt', 'r') as read_list:
             read_list = read_list.readlines()
             for line in read_list:
                 article_url_index_list.append(str(line).strip('\n'))
@@ -97,9 +98,10 @@ class WeiXinWorker(object):
                     Debug.logger.info(u"随机休眠{}秒".format(random_sleep_time))
                     time.sleep(random_sleep_time)
                     continue
-                # article_info = Todo2ArticleParser(request_url_content).get_article_info()
+                #article_info = Todo2ArticleParser(request_url_content).get_article_info()
                 # article_info = HuXiuArticleParser(request_url_content).get_article_info()
                 article_info = WeiXinArticleParser(request_url_content).get_article_info()
+                # article_info = WallStreetArticleParser(request_url_content).get_article_info()
                 if len(article_info) > 0:
                     article_info['article_id'] = article_url_index
                     article_info['column_id'] = account_id

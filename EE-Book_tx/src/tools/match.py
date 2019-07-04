@@ -138,7 +138,11 @@ http://xinsheng.huawei.com/cn/index.php?app=forum&mod=List&act=index&class=461&c
         :param content: https://xueqiu.com/4065977305 cn.nytimes.com
         :return:
         """
-        return re.search(r'(?<=cn\.nytimes\.com/)(?P<account_id>[^/\n\r]*)', content)
+        # return re.search(r'(?<=cn\.nytimes\.com/)(?P<account_id>[^/\n\r]*)', content)
+
+        #https://post.smzdm.com/fenlei/xinnengyuanche/p2/
+        # https://post.smzdm.com/hot_all/
+        return re.search(r'(?<=post\.smzdm\.com/)(?P<account_id>[^/\n\r]*)', content)
     @staticmethod
     def fiel(content=''):
         u"""

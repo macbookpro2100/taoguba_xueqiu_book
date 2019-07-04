@@ -31,7 +31,7 @@ class XueQiuWorker(object):
         # max_page = XueQiuWorker.parse_max_page(front_page_content)
 
         # _url = "http://xueqiu.com/v4/statuses/user_timeline.json?user_id={0}&page={1}&type=2" ''是all  2主贴  5 回复
-        _url = "https://xueqiu.com/v4/statuses/user_timeline.json?user_id={0}&page={1}&type=2"
+        _url = "https://xueqiu.com/v4/statuses/user_timeline.json?user_id={0}&page={1}&type=0"
         first = _url.format(account_id, 1)
         r = Http.get_json_content(first)
         max_page = 1
@@ -55,6 +55,7 @@ class XueQiuWorker(object):
                 split_url = line.split('#')[0]
                 if split_url.split('/')[-1] == account_id:
                     column_info[u'title'] = line.split('#')[1]
+                    column_info[u'image_url'] = str(line.split('#')[2]).strip('\n')
 
         from src.worker import Worker
         Worker.save_record_list(u'Column', [column_info])

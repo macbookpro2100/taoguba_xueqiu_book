@@ -32,9 +32,9 @@ class ZhihuHelp(object):
         # self.check_update()
 
         #   登录
-        login = Login()
-        zhihu_client = login.get_login_client()
-        Worker.set_zhihu_client(zhihu_client)
+        # login = Login()
+        # zhihu_client = login.get_login_client()
+        Worker.set_zhihu_client('')
 
         Debug.logger.info(u"开始读取ReadList.txt设置信息")
 
@@ -94,6 +94,7 @@ class ZhihuHelp(object):
         #   下载图片
         for task_result in task_result_list:
             task_result.download_img()
+            # print '所有任务图片获取完毕'
         Debug.logger.info(u"所有任务图片获取完毕")
 
         #   按体积自动分卷

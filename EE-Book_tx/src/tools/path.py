@@ -46,6 +46,23 @@ class Path(object):
         return
 
     @staticmethod
+    def mkdirAndPath(path):
+        try:
+            if not os.path.exists(path):
+               f = open(path, 'w')
+               print path
+               f.close()
+              # print path + " created."
+            else:
+               print path + " already existed."
+
+        except OSError:
+            # Debug.logger.debug(u'指定目录已存在')
+            pass
+        return
+
+
+    @staticmethod
     def chdir(path):
         try:
             os.chdir(path)
@@ -71,7 +88,16 @@ class Path(object):
         else:
             shutil.copy(src=src, dst=dst)
         return
-
+    @staticmethod
+    def move(src, dst):
+        if not os.path.exists(src):
+            # Debug.logger.info('{}不存在，自动跳过'.format(src))
+            return
+        if os.path.isdir(src):
+            shutil.copytree(src, dst)
+        else:
+            shutil.move(src=src, dst=dst)
+        return
     @staticmethod
     def get_filename(src):
         return os.path.basename(src)

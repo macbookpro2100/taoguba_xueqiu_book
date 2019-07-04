@@ -46,7 +46,7 @@ class WuXiaWorker(object):
         elif account_id == 'gzmdzst':
 
             column_info[u'title'] = "顾子明的政事堂"
-            max_page = 70
+            max_page = 1
         else:
 
             column_info[u'title'] = "时文"

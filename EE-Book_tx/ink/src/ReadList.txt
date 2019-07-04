@@ -1,3 +1,0 @@
-2016pm#https://cnbcmbr-vh.akamaihd.net/i/mp4/VCPS/Y2018/M03D22/7000008567/2016-BAM-2_MBR_,0240,0300,0500,0700,0900,1300,1700,4500,.mp4.csmil/index_7_av.m3u8?null=0
-2015pm#https://cnbcmbr-vh.akamaihd.net/i/mp4/VCPS/Y2018/M03D24/7000008915/2015-BAM-1_MBR_,0240,0300,0500,0700,0900,1300,1700,4500,.mp4.csmil/index_7_av.m3u8?null=0
-2015pm#https://cnbcmbr-vh.akamaihd.net/i/mp4/VCPS/Y2018/M03D24/7000008910/2015-BAM-2_MBR_,0240,0300,0500,0700,0900,1300,1700,4500,.mp4.csmil/index_7_av.m3u8?null=0

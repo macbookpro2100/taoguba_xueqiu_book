@@ -226,7 +226,6 @@ class TGBArticleParser(ParserTools):
                    <div class="answer-body">
                         <div class="answer-content">
                               {0}
-                             
                         </div>
                         <div    class='zm-item-comment-el'>
                             <div  class='update' >
@@ -255,6 +254,13 @@ class TGBArticleParser(ParserTools):
                         if not pengchangreply_context_list.__contains__(tt):
                             lightenreply_context_list.append(tt)
 
+
+
+                #不要捧场点亮
+                lightenreply_context_list = []
+                pengchangreply_context_list = []
+
+
                 for tgo in pengchangreply_context_list:
                     maincontext = ''
                     bouttomStr = ''
@@ -271,7 +277,6 @@ class TGBArticleParser(ParserTools):
                    <div class="answer-body">
                         <div class="answer-content">
                               {0}
-                             
                         </div>
                         <div    class='zm-item-comment-el'>
                             <div  class='update' >
@@ -297,7 +302,6 @@ class TGBArticleParser(ParserTools):
                    <div class="answer-body">
                         <div class="answer-content">
                               {0}
-                             
                         </div>
                         <div    class='zm-item-comment-el'>
                             <div  class='update' >
@@ -352,7 +356,6 @@ class TGBArticleParser(ParserTools):
                    <div class="answer-body">
                         <div class="answer-content">
                               {0}
-                             
                         </div>
                         <div    class='zm-item-comment-el'>
                             <div  class='update' >

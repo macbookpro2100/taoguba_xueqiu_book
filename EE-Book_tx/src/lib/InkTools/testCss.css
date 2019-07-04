@@ -1,0 +1,6434 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+*, * html * {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif
+}
+
+html {
+    overflow-y: scroll
+}
+
+img {
+    border: 0;
+    vertical-align: middle
+}
+
+img.context-icon {
+    vertical-align: baseline
+}
+
+abbr {
+    border-bottom: 1px dashed #666;
+    cursor: help
+}
+
+code, pre.code, var {
+    font-family: Courier New, Courier, monospace
+}
+
+pre.code {
+    margin: .3em 0;
+    padding: .3em .5em;
+    border: 1px solid #ccc;
+    color: #666;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word
+}
+
+h2 {
+    font-size: 16px
+}
+
+h3 {
+    font-size: 14px
+}
+
+h4, h5, h6 {
+    font-size: 12px
+}
+
+a {
+    color: #06c;
+    text-decoration: underline;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 2px
+}
+
+a:hover {
+    background-color: #06c;
+    color: #fff;
+    text-decoration: none
+}
+
+a.candle, a.candle:hover {
+    background: transparent;
+    text-decoration: none
+}
+
+#sidebar a {
+    text-decoration: none
+}
+
+#sidebar a:hover {
+    background: transparent;
+    color: #06c;
+    text-decoration: underline
+}
+
+a:hover .label {
+    border-bottom: 1px solid #06c
+}
+
+a.nickquery {
+    color: #888;
+    text-decoration: underline
+}
+
+.stamp {
+    display: block;
+    margin-top: 3px;
+    color: #999;
+    font-size: 12px;
+    _zoom: 1
+}
+
+.stamp a {
+    border-bottom: 1px dotted #999;
+    color: #999;
+    text-decoration: none
+}
+
+.stamp a:hover {
+    background: transparent;
+    color: #06c;
+    border-bottom-style: solid
+}
+
+.light .stamp a {
+    color: #06c;
+    border-color: #06c
+}
+
+.light .stamp .reply a {
+    border: 0;
+    background: #06c;
+    color: #fff
+}
+
+.light .stamp .reply a:hover {
+    color: #fff
+}
+
+.unlight .stamp a {
+    border: 0
+}
+
+.method {
+    margin-left: .3em
+}
+
+a.photo:hover img {
+    border: 1px solid #06c
+}
+
+.sharebtn:hover {
+    background: transparent
+}
+
+a.create-search-link, a.destroy-search-link {
+    float: right;
+    background: transparent url(//static2.fanfou.com/img/icon-search-create.svg) no-repeat 0;
+    padding-left: 20px;
+    text-decoration: none;
+    outline: 0;
+    font-size: 12px;
+    *padding-top: 2px
+}
+
+a.create-search-link:hover, a.destroy-search-link:hover {
+    background-color: transparent;
+    color: #06c;
+    text-decoration: underline
+}
+
+a.destroy-search-link {
+    background-image: url(//static2.fanfou.com/img/icon-search-destroy.svg)
+}
+
+.zoom {
+    position: relative;
+    z-index: 1;
+    zoom: 1
+}
+
+.zoom.gif span {
+    position: absolute;
+    right: 3px;
+    bottom: 3px;
+    display: inline-block
+}
+
+.zoom.gif span:after {
+    content: "GIF";
+    color: #fff;
+    font: 11px/16px Helvetica Neue, Arial;
+    font-weight: 200;
+    padding: 0 6px;
+    background: #000;
+    opacity: .6;
+    display: inline-block;
+    border-radius: 2px 0 0 0
+}
+
+a.bh, a.bl, a.bl-added, a.bl-long, a.unblock {
+    float: left;
+    display: inline-block;
+    display: -moz-inline-stack;
+    width: 80px;
+    height: 20px;
+    *height: 18px;
+    *padding-top: 2px;
+    line-height: 20px;
+    *line-height: 18px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-indent: 1px;
+    text-decoration: none;
+    overflow: hidden;
+    vertical-align: middle;
+    *zoom: 1
+}
+
+a.unblock {
+    background: url(//static1.fanfou.com/img/button-l.gif) no-repeat 0 0;
+    color: #333;
+    cursor: default
+}
+
+a.unblock:hover {
+    background-color: #fff;
+    color: #333
+}
+
+.input_text, select, textarea {
+    border: 1px solid;
+    border-color: #7c7c7c #c3c3c3 #ddd;
+    font-size: 12px;
+    line-height: 120%
+}
+
+button, input, select {
+    font-size: 12px;
+    vertical-align: middle
+}
+
+.input_text {
+    height: 15px;
+    padding: 3px 4px;
+    line-height: 15px
+}
+
+.formdisabled {
+    border: 1px solid #ccc;
+    background: #eee
+}
+
+.input_file {
+    height: 23px
+}
+
+.empty {
+    color: #999
+}
+
+button.formbutton, input.formbutton {
+    height: 23px;
+    padding: 0 1.5em;
+    border: 1px solid;
+    border-color: #66acff #094fa1 #094fa1 #66acff;
+    background: #2680e9;
+    color: #fff;
+    letter-spacing: .3em;
+    cursor: pointer
+}
+
+button.formbutton {
+    line-height: 23px
+}
+
+.formbutton:focus {
+    border-color: #000
+}
+
+input.cancel {
+    margin-left: 2em
+}
+
+.inlinebutton {
+    height: 23px;
+    padding: 0 .5em;
+    border: 1px solid;
+    border-color: #ccc #999 #999 #ccc;
+    cursor: pointer
+}
+
+select {
+    padding: 2px 2px 2px 0;
+    height: 21px
+}
+
+option {
+    padding: 0 2px
+}
+
+textarea {
+    padding: 4px;
+    overflow: auto
+}
+
+.finder_block p, form p {
+    margin: 10px 0;
+    line-height: 23px
+}
+
+form p.error input, form p.error textarea {
+    border-color: red
+}
+
+form p.error .formtip {
+    font-weight: 700
+}
+
+form p.inputting .formtip, form p.inputting .hint {
+    color: #000
+}
+
+.formtip {
+    color: #666
+}
+
+.nf {
+    clear: both
+}
+
+.nf h3 {
+    width: 400px;
+    margin: .8em 0 .5em 170px;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+    color: #444
+}
+
+.nf .label_input {
+    width: 155px;
+    margin-right: 15px;
+    float: left;
+    text-align: right
+}
+
+.nf .label_check {
+    margin-left: 170px;
+    cursor: pointer
+}
+
+.nf .input_text {
+    width: 200px
+}
+
+.captcha-wrap:after, .nf:after, .nf p:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+.captcha-wrap, .nf, .nf p {
+    *zoom: 1
+}
+
+.nf ul {
+    list-style: none
+}
+
+.nf li {
+    margin: .5em 0
+}
+
+.nf .note, .nf p.act {
+    margin-left: 170px
+}
+
+.nf .note {
+    width: 400px;
+    line-height: 150%
+}
+
+.nf .pending {
+    width: 384px;
+    padding: 7px 5px 7px 9px;
+    margin-left: 170px;
+    border: 1px solid #ccc;
+    background: #eee
+}
+
+.nf span.hint {
+    display: block;
+    margin: 3px 0 3px 170px;
+    color: #666;
+    line-height: 150%
+}
+
+.nf span.hidden {
+    display: none
+}
+
+.nf p.err {
+    color: red
+}
+
+.nf .captcha-img {
+    padding-left: 170px
+}
+
+.nf .note .captcha-input {
+    float: left;
+    padding-top: 20px
+}
+
+.nf .note .captcha-img {
+    float: left;
+    padding-left: 10px
+}
+
+.nf .note .label_input {
+    width: auto;
+    float: none
+}
+
+.nf .note form p {
+    margin: 4px 0
+}
+
+.captcha-input .input_text {
+    width: 120px
+}
+
+.vf {
+    width: 300px;
+    margin: 0 auto
+}
+
+.vf label {
+    font-weight: 700
+}
+
+.vf .label_input {
+    display: block;
+    float: none;
+    text-align: left
+}
+
+.vf textarea {
+    width: 290px
+}
+
+.vf span.formtip {
+    padding: 0 .2em;
+    color: #aaa
+}
+
+.vf .captcha-img {
+    padding-left: 0
+}
+
+.lf p {
+    line-height: 26px
+}
+
+.lf label.label_input {
+    font-size: 14px;
+    font-weight: 400
+}
+
+.lf label.label_check {
+    font-weight: 400
+}
+
+.lf input.input_text {
+    width: 280px;
+    height: 18px;
+    color: #444;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px
+}
+
+.lf p.act a {
+    font-weight: 700
+}
+
+.lf p.err {
+    color: red
+}
+
+.lf span.url {
+    font-size: 13px
+}
+
+.lf input#url {
+    width: 12em
+}
+
+#container {
+    width: 775px;
+    margin: 0 auto
+}
+
+#main {
+    width: 500px;
+    overflow: hidden
+}
+
+.wp #main {
+    width: 100%
+}
+
+span.ajaxprompt {
+    position: absolute;
+    z-index: 8;
+    padding: .4em 1em;
+    color: #fff;
+    background: #0cf;
+    font-weight: 700;
+    line-height: 1em
+}
+
+#header {
+    position: relative;
+    width: 100%;
+    padding: 1em 0
+}
+
+#header:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#header a {
+    text-decoration: none
+}
+
+#header h1 {
+    float: left;
+    width: 203px
+}
+
+.global-header-anchor:focus {
+    outline: none
+}
+
+.global-header-content {
+    width: 244px;
+    height: 42px;
+    text-indent: -9999px;
+    background: transparent url(//static1.fanfou.com/img/fanfou_beta.svg) 0 0 no-repeat
+}
+
+.logo_20120101 {
+    background: transparent url(//static1.fanfou.com/img/logo_120101.png) 0 0 no-repeat
+}
+
+.logo_20120101, .logo_20120102 {
+    position: relative;
+    top: 0;
+    height: 66px;
+    margin-bottom: -12px
+}
+
+.logo_20120102 {
+    background: transparent url(//static1.fanfou.com/img/logo_120102.png) 0 0 no-repeat
+}
+
+.logo_20120103 {
+    position: relative;
+    top: -12px;
+    height: 66px;
+    margin-bottom: -12px;
+    background: transparent url(//static2.fanfou.com/img/logo_120103.png) 0 0 no-repeat
+}
+
+.fly-to-classic {
+    cursor: pointer;
+    width: 100px;
+    height: 53px;
+    background-repeat: no-repeat;
+    background-image: url(//static2.fanfou.com/img/5th-birthday-sub.png);
+    position: absolute;
+    top: 4px;
+    left: 191px
+}
+
+.vday-puzzle {
+    width: 96px;
+    height: 50px;
+    position: absolute;
+    left: 210px;
+    top: 10px;
+    *zoom: 1;
+    cursor: pointer
+}
+
+.vday-puzzle:after {
+    content: ".";
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both
+}
+
+.puzzle-item {
+    *zoom: 1;
+    position: absolute;
+    cursor: pointer;
+    float: left;
+    margin: 0 1px 1px 0;
+    width: 23px;
+    height: 24px;
+    background-image: url(//static2.fanfou.com/img/puzzle.png)
+}
+
+.puz1 {
+    left: 0;
+    top: 0;
+    background-position: 0 0
+}
+
+.puz2 {
+    left: 24px;
+    top: 0;
+    background-position: -24px 0
+}
+
+.puz3 {
+    left: 48px;
+    top: 0;
+    background-position: -48px 0
+}
+
+.puz4 {
+    left: 72px;
+    top: 0;
+    background-position: -72px 0
+}
+
+.puz5 {
+    left: 0;
+    top: 24px;
+    background-position: 0 -24px
+}
+
+.puz6 {
+    left: 24px;
+    top: 24px;
+    background-position: -24px -24px
+}
+
+.puz7 {
+    left: 48px;
+    top: 24px;
+    background-position: -48px -24px
+}
+
+.puz8 {
+    left: 72px;
+    top: 24px;
+    background-position: -72px -24px
+}
+
+.puzzle-clear {
+    clear: both
+}
+
+#header h1 a:hover {
+    background-color: transparent
+}
+
+#header h1 a img {
+    _visibility: hidden
+}
+
+#header h1 a span {
+    display: none
+}
+
+#navigation {
+    float: right;
+    margin-top: 7px;
+    _margin-right: -10px
+}
+
+#navigation div {
+    float: left
+}
+
+#navigation .ui-roundedbox-content {
+    height: 25px;
+    padding: 0 5px 0 3px;
+    font-size: 14px;
+    line-height: 25px;
+    white-space: nowrap
+}
+
+#navigation ul {
+    float: left;
+    list-style: none
+}
+
+#navigation li {
+    float: left
+}
+
+#navigation li a {
+    padding: 2px 7px;
+    *padding: 3px 7px 1px
+}
+
+#navigation li a .count {
+    margin-left: 3px
+}
+
+#sidebar {
+    width: 219px;
+    padding: 20px 0 20px 15px;
+    border-left: 1px solid #b2d1a3;
+    background: #e2f2da;
+    vertical-align: top;
+    -moz-border-radius-topright: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -webkit-border-bottom-right-radius: 10px
+}
+
+#sidebar ul {
+    list-style: none
+}
+
+#sidebar h2 {
+    font-size: 14px;
+    margin-bottom: .5em;
+    opacity: .7;
+    filter: Alpha(opacity=70);
+    _filter: none;
+    *zoom: 1
+}
+
+#sidebar h3 {
+    font-size: 14px;
+    font-weight: 400
+}
+
+#sidebar p {
+    margin: 5px 0
+}
+
+#sidebar textarea {
+    width: 195px;
+    height: 2.4em;
+    overflow-y: hidden
+}
+
+#sidebar .sect {
+    position: relative;
+    margin: 1em 0 1em -15px;
+    padding: 1em 0 0 15px;
+    border-top: 1px solid #b2d1a3;
+    *zoom: 1
+}
+
+#sidebar .first-sect {
+    margin-top: 0;
+    padding-top: 0;
+    border: 0
+}
+
+#sidebar .stabs {
+    position: relative;
+    margin-left: -15px;
+    margin-bottom: 1em;
+    padding-bottom: .5em;
+    border-bottom: 1px solid #b2d1a3;
+    font-size: 14px;
+    *zoom: 1
+}
+
+#sidebar .stabs h2 {
+    margin-left: 15px
+}
+
+#sidebar .stabs ul {
+    list-style: none
+}
+
+#sidebar .stabs li {
+    margin-bottom: 1px;
+    line-height: 28px;
+    _zoom: 1
+}
+
+#sidebar .stabs li a {
+    display: block;
+    padding-left: 15px;
+    font-weight: 700;
+    _zoom: 1;
+    outline: 0
+}
+
+#sidebar .stabs li.current a, #sidebar .stabs li a:hover {
+    background: url(//static2.fanfou.com/img/pale.png);
+    _background: #fff;
+    text-decoration: none
+}
+
+#sidebar .stabs li.current a .label {
+    border: 0
+}
+
+#sidebar .stabs li a .count {
+    margin-left: .5em;
+    font-family: Times New Roman, Times, serif
+}
+
+#sidebar #navtabs {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border: 0
+}
+
+#searchr {
+    position: relative;
+    height: 36px;
+    margin: 0 0 8px -15px
+}
+
+#searchr.current {
+    background: url(//static2.fanfou.com/img/pale.png);
+    _background: #fff
+}
+
+#searchr form {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    width: 204px;
+    height: 26px
+}
+
+#searchr-input {
+    float: left;
+    width: 158px;
+    height: 16px;
+    padding: 4px 0;
+    border: 1px solid #999;
+    border-right: 0;
+    background: #fff;
+    font-size: 14px;
+    line-height: 16px;
+    text-indent: 5px;
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-left-radius: 5px
+}
+
+#searchr-submit {
+    float: left;
+    width: 45px;
+    height: 26px;
+    border: 1px solid #999;
+    background: #fff url(//static1.fanfou.com/img/search_submit.png) 0 0 no-repeat;
+    color: #333;
+    font-size: 14px;
+    line-height: 26px;
+    text-align: center;
+    cursor: pointer;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-right-radius: 5px
+}
+
+#searchr-submit:hover {
+    background-position: 0 -25px
+}
+
+#searchr-submit:active {
+    background-position: 0 -50px
+}
+
+html > body #searchr-submit, x:-moz-any-link, x:default {
+    padding-bottom: 3px
+}
+
+#sidebar .colltab {
+    position: relative;
+    z-index: 1;
+    *zoom: 1
+}
+
+#sidebar .colltab b {
+    position: absolute;
+    top: 2px;
+    right: 15px;
+    display: block;
+    width: 13px;
+    height: 13px;
+    background: url(//static2.fanfou.com/img/toggle_up_dark.svg) no-repeat 0 0;
+    _background: transparent;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://static.fanfou.com/img/toggle_up_dark.svg");
+    cursor: pointer
+}
+
+#sidebar .colltab b.collapse {
+    background-image: url(//static2.fanfou.com/img/toggle_down_dark.svg);
+    _background: transparent;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://static.fanfou.com/img/toggle_down_dark.svg")
+}
+
+#sidebar .colltab h2 {
+    cursor: pointer;
+    *zoom: 1;
+    background: url(//static2.fanfou.com/img/toggle_up_dark.svg) no-repeat 280px 3px
+}
+
+#sidebar .trendtabs li {
+    position: relative;
+    _margin-top: -3px;
+    z-index: 1;
+    *zoom: 1
+}
+
+#sidebar .trendtabs li .spinner {
+    background: url(//static2.fanfou.com/img/spinner.gif) no-repeat 0 0;
+    visibility: hidden
+}
+
+#sidebar .trendtabs li .placeholder, #sidebar .trendtabs li .spinner {
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    display: block;
+    width: 14px;
+    height: 14px;
+    overflow: hidden;
+    line-height: 14px
+}
+
+#sidebar .trendtabs li .placeholder {
+    background: url(//static2.fanfou.com/img/spinner.gif) no-repeat 0 0;
+    background: transparent
+}
+
+#sidebar #friends h2 {
+    margin-bottom: 0
+}
+
+#sidebar #friends ul {
+    margin-top: .5em
+}
+
+#sidebar .tlist {
+    list-style: disc;
+    padding-left: 15px
+}
+
+#sidebar .tlist li {
+    margin-bottom: .5em
+}
+
+#sidebar .tlist li.pic {
+    list-style-type: none;
+    margin: 12px 0 12px -15px
+}
+
+#sidebar #badge-sect {
+    padding-bottom: 0;
+    _zoom: 1
+}
+
+#sidebar #badge-sect h3 {
+    float: left;
+    width: 72px;
+    height: 40px;
+    margin: 5px 5px 0 0
+}
+
+#sidebar #badge-sect h3 a {
+    display: block;
+    width: 72px;
+    height: 40px;
+    background: url(//static1.fanfou.com/img/illus-badge.png) 0 0 no-repeat;
+    text-indent: -999em;
+    _background: transparent;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://static.fanfou.com/img/illus-badge.png");
+    _cursor: pointer;
+    overflow: hidden
+}
+
+#sidebar #badge-sect p {
+    margin: 0;
+    padding-right: 5px
+}
+
+#sidebar form#login p {
+    margin: 10px 0
+}
+
+#sidebar form#login .label_input {
+    display: block;
+    color: #444
+}
+
+#sidebar form#login .label_check {
+    color: #444;
+    cursor: pointer
+}
+
+#sidebar form#login .input_text {
+    width: 191px
+}
+
+#sidebar form#login #forgot {
+    float: right;
+    padding-right: 10px
+}
+
+#sidebar #register p {
+    margin: 10px 0;
+    text-align: center
+}
+
+#sidebar form#login p.captcha-img {
+    margin-left: 50px;
+    _margin-left: 52px
+}
+
+#sidebar .user-op {
+    margin: 25px 0 15px;
+    line-height: 1em
+}
+
+ddd#sidebar .user-op a {
+    display: block;
+    width: 70px;
+    height: 20px;
+    line-height: 20px;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    background: #eee url(//static1.fanfou.com/img/icon-block-user.gif?v=001) no-repeat 1px 2px;
+    color: #888;
+    *zoom: 1
+}
+
+#sidebar .user-op li {
+    margin-bottom: 5px
+}
+
+#sidebar .user-op a {
+    line-height: 20px;
+    padding: 2px 5px 2px 20px;
+    *padding: 0 5px 0 20px;
+    *zoom: 1
+}
+
+#sidebar .user-op a, #sidebar .user-op a:hover {
+    color: #888
+}
+
+#sidebar .user-op a, #sidebar .user-op a.report, #sidebar .user-op a.report:hover, #sidebar .user-op a.unblock, #sidebar .user-op a.unblock:hover, #sidebar .user-op a:hover {
+    background: #eee url(//static1.fanfou.com/img/icon-block-user.gif?v=001) no-repeat 1px -14px
+}
+
+#sidebar .user-op a.done {
+    cursor: default
+}
+
+#sidebar .user-op a.done:hover {
+    text-decoration: none
+}
+
+#sidebar .search-op {
+    background: #ddd;
+    margin-bottom: 10px;
+    list-style: none
+}
+
+#sidebar .search-op li {
+    background-position: 0 2px;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-bottom: 3px;
+    *zoom: 1;
+    margin-bottom: 5px
+}
+
+#sidebar .search-op .rss {
+    background-image: url(//static1.fanfou.com/img/feed-icon.png)
+}
+
+#sidebar .search-op .search-share {
+    background-image: url(//static1.fanfou.com/img/repost-icon.gif)
+}
+
+#sidebar .search-op .search-create {
+    background-image: url(//static2.fanfou.com/img/icon-search-create.svg);
+    outline: 0
+}
+
+#sidebar .search-op .search-destroy {
+    background-image: url(//static2.fanfou.com/img/icon-search-destroy.svg);
+    outline: 0
+}
+
+#sidebar .search-op li a {
+    text-decoration: underline;
+    outline: 0
+}
+
+#sidebar .tags {
+    float: left;
+    margin-bottom: 1em
+}
+
+#sidebar .tags li {
+    height: 21px;
+    line-height: 21px;
+    word-wrap: break-word;
+    text-overflow: ellipsis
+}
+
+#sidebar .tags a {
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, .15);
+    border-color: #ccc \9;
+    float: left;
+    padding: 0 5px !important;
+    margin: 0 5px 5px 0;
+    background: url(//static1.fanfou.com/img/pale25.png);
+    _background: #fff;
+    text-decoration: none
+}
+
+#sidebar .tags a:hover {
+    border-color: rgba(0, 0, 0, .3);
+    border-color: #aaa \9
+}
+
+#user_top {
+    margin-bottom: 12px
+}
+
+#user_top a {
+    float: left;
+    margin-right: 10px
+}
+
+#user_top a, #user_top a img {
+    width: 32px;
+    height: 32px
+}
+
+#user_top h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 32px
+}
+
+#reminder {
+    margin-bottom: 15px
+}
+
+#reminder li {
+    margin: 10px 0
+}
+
+#reminder li a {
+    padding: 2px 3px 1px 8px;
+    border-bottom: 2px solid #ffed00
+}
+
+#reminder li a, #reminder li a:hover {
+    background: #fffcaa
+}
+
+#iconset img {
+    margin-right: 5px
+}
+
+#user_infos {
+    width: 211px;
+    margin: 0 8px 1em 0;
+    word-break: break-all;
+    overflow: hidden;
+    -o-text-overflow: ellipsis
+}
+
+#user_infos li {
+    margin: .5em 0
+}
+
+#user_infos li.collapse {
+    display: none
+}
+
+#user_stats {
+    width: 216px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    padding-top: 10px;
+    *zoom: 1
+}
+
+#user_stats:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#user_stats li {
+    float: left;
+    width: 60px;
+    margin: 0 8px 0 -7px;
+    padding: 0 4px 0 6px;
+    border-left: 1px solid #b2d1a3
+}
+
+#user_stats a {
+    display: block;
+    width: 60px;
+    padding-bottom: 1px
+}
+
+#user_stats a:hover {
+    text-decoration: none
+}
+
+#user_stats .count {
+    display: block;
+    color: #222;
+    font-size: 20px;
+    font-family: Times New Roman, Times, serif;
+    font-weight: 700
+}
+
+#user_stats a:hover .count {
+    color: #06c
+}
+
+#footer {
+    margin: 1.25em 0
+}
+
+#footer .ui-roundedbox-content {
+    width: 765px;
+    padding: 1px 0;
+    color: #fff;
+    text-align: center
+}
+
+#footer p {
+    display: inline;
+    margin-right: 1em;
+    color: #333
+}
+
+#footer a {
+    margin-left: .25em;
+    text-decoration: none
+}
+
+.narrowlook #footer {
+    margin: 2.5em 0 0
+}
+
+.narrowlook #footer .police-info, .narrowlook #footer p {
+    display: none
+}
+
+.narrowlook #footer .ui-roundedbox-content {
+    width: 590px
+}
+
+#miibeian {
+    color: #ddd
+}
+
+.errmsg, .sysmsg {
+    _clear: both;
+    _margin: 0 0 10px;
+    _padding: 5px 10px;
+    _border: 1px solid #ffed00;
+    _background: #fffaaa;
+    _font-size: 16px !important;
+    _color: #000
+}
+
+.errmsg {
+    _border: 1px solid #dd3c10;
+    _background: #ffebe8
+}
+
+.errmsg p, .sysmsg p {
+    _margin: 5px 0;
+    _line-height: 20px
+}
+
+.errmsg, .sysmsg {
+    display: hidden;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: auto;
+    padding: 8px 15px !important;
+    text-align: center;
+    -webkit-border-bottom-right-radius: 5px;
+    border-left: none !important;
+    border-top: none !important;
+    z-index: 5
+}
+
+.sysmsg {
+    background-color: #fffaaa
+}
+
+.errmsg {
+    background-color: #ffebe8
+}
+
+.sysnotice {
+    clear: both;
+    margin: 0 0 10px;
+    padding: 5px 10px;
+    border: 1px solid #ffed00;
+    background: #fffcaa
+}
+
+.sysnotice ul {
+    padding-left: 15px;
+    line-height: 165%
+}
+
+p.guide {
+    margin: 5px 10px
+}
+
+.tabs {
+    position: relative;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #acdae5;
+    *zoom: 1
+}
+
+#body .tabs {
+    margin-bottom: 15px
+}
+
+.tabs:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+.tabs a.crumb {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0 .5em;
+    font-size: 12px
+}
+
+.tabs ul {
+    position: relative;
+    list-style: none;
+    margin-bottom: -1px;
+    font-size: 14px;
+    text-align: center
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .tabs ul {
+        margin-bottom: -2px
+    }
+}
+
+.tabs li {
+    display: inline;
+    margin-right: 2px
+}
+
+.tabs li a {
+    display: inline-block;
+    height: 21px;
+    margin: 5px 0 0;
+    padding: 1px 12px 0;
+    background: #acdae5;
+    border: 1px solid #acdae5;
+    color: #222;
+    text-decoration: none;
+    line-height: 21px;
+    vertical-align: bottom
+}
+
+.tabs li a:hover {
+    background: #fff;
+    color: #ff7031
+}
+
+.tabs li.current a {
+    margin: 0;
+    padding: 4px 12px 2px;
+    border-bottom: 1px solid #fff;
+    background: #fff
+}
+
+#timeline-head {
+    margin: 12px 0 5px;
+    font-size: 16px;
+    color: #666
+}
+
+#timeline-notification {
+    margin-bottom: 16px
+}
+
+#timeline-notification a {
+    display: block;
+    padding: .5em 1em;
+    text-decoration: none;
+    background: #ffc;
+    border-color: #eeb;
+    border-style: solid none;
+    border-width: 1px 0;
+    color: #333
+}
+
+#timeline-notification a:hover {
+    background: #ffa;
+    text-decoration: none;
+    color: #000;
+    border-color: #dd9
+}
+
+#stream h3 {
+    padding: 2px 0 5px 3px;
+    color: #666;
+    font-size: 14px;
+    border-bottom: 1px dashed #ddd;
+    font-weight: 700
+}
+
+#stream ol {
+    list-style: none;
+    *zoom: 1
+}
+
+#stream li {
+    position: relative;
+    z-index: 0;
+    width: 445px;
+    padding: 12px 50px 12px 5px;
+    border-bottom: 1px dashed #ddd;
+    font-size: 14px;
+    overflow: hidden;
+    overflow-x: hidden;
+    -o-text-overflow: ellipsis
+}
+
+#search-stream .wa {
+    border-top: 1px dashed #ddd
+}
+
+#stream li a.avatar {
+    float: left;
+    margin-left: -59px;
+    margin-top: 3px;
+    overflow: hidden
+}
+
+#stream li a.name {
+    font-weight: 700
+}
+
+#stream li span.content {
+    text-overflow: ellipsis;
+    white-space: pre-line
+}
+
+#stream li span.content a.photo {
+    float: right;
+    margin-left: 5px;
+    overflow: hidden
+}
+
+span.op a {
+    font-size: 12px;
+    color: #999;
+    text-decoration: none
+}
+
+span.op a:hover {
+    background-color: transparent;
+    text-decoration: underline
+}
+
+span.op a.reply {
+    display: inline-block;
+    display: -moz-inline-stack;
+    width: 40px;
+    height: 16px;
+    overflow: hidden;
+    background: url(//static2.fanfou.com/img/msgicons.svg) 0 0 no-repeat;
+    font-size: 0 !important;
+    line-height: 0;
+    text-indent: -999em;
+    vertical-align: middle;
+    *zoom: 1
+}
+
+span.op a.reply:hover {
+    background-position: -40px 0
+}
+
+span.op a.repost {
+    display: inline-block;
+    display: -moz-inline-stack;
+    width: 40px;
+    height: 16px;
+    overflow: hidden;
+    background: url(//static2.fanfou.com/img/msgicons.svg) 0 -64px no-repeat;
+    font-size: 0 !important;
+    line-height: 0;
+    text-indent: -999em;
+    vertical-align: middle;
+    *zoom: 1
+}
+
+span.op a.repost:hover {
+    background-position: -40px -64px
+}
+
+#stream .wa li {
+    width: 388px;
+    padding: 9px 50px 12px 62px;
+    overflow: hidden
+}
+
+#stream .wa li.sys {
+    width: 433px;
+    min-height: 0;
+    padding: 12px 5px 12px 62px
+}
+
+#stream .wa li:after, #stream li:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#stream .wa li, #stream li {
+    *zoom: 1;
+    word-wrap: break-word;
+    min-height: 50px
+}
+
+#stream li span.avatar {
+    float: left;
+    margin-left: -55px;
+    overflow: hidden
+}
+
+#stream.message h2 {
+    padding: 0;
+    border: none;
+    color: #576166;
+    font-size: 16px
+}
+
+#stream.message li a.avatar img {
+    display: block;
+    width: 48px;
+    height: 48px
+}
+
+#stream.message li a.author {
+    float: left;
+    margin-right: .3em
+}
+
+#stream.message li.last-more, #stream.message li.last-refresh {
+    border-bottom: 1px solid #ddd
+}
+
+#stream.message li.buffered {
+    display: none
+}
+
+#stream.search li {
+    width: auto;
+    padding-right: 5px
+}
+
+#stream.message li .content strong, #stream.search li dl strong {
+    color: red;
+    font-weight: 400
+}
+
+#stream.message li .content strong a.former, #stream.message li .content strong a.nickquery, #stream.search li dl strong a.former, #stream.search li dl strong a.nickquery {
+    color: red !important;
+    font-weight: 400 !important
+}
+
+#stream.search li dt {
+    margin: .2em 0;
+    font-weight: 700
+}
+
+#stream.search li dd {
+    margin: .15em 0;
+    font-size: 12px
+}
+
+#stream.search li.unlight dd.lastmsg {
+    color: #999
+}
+
+#stream.search li dd label {
+    float: left;
+    width: 5em
+}
+
+#stream li .op, #stream li .op a {
+    display: block
+}
+
+#stream li .op {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 1
+}
+
+#stream .wa li .op {
+    top: 2px
+}
+
+#stream li .op a {
+    margin-top: 4px;
+    visibility: hidden
+}
+
+#stream li.light {
+    background: #f5f5f5
+}
+
+#stream li.unlight span.op a {
+    visibility: hidden
+}
+
+#stream li.light span.op a, #stream li.unlight span.op .star {
+    visibility: visible
+}
+
+#stream li.light span.op .star {
+    visibility: hidden
+}
+
+.star {
+    position: absolute;
+    top: 12px;
+    right: 8px;
+    display: inline-block;
+    display: -moz-inline-stack;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    background: url(//static1.fanfou.com/img/icon_star.svg) 0 0 no-repeat;
+    font-size: 0 !important;
+    line-height: 0;
+    text-indent: -999em;
+    vertical-align: middle;
+    *zoom: 1
+}
+
+a.photo img {
+    padding: 2px;
+    border: 1px solid #ccc;
+    background: #fff;
+    _margin-bottom: 2px
+}
+
+.alist {
+    list-style: none
+}
+
+.alist li {
+    float: left;
+    margin: 0 3px 3px 0
+}
+
+.alist:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+.alist li a {
+    float: left;
+    width: 48px;
+    height: 72px;
+    overflow: hidden;
+    text-decoration: none
+}
+
+.alist li a img {
+    height: 48px
+}
+
+.alist li a span {
+    display: block;
+    text-align: center;
+    line-height: 175%;
+    white-space: nowrap
+}
+
+.alist {
+    *zoom: 1
+}
+
+.paginator {
+    list-style: none;
+    padding: 20px 0 10px;
+    white-space: nowrap;
+    text-align: right
+}
+
+.paginator li {
+    display: inline;
+    margin: 0 1px;
+    *vertical-align: middle
+}
+
+.paginator li.current {
+    *height: 24px;
+    margin: 0 6px;
+    font-weight: 700;
+    *line-height: 24px
+}
+
+.paginator li a {
+    *display: inline-block;
+    *height: 22px;
+    padding: 3px 6px 4px;
+    *padding: 0 6px;
+    border: 1px solid #bbb;
+    text-decoration: none;
+    *line-height: 22px;
+    *position: relative
+}
+
+.paginator li a:hover {
+    *height: 24px;
+    padding: 4px 7px 5px;
+    *padding: 0 7px;
+    border: none;
+    *line-height: 24px
+}
+
+.paginator li a.nolink {
+    color: #ccc;
+    cursor: default
+}
+
+.paginator li a.nolink:hover {
+    background: transparent;
+    *height: 22px;
+    padding: 3px 6px 4px;
+    *padding: 0 6px;
+    border: 1px solid #ccc;
+    *line-height: 22px
+}
+
+.pagination {
+    margin-top: 15px
+}
+
+.pagination .more {
+    display: block;
+    height: 22px;
+    line-height: 1.5em;
+    margin-bottom: 6px;
+    background: #fff url(//static2.fanfou.com/img/bg-more.gif) repeat-x 0 0;
+    border: 1px solid #ddd;
+    border-color: #ddd #aaa #aaa #ddd;
+    font-size: 14px;
+    padding: 6px 0;
+    text-align: center;
+    text-decoration: none;
+    -moz-border-radius: 5px;
+    outline: none;
+    float: left
+}
+
+.pagination .more:hover {
+    border: 1px solid #bbb;
+    color: #06c;
+    text-decoration: none;
+    background-position: left -78px
+}
+
+.pagination .more:active {
+    color: #666;
+    background-position: left -38px
+}
+
+.pagination .more-left {
+    width: 405px
+}
+
+.pagination .more-right {
+    width: 89px;
+    margin-left: 2px
+}
+
+.pagination .more-browse {
+    width: 100%
+}
+
+.pagination .loading {
+    cursor: default;
+    border: 1px solid #eee
+}
+
+.pagination .loading, .pagination .loading:hover {
+    background: #fff url(//static2.fanfou.com/img/ajax.gif) no-repeat 50% 50%
+}
+
+.pagination .loading:hover {
+    text-decoration: none
+}
+
+.pagination .no-more {
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    font-size: 14px
+}
+
+#content {
+    min-height: 250px;
+    _height: 250px;
+    padding: 10px;
+    border: 1px solid #acdae5;
+    background: #fff;
+    *zoom: 1
+}
+
+#content:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#content.impact {
+    padding: 0
+}
+
+#content h2 {
+    padding: 5px 10px;
+    border-bottom: 1px solid #ccc;
+    color: #444;
+    font-size: 15px
+}
+
+#content.impact h2 {
+    padding: 8px 15px
+}
+
+#content .board {
+    width: 500px;
+    margin: 1em auto 2em;
+    font-size: 12px;
+    line-height: 150%
+}
+
+.narrowlook .board {
+    width: 400px;
+    margin: 0 auto;
+    padding: 1em 0 3em
+}
+
+.board h2 {
+    margin: 10px 0;
+    border-bottom: 1px solid #ccc;
+    color: #444;
+    font-size: 16px;
+    line-height: 200%
+}
+
+#content .board p {
+    margin: 1em 0
+}
+
+.board ul {
+    margin: 1.75em 0;
+    padding-left: 2em;
+    line-height: 175%
+}
+
+#content .board ol {
+    margin: 1em 0;
+    padding-left: 2em
+}
+
+#content .board li {
+    margin: .2em 0
+}
+
+#content .board a {
+    font-weight: 700
+}
+
+#sign-in .ui-roundedbox-content {
+    padding: 15px 0
+}
+
+#sign-in h2 {
+    margin: 0 50px 10px;
+    border-bottom: 1px solid #ccc;
+    color: #444;
+    font-size: 16px;
+    line-height: 200%
+}
+
+#sign-in #loginname, #sign-in #loginpass {
+    width: 200px
+}
+
+#resetpass {
+    margin-left: 5px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 26px;
+    text-decoration: none
+}
+
+#sign-up .ui-roundedbox-content {
+    padding: 15px 0
+}
+
+#sign-up h2 {
+    margin: 0 50px 25px;
+    border-bottom: 1px solid #ccc;
+    color: #444;
+    font-size: 16px;
+    line-height: 200%
+}
+
+#sign-up h3 {
+    color: #444;
+    font-size: 14px;
+    margin: 4px 0 8px
+}
+
+#sign-up label {
+    color: #666
+}
+
+#sign-up label.label_input {
+    padding-top: 1px;
+    *padding-top: 3px
+}
+
+#sign-up div.email {
+    position: relative;
+    z-index: 2;
+    *zoom: 1;
+    line-height: 26px
+}
+
+#sign-up span.hint {
+    _padding-left: 3px
+}
+
+#sign-up #invitation {
+    padding: 0 50px
+}
+
+#sign-up #invitation .denymail {
+    font-size: 14px;
+    margin: 20px 0 50px;
+    border: 1px solid #ccc;
+    padding: 2px 90px
+}
+
+#sign-up #invitation .denymail .succ {
+    margin: 9px 0;
+    padding-left: 28px;
+    background: transparent url(//static2.fanfou.com/img/signup-right.png) no-repeat scroll 5px
+}
+
+#sign-up #invitation .top {
+    font-size: 14px
+}
+
+#sign-up #invitation .bottom {
+    color: #999
+}
+
+#sign-up #host {
+    margin: 15px 0 25px;
+    padding: 7px 10px 10px;
+    border: 1px solid #ffc600;
+    background: #feffc7;
+    *zoom: 1
+}
+
+#sign-up #host:after, #update .act:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#sign-up .error input {
+    border-color: red
+}
+
+#sign-up .image {
+    float: left;
+    margin: 3px 10px 0 0
+}
+
+#sign-up .info {
+    float: left;
+    width: 410px
+}
+
+#sign-bottom {
+    margin: 30px 50px 0;
+    padding: 30px 0 30px 155px;
+    border-top: 1px solid #ccc;
+    font-size: 14px
+}
+
+#sign-up .email-tip {
+    display: none;
+    left: 170px;
+    _left: 173px;
+    top: 17px;
+    *top: 16px;
+    _top: 17px;
+    width: 187px
+}
+
+#sign-up .email-auto {
+    position: absolute;
+    display: none;
+    left: 170px;
+    _left: 173px;
+    top: 18px;
+    *top: 16px;
+    _top: 18px;
+    margin-top: 10px;
+    padding: 0;
+    width: 208px;
+    border: 1px solid #b0e0f0;
+    background: #e4f4fa;
+    color: #0a678a
+}
+
+#sign-up .email-auto strong {
+    text-decoration: underline
+}
+
+#sign-up .email-auto li {
+    margin: 0;
+    padding: 2px
+}
+
+#sign-up .email-auto li.alt {
+    background: #f5f5f5
+}
+
+#sign-up .email-auto li.current {
+    background: #06c;
+    color: #fff
+}
+
+#sign-up .icon-question {
+    position: absolute;
+    display: none;
+    overflow: hidden;
+    width: 18px;
+    height: 18px;
+    text-indent: -999em;
+    left: 359px;
+    _left: 189px;
+    top: 3px;
+    *top: 6px;
+    _top: 7px;
+    z-index: 3
+}
+
+#sign-up .icon-question:hover {
+    background: transparent
+}
+
+#sign-up input.input_text {
+    width: 200px
+}
+
+#sign-up .url-profile {
+    _margin-left: 173px
+}
+
+#sign-up .url-profile strong.available {
+    color: #090
+}
+
+#sign-up .url-profile strong.unavailable {
+    color: red
+}
+
+#sign-up #email-hint, #sign-up #loginname-hint, #sign-up #loginpass-hint, #sign-up #realname-hint, #sign-up #verifypass-hint {
+    font-family: Tahoma;
+    padding: 1px 0 1px 25px;
+    color: #666;
+    *padding-top: 5px;
+    _padding-bottom: 5px
+}
+
+#sign-up #register .right {
+    background: url(//static2.fanfou.com/img/signup-right.png) no-repeat 5px;
+    color: #090
+}
+
+#sign-up #register .wrong {
+    background: url(//static1.fanfou.com/img/signup-wrong.png) no-repeat 5px;
+    color: #c66
+}
+
+#sign-up #register .warning {
+    color: red
+}
+
+#sign-up .loading {
+    background: url(//static1.fanfou.com/img/signup-loading.gif) no-repeat 5px
+}
+
+#sign-up .signup-submit {
+    width: 225px;
+    height: 35px;
+    background: url(//static1.fanfou.com/img/signup-button.png) no-repeat 0;
+    padding: 0;
+    border: none;
+    color: #222;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+#sign-up p.act {
+    _margin-left: 173px
+}
+
+#congrats {
+    padding: 20px 0 40px;
+    text-align: center
+}
+
+#congrats h1 a {
+    display: block;
+    width: 160px;
+    height: 125px;
+    margin: 0 auto;
+    background: url(//static2.fanfou.com/img/register_finished.gif) no-repeat 50%;
+    text-indent: -999em;
+    overflow: hidden
+}
+
+#congrats h1 a:hover {
+    background-color: transparent
+}
+
+#congrats h2 {
+    margin: 0 0 30px;
+    color: #444;
+    font-size: 28px;
+    line-height: 150%
+}
+
+#congrats p {
+    color: #ccc
+}
+
+a.blue-button {
+    display: block;
+    margin: 10px auto;
+    width: 140px;
+    background: url(//static1.fanfou.com/img/blue_button.gif) no-repeat 50%;
+    height: 32px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 32px;
+    text-align: center;
+    text-decoration: none
+}
+
+#gohome {
+    margin: 50px auto 20px
+}
+
+.ff {
+    font-size: 12px;
+    line-height: 150%
+}
+
+.ff h2 {
+    padding: 5px 0;
+    font-size: 14px;
+    font-weight: 400
+}
+
+.ff h2, .ff p {
+    margin: .8em 0
+}
+
+.ff ol, .ff ul {
+    margin: 1em 0;
+    padding-left: 2.5em
+}
+
+.ff li {
+    margin: .2em 0
+}
+
+#systip {
+    position: relative;
+    margin: 0 0 10px;
+    padding: .5em 1em;
+    border: 3px solid #acdae5;
+    background: #f9fffa
+}
+
+#systip h3 {
+    padding: .2em 0;
+    font-size: 14px
+}
+
+#systip div {
+    padding: .5em 0;
+    border-top: 1px solid #eee;
+    line-height: 1.25em
+}
+
+#systip div form p {
+    margin: 5px 0
+}
+
+#systip div form p.act {
+    text-align: center
+}
+
+.newbievote {
+    padding-left: 2em
+}
+
+.newbievote ul {
+    list-style: none
+}
+
+.newbievote li {
+    margin: 6px 0
+}
+
+.newbievote label input {
+    margin-right: 3px;
+    *margin-right: 0
+}
+
+#systip div form.newbievote p {
+    margin-top: 15px
+}
+
+#newsfeed {
+    position: relative;
+    width: 500px;
+    margin: 0 0 3em
+}
+
+#newsfeed h3 {
+    padding: 0 0 5px;
+    font-size: 14px
+}
+
+#newsfeed h3 .actions {
+    margin-left: 2em;
+    font-weight: 400
+}
+
+#newsfeed ul {
+    list-style-type: none;
+    border-top: 1px solid #ddd
+}
+
+#newsfeed li {
+    height: 2em;
+    position: relative;
+    clear: both;
+    padding-left: 1.5em;
+    border-bottom: 1px dashed #ddd;
+    background: url(//static2.fanfou.com/img/bgsprite.gif) 5px -197px no-repeat;
+    line-height: 2em;
+    *zoom: 1
+}
+
+#newsfeed li span.content span {
+    float: left;
+    width: 12em
+}
+
+#newsfeed li a.hide {
+    position: absolute;
+    top: 6px;
+    right: 0;
+    width: 13px;
+    height: 13px;
+    background: url(//static2.fanfou.com/img/bgsprite.gif) 0 -132px no-repeat;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -999em
+}
+
+#newsfeed li a.hide:hover {
+    background-position: 0 -145px
+}
+
+#newsfeed p.close, #systip p.close {
+    position: absolute;
+    right: 0;
+    top: 3px
+}
+
+#systip p.close {
+    right: 14px;
+    _right: 36px;
+    top: 10px
+}
+
+#newsfeed p.close a.close {
+    display: block;
+    width: 13px;
+    height: 13px;
+    background: url(//static2.fanfou.com/img/bgsprite.gif) 0 0 no-repeat;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -999em
+}
+
+#newsfeed p.close a.close:hover {
+    background-position: 0 -12px
+}
+
+#newsfeed-showmore-act {
+    position: relative;
+    padding: 3px 0;
+    background-color: #f2f2f2
+}
+
+#newsfeed-showmore-act a {
+    padding-left: 20px;
+    background-image: url(//static2.fanfou.com/img/bgsprite.gif);
+    background-position: 6px -71px;
+    background-repeat: no-repeat
+}
+
+#newsfeed-showmore-act span {
+    position: absolute;
+    right: 4px;
+    top: 2px
+}
+
+#update {
+    width: 500px;
+    margin: 0 0 10px
+}
+
+#update h2 {
+    font-size: 16px
+}
+
+#update h2 select {
+    font-weight: 400
+}
+
+#update form {
+    position: relative
+}
+
+#update p {
+    margin: .6em 0
+}
+
+#update textarea {
+    width: 490px;
+    height: 3.6em;
+    font-size: 14px
+}
+
+#update .act {
+    padding: 0 0 5px;
+    *zoom: 1
+}
+
+#update .act .actpost {
+    float: right;
+    width: 150px;
+    text-align: right
+}
+
+#update .act .lastmsg {
+    margin-right: 160px;
+    color: #666;
+    word-wrap: break-word;
+    text-overflow: ellipsis
+}
+
+#update .act .lastmsg p {
+    line-height: 1.2
+}
+
+#update a {
+    color: #666
+}
+
+#update .act .time {
+    color: #999
+}
+
+#PopupBox #PopupForm .loading, #update .act .loading {
+    margin-right: 5px;
+    visibility: hidden
+}
+
+#update .act .loading-l {
+    margin-left: 5px;
+    visibility: hidden
+}
+
+#update:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#lastmsg {
+    float: left;
+    width: 360px;
+    color: #666;
+    line-height: 1.5em;
+    text-align: left;
+    overflow: hidden
+}
+
+#update .tip {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    color: #999;
+    line-height: 20px
+}
+
+#update .tip .counter {
+    color: #444;
+    font-size: 20px;
+    font-family: Times New Roman, Times, serif;
+    font-weight: 700
+}
+
+#update .caution, #update .caution .counter {
+    color: #c00
+}
+
+#update .formbutton {
+    width: 115px;
+    height: 32px;
+    border: 0;
+    background: url(//static1.fanfou.com/img/button-send.gif) 0 0 no-repeat;
+    color: #444;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: .5em
+}
+
+#update .formbutton:hover {
+    color: #000
+}
+
+#update .forbidden, #update .forbidden:hover {
+    color: #999;
+    cursor: default
+}
+
+.news {
+    margin: 0 0 10px;
+    padding: 10px;
+    border: 1px solid #acdae5;
+    background: #fff;
+    color: green;
+    font-weight: 700
+}
+
+.news a {
+    font-weight: 400
+}
+
+#content .news {
+    border-color: #ffed00;
+    background: #fffcaa
+}
+
+#info {
+    padding: 0 0 5px
+}
+
+#info, #staticmap {
+    position: relative;
+    *zoom: 1
+}
+
+#staticmap {
+    margin: 5px;
+    width: 310px;
+    height: 260px;
+    padding: 0 0 0 120px
+}
+
+#staticmap_a:hover {
+    background-color: #fff;
+    padding: 0;
+    margin: 0
+}
+
+#img_staticmap {
+    padding: 4px;
+    border: 1px solid #ccc
+}
+
+#info:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#fname {
+    color: #999
+}
+
+#fname, #relation {
+    font-size: 12px;
+    font-weight: 400
+}
+
+#relation {
+    margin: 0 0 0 .2em
+}
+
+#info #avatar {
+    float: left;
+    border: 1px solid #999;
+    background: #fff;
+    overflow: hidden
+}
+
+#info #avatar img {
+    _float: left;
+    width: 96px;
+    height: 96px
+}
+
+#panel {
+    float: left;
+    width: 382px;
+    margin: 0 0 0 20px;
+    padding: 5px 0 0;
+    *zoom: 1
+}
+
+#panel:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#panel h1 {
+    font-size: 26px;
+    line-height: 30px
+}
+
+#panel p.actions {
+    margin: 5px 0;
+    *zoom: 1
+}
+
+#panel p.actions:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#panel p.actions a {
+    margin-right: .75em
+}
+
+#panel #relation {
+    margin: 8px 0 5px;
+    color: #666
+}
+
+#panel #relation .actions {
+    margin-left: 2em
+}
+
+#panel #relation .actions a {
+    margin-right: .5em;
+    padding: 1px 2px 2px;
+    border: 1px solid #fff;
+    color: #bbb;
+    text-decoration: none
+}
+
+#panel #relation .actions a:hover {
+    border-color: #c99;
+    background: #fdd;
+    color: #c00
+}
+
+.rssfeed {
+    margin: 10px 0 0;
+    padding-left: 20px;
+    *padding-top: 3px;
+    background: url(//static1.fanfou.com/img/feed-icon.png) 0 50% no-repeat;
+    *zoom: 1
+}
+
+#sidebar .rssfeed {
+    margin: 0
+}
+
+#latest {
+    margin-left: 115px;
+    _zoom: 1
+}
+
+#latest h1 {
+    padding: 0 10px 8px;
+    font-size: 16px;
+    line-height: 120%
+}
+
+#latest h2 {
+    position: relative;
+    padding: 0 60px 30px 10px;
+    font-size: 14px;
+    font-weight: 400;
+    word-wrap: break-word;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    *zoom: 1
+}
+
+#latest h2 .content {
+    white-space: pre-line
+}
+
+#latest .deleted {
+    padding: 20px 10px
+}
+
+#latest h2:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#latest h2 a.photo {
+    float: right
+}
+
+#latest h2 a.photo img {
+    display: block;
+    max-width: 100px;
+    _width: 100px
+}
+
+#latest .stamp {
+    display: block;
+    margin-top: 3px
+}
+
+#latest .op {
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    z-index: 1
+}
+
+#latest .op a {
+    display: block;
+    margin-bottom: 8px
+}
+
+#topbox {
+    background: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -webkit-border-top-left-radius: 10px;
+    margin-left: 0 !important
+}
+
+.bottombox {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    height: 15px;
+    background-color: #fff
+}
+
+#reply-bottombox {
+    padding: 0 20px 7px 10px;
+    border-top: 1px solid #d3d3d3;
+    background: #f9f9f9;
+    position: relative;
+    color: #666;
+    height: auto !important
+}
+
+#reply-bottombox .message {
+    _filter: Alpha(opacity=100);
+    _-moz-opacity: 0;
+    _opacity: 0
+}
+
+#reply-bottombox h3 {
+    padding: 12px 0 9px 30px;
+    width: 84px;
+    border-right: 3px solid #d3d3d3
+}
+
+#reply-bottombox ol {
+    left: 114px;
+    position: relative;
+    list-style: none
+}
+
+#reply-bottombox ol li {
+    width: 398px !important;
+    position: relative;
+    padding-bottom: 18px;
+    padding-left: 48px;
+    border-left: 3px solid #d3d3d3
+}
+
+#reply-bottombox ol li a.avatar {
+    float: left;
+    margin-left: -36px
+}
+
+#reply-bottombox ol li span.content {
+    word-wrap: break-word;
+    text-overflow: ellipsis
+}
+
+#reply-bottombox ol li a img {
+    width: 32px;
+    height: 32px
+}
+
+#reply-bottombox ol li.list-last {
+    border-left: 3px solid #f9f9f9
+}
+
+.replymsg .op {
+    display: block;
+    text-align: right
+}
+
+.replymsg .op a.delete, .replymsg .op a.reply, .replymsg .op a.repost, .replymsg .op a.share {
+    color: #999;
+    background: none;
+    font-size: 1em !important;
+    line-height: 14px
+}
+
+.replymsg .op a.faved {
+    width: 56px
+}
+
+.replymsg .op .star {
+    display: none
+}
+
+.reply-time {
+    background: url(//static2.fanfou.com/img/replylog-dot.png) no-repeat 110px 1px;
+    text-align: right;
+    position: absolute;
+    top: 0;
+    left: -118px;
+    width: 104px;
+    padding-right: 20px
+}
+
+.reply-time a {
+    text-decoration: none;
+    color: #999
+}
+
+#album {
+    padding: 0 10px;
+    border-top: 1px solid #ccc
+}
+
+#album table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 100%
+}
+
+#album td {
+    padding: 10px 0;
+    text-align: center;
+    overflow: hidden
+}
+
+#album img {
+    padding: 4px
+}
+
+#album a.photo {
+    display: inline-block
+}
+
+#album a.photo.gif {
+    position: relative
+}
+
+#album a.photo.gif:after {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    content: "GIF";
+    color: #fff;
+    font: 11px/16px Helvetica Neue, Arial;
+    font-weight: 200;
+    padding: 0 6px;
+    background: #000;
+    opacity: .6;
+    display: inline-block;
+    border-radius: 2px 0 0 0
+}
+
+.howto {
+    margin: 10px 0 0;
+    padding: 20px 10px;
+    border-top: 1px solid #ccc;
+    text-align: center
+}
+
+.howto .paipai {
+    display: inline;
+    padding: 10px 0 10px 32px;
+    background: url(//static2.fanfou.com/img/mp.gif) 0 50% no-repeat
+}
+
+.howto .paipai a {
+    font-weight: 700
+}
+
+#crumb {
+    padding: 1em 1em 0;
+    padding-left: 70px
+}
+
+#crumb:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#crumb {
+    *zoom: 1
+}
+
+#crumb a.avatar {
+    float: left;
+    margin-left: -60px
+}
+
+#crumb h3 {
+    font-size: 16px;
+    line-height: 24px
+}
+
+#crumb h4 {
+    float: left;
+    padding-bottom: 10px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px
+}
+
+#crumb ul {
+    float: right;
+    list-style: none;
+    line-height: 2em
+}
+
+#crumb ul li {
+    display: inline;
+    margin: 0 .5em
+}
+
+#photo {
+    padding: .5em 0 0;
+    border-top: 1px solid #ccc
+}
+
+#photo h2.deleted {
+    padding: 100px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center
+}
+
+#photo p.view {
+    margin: 1em 0;
+    text-align: center
+}
+
+#photo p.view img {
+    border: 1px solid #ccc
+}
+
+#photo p.description, #photo p.stamp {
+    margin: .4em 9.5em
+}
+
+#photo p.stamp {
+    color: #999
+}
+
+#photo p.op {
+    position: relative;
+    top: -1.9em;
+    left: 370px;
+    width: 240px;
+    text-align: right
+}
+
+#photo p.op a {
+    margin-left: .8em
+}
+
+#bookmark-this {
+    margin: 1em 0 .5em;
+    padding: 1em 1.5em;
+    background: #f5f5f5;
+    *zoom: 1
+}
+
+#bookmark-this:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#bookmark-this .button {
+    float: left;
+    width: 120px;
+    padding: .5em 0 0
+}
+
+#bookmark-this .desc {
+    float: right;
+    width: 320px;
+    color: #666
+}
+
+#stream.pm ol li.latest {
+    background: #ffa
+}
+
+#stream.pm ol p.pm-parent {
+    margin-top: .5em;
+    padding: .5em .8em;
+    background: #eee;
+    color: #666;
+    font-size: 12px;
+    line-height: 125%
+}
+
+#update .pm {
+    margin: 0 0 2em
+}
+
+.actions {
+    font-size: 12px
+}
+
+#stream .actions {
+    margin-top: 10px;
+    *zoom: 1
+}
+
+.actions .bh, .actions .bl-long {
+    margin-right: .75em
+}
+
+.actions .follower-remove, .actions .friend-deny, .actions .friend-remove {
+    display: block;
+    float: right;
+    width: 55px;
+    height: 20px;
+    background-color: #eee;
+    color: #666;
+    text-decoration: none;
+    text-align: center
+}
+
+.actions .close-notice, .actions .open-notice {
+    display: block;
+    float: right;
+    width: 140px;
+    height: 20px;
+    margin-right: .75em;
+    background-color: #eee;
+    text-decoration: none;
+    text-align: center
+}
+
+.actions .close-notice {
+    color: #666
+}
+
+.actions .close-notice:hover, .actions .follower-remove:hover, .actions .friend-deny:hover, .actions .friend-remove:hover {
+    background-color: #eee;
+    color: #666;
+    text-decoration: underline
+}
+
+.actions .open-notice:hover {
+    background-color: #eee
+}
+
+#headline {
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 700
+}
+
+#slogan {
+    list-style: none;
+    margin: 2em 0 2em 1em;
+    padding: 0 0 10px 15px;
+    *zoom: 1
+}
+
+#slogan:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#slogan li {
+    float: left;
+    width: 148px;
+    padding: 115px 0 0
+}
+
+#slogan li p {
+    color: #444;
+    font-size: 14px;
+    text-align: center
+}
+
+#slogan li#what {
+    background: url(//static1.fanfou.com/img/illus-what.png) top no-repeat
+}
+
+#slogan li#who {
+    background: url(//static1.fanfou.com/img/illus-who.png) top no-repeat
+}
+
+#slogan li#how {
+    background: url(//static1.fanfou.com/img/illus-how.png) top no-repeat
+}
+
+#get-started {
+    padding: 20px 0 30px
+}
+
+#get-started a {
+    display: block;
+    width: 153px;
+    height: 44px;
+    margin: 0 auto;
+    background: url(//static1.fanfou.com/img/button-register.png) 50% no-repeat;
+    text-indent: -9999em;
+    overflow: hidden
+}
+
+#featured {
+    position: relative;
+    width: 454px;
+    padding: 15px 20px 20px
+}
+
+#featured h2 {
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #ddd;
+    color: #444;
+    line-height: 2em
+}
+
+#featured .alist {
+    margin-right: -10px
+}
+
+#featured .alist li {
+    margin-right: 10px
+}
+
+#featured .alist a {
+    background: #fff;
+    color: #06c
+}
+
+#featured .more {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+    text-decoration: none
+}
+
+#content #search-header {
+    padding: 0 0 10px;
+    border: 0;
+    font-size: 16px
+}
+
+#searchpanel {
+    position: relative;
+    z-index: 1;
+    *zoom: 1;
+    margin-bottom: 1em;
+    border: 1px solid #cfe1e5
+}
+
+#search-switch, #searchpanel {
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px
+}
+
+#searchpanel, #searchpanel .act {
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-right-radius: 5px
+}
+
+#searchpanel .input_text {
+    float: left;
+    width: 340px
+}
+
+#searchpanel .formbutton {
+    float: right;
+    width: 75px;
+    *padding: .25em
+}
+
+#searchpanel p {
+    *zoom: 1
+}
+
+#searchpanel p:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#searchpanel #search-switch {
+    height: 25px;
+    margin: 0;
+    padding: 5px 50px 0;
+    border-bottom: 1px solid #cfe1e5;
+    background: #daedf2;
+    font-size: 14px;
+    *zoom: 1
+}
+
+#searchpanel .act {
+    margin: 0;
+    padding: 12px 30px;
+    background: #fff
+}
+
+#search-switch strong {
+    color: #666
+}
+
+#search-switch a {
+    float: left;
+    _position: relative;
+    _top: 1px;
+    height: 24px;
+    _height: 23px;
+    padding: 0 15px;
+    text-decoration: none;
+    outline: none
+}
+
+#search-switch a:hover {
+    background: transparent;
+    color: #06c;
+    text-decoration: underline
+}
+
+#search-switch .current {
+    padding: 0 14px;
+    border: 1px solid #cfe1e5;
+    border-bottom: 1px solid #fff;
+    background: #fff;
+    color: #222;
+    text-decoration: none;
+    cursor: default;
+    -moz-border-radius-topleft: 3px;
+    -webkit-border-top-left-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    -webkit-border-top-right-radius: 3px
+}
+
+#search-switch .current:hover {
+    background: #f5f5f5;
+    color: #222;
+    text-decoration: none
+}
+
+#search-advanced {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    margin: 0
+}
+
+.search-loading {
+    margin-top: -28px;
+    background: url(//static2.fanfou.com/img/spinner.gif) 50% 50% no-repeat;
+    height: 28px
+}
+
+p.trends {
+    margin: 30px 0;
+    padding: 6px 10px;
+    border: 1px solid #cfe1e5;
+    background: #daedf2;
+    color: #444;
+    font-size: 14px;
+    text-align: center;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px
+}
+
+p.trends strong {
+    font-weight: 400
+}
+
+p.trends a {
+    margin-left: 1em
+}
+
+ul.trends li {
+    line-height: 24px
+}
+
+ul.trends li a {
+    font-size: 14px
+}
+
+#advancedsearch {
+    position: relative;
+    margin-bottom: 1em;
+    padding: 15px;
+    border: 1px solid #cfe1e5;
+    background: #f5f5f5;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px
+}
+
+#advancedsearch table {
+    width: 100%
+}
+
+#advancedsearch td {
+    padding: 5px 0;
+    vertical-align: top
+}
+
+#advancedsearch td.label {
+    color: #666;
+    width: 130px;
+    font-weight: 700;
+    line-height: 23px;
+    *line-height: 25px
+}
+
+#advancedsearch td.input p {
+    font-family: Tahoma;
+    margin: 0 0 6px
+}
+
+#advancedsearch td.input label {
+    margin-right: 2em
+}
+
+#advancedsearch #nickname {
+    display: none
+}
+
+#advancedsearch .keyword {
+    width: 322px
+}
+
+#advancedsearch .date {
+    width: 100px
+}
+
+#advancedsearch .err {
+    border-color: red
+}
+
+#advancedsearch td.act {
+    padding: 5px 0
+}
+
+#search-normal {
+    float: right;
+    line-height: 1.5em
+}
+
+#invite-page.inner-content {
+    padding: 25px 150px 20px
+}
+
+#invite-page.inner-content h2 {
+    margin: 5px 0 0;
+    padding: 0 5px;
+    border-bottom: 1px solid #ccc;
+    color: #666;
+    font-size: 14px;
+    line-height: 200%
+}
+
+#invite-page.inner-content h2.success {
+    padding-left: 30px;
+    background: url(//static2.fanfou.com/img/signup-right.png) no-repeat 5px 5px
+}
+
+#invite {
+    margin-top: 10px;
+    padding: 5px 20px;
+    background: #f7f7f7;
+    width: auto
+}
+
+#invite #sendto {
+    width: 390px
+}
+
+#invite-preview {
+    padding: 20px 0
+}
+
+#invite-page .board {
+    margin: 2.5em auto
+}
+
+#invite-page .board ul {
+    margin-top: .5em;
+    margin-left: 20px
+}
+
+#invite-page .nf .label_input {
+    text-align: left
+}
+
+.settings #avatar {
+    float: left;
+    vertical-align: top;
+    margin-right: 10px
+}
+
+#pro_bas_picture {
+    margin: 2px 0
+}
+
+#picture_hint {
+    color: #999
+}
+
+.settings #pro_bas_birthyear {
+    width: 4em
+}
+
+.settings textarea {
+    height: 3.7em
+}
+
+#acc_realname {
+    width: 120px
+}
+
+#acc_loginname {
+    width: 100px
+}
+
+.url strong {
+    color: #090
+}
+
+#pro_bas_detail, #pro_bas_website {
+    width: 320px
+}
+
+#setloginname #url {
+    margin-left: 170px
+}
+
+#setim .vcode {
+    padding: 0 .2em;
+    background: #fffcaa;
+    color: #090;
+    font-size: 1.5em;
+    letter-spacing: .1em
+}
+
+#setim .bindtip {
+    padding: 0 .2em;
+    font-size: 1.2em
+}
+
+#setim #acc_gtalkaddr, #setim #acc_imact, #setim #acc_msnaddr, #setim #acc_qqaddr {
+    margin-left: 170px
+}
+
+#settings-realname-notice .bd {
+    _zoom: 1
+}
+
+#settings-realname-notice .notice {
+    margin: 10px 0;
+    padding-left: 60px;
+    dheight: 50px;
+    background: url(//static1.fanfou.com/img/caution.gif) no-repeat 0 0
+}
+
+#settings-realname-notice .notice p {
+    margin: 10px 0
+}
+
+#settings-realname-notice .act {
+    text-align: right;
+    padding: 5px 0
+}
+
+#settings-realname-notice input.cancel {
+    margin-left: 10px
+}
+
+.settings #loginname-hint, .settings #realname-hint {
+    font-family: Tahoma;
+    padding: 1px 0 1px 25px;
+    *padding-top: 5px;
+    _padding-bottom: 5px
+}
+
+.settings .right {
+    background: url(//static2.fanfou.com/img/signup-right.png) no-repeat 5px;
+    color: #090
+}
+
+.settings .wrong {
+    background: url(//static1.fanfou.com/img/signup-wrong.png) no-repeat 5px;
+    color: #c66
+}
+
+.settings .loading {
+    background: url(//static1.fanfou.com/img/signup-loading.gif) no-repeat 5px
+}
+
+div.settings p.settings-sync {
+    padding-left: 170px;
+    width: 360px
+}
+
+div.settings p.settings-sync b {
+    font-size: 14px
+}
+
+#api {
+    width: 650px;
+    margin: 0 auto;
+    padding: 10px 0 20px
+}
+
+#api .guide {
+    border-bottom: 1px solid #eee;
+    *zoom: 1
+}
+
+#api .guide:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#api .gsect {
+    float: left;
+    width: 24%;
+    padding: 0 0 .5em
+}
+
+#api .gsect h4 {
+    margin: .5em 0;
+    font-size: 12px
+}
+
+#api .gsect h4, #api .gsect ol {
+    padding-left: 2em
+}
+
+#api h2 {
+    margin: .5em 0;
+    padding: .2em 0;
+    border-bottom: 1px solid #ccc;
+    color: #444;
+    font-size: 15px;
+    font-weight: 400
+}
+
+#api h3 {
+    margin: 1em 0
+}
+
+#api dl {
+    margin: 0;
+    padding: 0
+}
+
+#api dt {
+    margin: 1em 0;
+    border-bottom: 1px solid #eee;
+    font-size: 12px;
+    font-weight: 700
+}
+
+#api dd {
+    margin: .5em
+}
+
+#api ul {
+    list-style: none;
+    padding: 0
+}
+
+#api p {
+    margin: .5em 0
+}
+
+#basket {
+    float: left;
+    width: 180px;
+    padding: 0 0 20px
+}
+
+#basket h2 {
+    padding: 15px 10px 5px;
+    border-bottom: 1px solid #ccc;
+    color: #444;
+    font-size: 12px
+}
+
+#basket ul {
+    margin: 1.5em 0;
+    padding-left: 20px;
+    color: #999;
+    font-size: 13px
+}
+
+#basket li {
+    margin: .5em 0
+}
+
+#basket li ul {
+    margin: 1em 0;
+    padding-left: 15px;
+    font-size: 12px;
+    display: none
+}
+
+#basket li.current {
+    color: #000
+}
+
+#basket li.current ul {
+    display: block
+}
+
+div#help {
+    float: right;
+    width: 530px;
+    padding: 0 0 20px;
+    *overflow: hidden
+}
+
+div#help h2 {
+    position: relative;
+    margin: 0 0 10px;
+    padding: 15px 10px 5px;
+    border-bottom: 1px solid #ccc;
+    color: #444;
+    font-size: 14px;
+    font-weight: 400
+}
+
+div#help h2 a.back {
+    position: absolute;
+    font-size: 12px;
+    font-weight: 400;
+    right: 10px;
+    top: 16px
+}
+
+div#help h3 {
+    margin: .5em 0;
+    padding: .2em 0;
+    background: #eee;
+    font-size: 12px
+}
+
+div#help h4 {
+    margin: 10px 0;
+    border-bottom: 1px solid #ccc;
+    color: #444;
+    font-size: 14px;
+    line-height: 2em
+}
+
+div#help ol, div#help ul {
+    margin: 1.5em 0;
+    padding-left: 2.5em
+}
+
+div#help ul {
+    list-style: none
+}
+
+div#help li {
+    margin: 1em 0
+}
+
+div#help p {
+    margin: .8em 0
+}
+
+div#help p.shot img {
+    max-width: 496px;
+    _width: expression(this.width > 496 ? "496px":"auto");
+    padding: 1px;
+    border: 1px solid #666
+}
+
+#help-slide {
+    width: 680px;
+    margin: 0 auto;
+    padding: 0 0 20px
+}
+
+#help-slide h2 {
+    position: relative;
+    margin: 0 0 10px;
+    padding: 15px 10px 5px;
+    border-bottom: 1px solid #ccc;
+    color: #444;
+    font-size: 14px;
+    font-weight: 400
+}
+
+#help-slide h2 a.back {
+    position: absolute;
+    font-size: 12px;
+    font-weight: 400;
+    right: 10px;
+    top: 16px
+}
+
+ul#badgelist {
+    *zoom: 1;
+    list-style: none
+}
+
+ul#badgelist:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+ul#badgelist li {
+    float: left;
+    width: 85px;
+    height: 70px;
+    margin: 10px 5px 10px 0;
+    text-align: center
+}
+
+ul#badgelist li a:hover {
+    background: transparent;
+    color: #ff7031
+}
+
+ul#badgelist li a img {
+    padding: 2px;
+    border: 1px solid #fff
+}
+
+ul#badgelist li a:hover img {
+    border-color: #ff7031
+}
+
+ul#badgelist li span {
+    display: block;
+    text-decoration: none
+}
+
+#sharer {
+    width: 450px;
+    margin: 0 auto;
+    padding: 0 0 20px
+}
+
+#sharer h2 {
+    margin-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    line-height: 2em
+}
+
+#sharer p {
+    margin-bottom: 10px
+}
+
+#sharer .nf {
+    margin-left: -80px
+}
+
+#sharer .input_text, #sharer textarea {
+    width: 320px
+}
+
+#sharer textarea {
+    height: 4.8em
+}
+
+#popup {
+    width: 500px;
+    margin: 10px auto
+}
+
+#popup .ui-roundedbox-content {
+    padding: 10px 20px
+}
+
+#popup .sysmsg {
+    font-size: 12px;
+    text-align: center
+}
+
+#popup h2 {
+    margin-bottom: 0;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    line-height: 2em
+}
+
+#popup .lf {
+    margin: 0 auto
+}
+
+#popup #loginname, #popup #loginpass {
+    width: 200px
+}
+
+#popup-bottom {
+    margin: 30px 0 0;
+    padding: 20px 0 0;
+    border-top: 1px solid #ccc;
+    font-size: 14px;
+    text-align: center
+}
+
+#never-logged {
+    width: 450px;
+    margin: 0 auto;
+    padding: 20px 0;
+    *zoom: 1
+}
+
+#popup #never-logged {
+    padding: 0
+}
+
+#never-logged:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#never-logged h2 {
+    margin: 0;
+    border: 0
+}
+
+#never-logged-signup {
+    width: 235px;
+    float: left;
+    border-right: 1px solid #ddd
+}
+
+#never-logged-signup ul {
+    margin: 5px 0 8px;
+    list-style: none
+}
+
+#never-logged-signup li {
+    margin-bottom: 3px;
+    *zoom: 1
+}
+
+#never-logged-signup li:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#never-logged-signup li img {
+    float: left
+}
+
+#never-logged-signup li p {
+    float: left;
+    margin: 8px 0 0 8px
+}
+
+#never-logged-register a {
+    display: block;
+    width: 185px;
+    height: 30px;
+    background: url(//static2.fanfou.com/img/btn_register.gif) 0 0 no-repeat;
+    text-indent: -999em;
+    overflow: hidden
+}
+
+#never-logged-signin {
+    width: 190px;
+    float: right
+}
+
+#never-logged-signin form {
+    width: 190px;
+    margin-top: 20px
+}
+
+#never-logged-signin #loginname, #never-logged-signin #loginpass {
+    width: 170px
+}
+
+#never-logged-signin .vf label {
+    font-weight: 400
+}
+
+#never-logged-signin #resetpass {
+    margin-left: 20px
+}
+
+#help .codelet {
+    padding: 25px;
+    background: #eee;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    *zoom: 1
+}
+
+#help .codelet:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#help .codelet a {
+    float: left;
+    margin: 5px 0 0
+}
+
+#help .codelet span {
+    float: right;
+    width: 340px
+}
+
+#help .codelet textarea {
+    width: 470px;
+    height: 3.6em
+}
+
+.code-sample a {
+    text-decoration: none
+}
+
+.code-preview {
+    float: left;
+    width: 150px
+}
+
+.code-block input {
+    width: 360px;
+    font-size: 11px
+}
+
+.cnav {
+    margin: 1em 0;
+    *zoom: 1
+}
+
+.cnav:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+div#help .cnav h3 {
+    margin: 0;
+    padding: .25em 0;
+    background: transparent;
+    color: #666;
+    font-weight: 400;
+    text-align: right
+}
+
+div#help .cnav ul {
+    float: right;
+    margin: 0;
+    padding: 0;
+    text-align: right
+}
+
+.cnav ul li {
+    float: left
+}
+
+.cnav ul a img {
+    padding: 1px
+}
+
+.cnav ul a:hover img {
+    padding: 0;
+    border: 1px solid #b0e0f0;
+    background: #e4f4fa
+}
+
+#about {
+    width: 550px;
+    margin: 0 auto;
+    padding: 15px 0
+}
+
+#about h2 {
+    margin: 10px 0;
+    padding: 5px 10px;
+    border-bottom: 1px solid #ccc;
+    color: #444;
+    font-size: 15px;
+    font-weight: 400
+}
+
+#staff {
+    list-style: none
+}
+
+#staff li {
+    margin: 15px 0;
+    font-size: 14px;
+    font-weight: 700
+}
+
+#staff li#generator {
+    width: 450px;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: right
+}
+
+#staff a {
+    background: transparent;
+    text-decoration: none
+}
+
+#staff span {
+    float: left;
+    width: 55px;
+    margin: 7px 0 0 35px;
+    color: #444;
+    text-decoration: none
+}
+
+.help-content {
+    padding: 0 10px
+}
+
+.help-content p {
+    margin-bottom: 1em
+}
+
+.help-content p.desc {
+    color: #999
+}
+
+.help-content p.single {
+    padding: 20px 0 20px 80px;
+    font-size: 14px
+}
+
+#help .jobs {
+    padding: 0 10px
+}
+
+#help .jobs .job {
+    margin: 2em 0 3em
+}
+
+#help .jobs ul {
+    list-style: disc
+}
+
+#help .jobs .job ul {
+    margin: 0
+}
+
+#help .jobs li {
+    margin: .5em
+}
+
+.applist {
+    padding: 0 0 15px 30px
+}
+
+.applist li {
+    color: #888;
+    line-height: 24px
+}
+
+.applist li.first-child {
+    color: #222;
+    line-height: 40px
+}
+
+.applist li a {
+    font-size: 14px;
+    text-decoration: none
+}
+
+.applist li a:hover {
+    background: #06c
+}
+
+.applist li.first-child a {
+    font-size: 24px;
+    font-weight: 700
+}
+
+.applist li.first-child .author a {
+    font-size: 12px;
+    font-weight: 400
+}
+
+.applist .author {
+    margin-left: .5em;
+    color: #aaa;
+    font-size: 12px
+}
+
+.applist .author a {
+    color: #aaa;
+    border-bottom: 1px dotted #999;
+    background: none;
+    font-size: 12px
+}
+
+.applist .author a:hover {
+    border-bottom: 1px solid #999;
+    background: none;
+    color: #aaa
+}
+
+p.input-tip {
+    position: absolute;
+    padding: 4px 17px 4px 4px;
+    border: 1px solid #b0e0f0;
+    background: #e4f4fa;
+    color: #0a678a;
+    line-height: 15px
+}
+
+p.input-tip strong {
+    text-decoration: underline
+}
+
+p.input-tip a.close {
+    position: absolute;
+    right: 5px;
+    top: 6px;
+    display: block;
+    width: 13px;
+    height: 13px;
+    background: url(//static2.fanfou.com/img/bgsprite.gif) 0 0 no-repeat;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -999em
+}
+
+p.input-tip a.close:hover {
+    background-position: 0 -12px
+}
+
+input.input-question {
+    background: url(//static2.fanfou.com/img/stl_question.gif) 98% 50% no-repeat
+}
+
+div#poverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .5;
+    filter: Alpha(opacity=50);
+    z-index: 5
+}
+
+* html div#poverlay {
+    position: absolute;
+    height: expression(document.documentElement.scrollHeight > document.documentElement.clientHeight ? document.documentElement.scrollHeight:document.documentElement.clientHeight + "px")
+}
+
+div#pwindow {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border: 4px solid #666;
+    width: 360px;
+    margin-top: -100px;
+    margin-left: -185px;
+    background: #fff;
+    z-index: 6
+}
+
+* html div#pwindow {
+    position: absolute;
+    margin-top: expression(0 - parseInt(this.offsetHeight/2) + (TBWindowMargin = document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + "px")
+}
+
+div#pwindow h4 {
+    padding: 10px 15px 5px;
+    background: #1da4cd url(//static2.fanfou.com/img/wbg.gif) 0 100% repeat-x;
+    color: #fff;
+    font-size: 14px
+}
+
+div#pwindow div.ff {
+    padding: 5px 15px
+}
+
+div#pwindow div.ff .auto-select {
+    height: 20px;
+    font-size: 14px;
+    font-weight: 700
+}
+
+div#pwindow div.act {
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    background: #eee;
+    text-align: center
+}
+
+.newlook #header {
+    float: none;
+    *zoom: 1
+}
+
+.newlook #header:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+.newlook #main {
+    float: none
+}
+
+.newlook #content {
+    padding: 0;
+    border: none;
+    background: transparent
+}
+
+#columns {
+    width: 100%;
+    border: 0;
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+td#main {
+    width: 500px;
+    padding: 20px;
+    border: 0;
+    background: #fff;
+    vertical-align: top;
+    -moz-border-radius-topleft: 10px;
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -webkit-border-bottom-left-radius: 10px
+}
+
+#finder_wrap {
+    padding: 5px 25px 10px;
+    dpadding: 28px 40px;
+    border: 1px solid #fff;
+    background: #fff
+}
+
+#finder_wrap h3.success {
+    margin-left: 80px
+}
+
+#finder_wrap p.intro {
+    margin-bottom: 13px;
+    color: #333
+}
+
+#finder_wrap #stream .wa li {
+    width: auto;
+    padding-right: 5px
+}
+
+#finder_wrap #stream p.lastmsg, #finder_wrap #stream p.location {
+    margin-top: 5px;
+    font-size: 12px
+}
+
+#finder_wrap .unlight p.location {
+    color: #666
+}
+
+#finder_wrap .unlight p.lastmsg {
+    color: #999
+}
+
+.finder_block {
+    margin: 32px 80px;
+    padding: 16px 24px;
+    border: 1px solid #aaa;
+    border-top-color: #ddd;
+    border-left-color: #ddd;
+    background: #f7f7f7;
+    zoom: 1
+}
+
+#finder_cate {
+    background: #f0f0f0
+}
+
+.finder_block h3 {
+    font-size: 14px
+}
+
+.finder_block p {
+    margin-bottom: 0
+}
+
+#finder_searchnick .input_text {
+    width: 385px;
+    *width: 370px;
+    margin-right: 5px
+}
+
+#finder_tabbar {
+    position: relative;
+    z-index: 1;
+    padding-left: 219px;
+    border-bottom: 1px solid #acdae5;
+    font-size: 14px;
+    zoom: 1
+}
+
+#finder_cate:after, #finder_tabbar:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden
+}
+
+#finder_tabbar a, #finder_tabbar a:active {
+    position: relative;
+    bottom: -6px;
+    z-index: 2;
+    float: left;
+    margin-left: 5px;
+    padding: 4px 16px;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    background: #acdae5;
+    color: #000;
+    text-decoration: none
+}
+
+#finder_tabbar a:hover {
+    color: #000
+}
+
+#finder_tabbar .current, #finder_tabbar a:active.current {
+    bottom: -1px;
+    padding: 6px 16px;
+    border: 1px solid #acdae5;
+    border-bottom-color: #fff;
+    background: #fff
+}
+
+#finder_invite .finder_tip {
+    margin-left: 6px;
+    color: #aaa
+}
+
+#finder_invitecode {
+    width: 470px
+}
+
+#finder_emailarea {
+    width: 470px;
+    height: 48px
+}
+
+#finder_cate {
+    padding: 0
+}
+
+.finder_cate_main, .finder_cate_side {
+    float: left;
+    _display: inline
+}
+
+.finder_cate_side {
+    width: 160px
+}
+
+.finder_cate_side h3 {
+    background: #f0f0f0
+}
+
+.finder_cate_main {
+    width: 340px;
+    min-height: 210px;
+    *min-height: 200px;
+    _height: 203px;
+    padding: 15px 30px;
+    *padding-top: 25px;
+    border-left: 1px solid #ddd;
+    background: #fff
+}
+
+.finder_cate_main p {
+    margin-bottom: 15px
+}
+
+.finder_cate_main .finder_tip {
+    color: #999;
+    margin: 5px 0
+}
+
+.finder_cate_main .input_text {
+    width: 300px
+}
+
+.finder_cate_main .overlay {
+    position: relative;
+    z-index: 4;
+    padding: 10px;
+    border: 2px solid red;
+    background: #fff
+}
+
+.finder_cate_main .overlay .notice {
+    color: red
+}
+
+.finder_cate_main .overlay .input_text {
+    width: 275px
+}
+
+.finder_cate_main #email_login {
+    width: 169px
+}
+
+.finder_cate_side ul {
+    position: relative;
+    list-style: none
+}
+
+#finder_cate_side_title, .finder_cate_side li, .finder_cate_side li a {
+    display: block;
+    height: 48px;
+    line-height: 48px
+}
+
+.finder_cate_side li a {
+    padding-left: 54px;
+    background-repeat: no-repeat;
+    background-position: 25px 14px;
+    border-top: 1px solid #ddd
+}
+
+.finder_cate_side li a:hover {
+    background-color: transparent;
+    color: #06c
+}
+
+.finder_cate_side li .current {
+    position: relative;
+    right: -1px;
+    top: -1px;
+    border-right: 1px solid #fff;
+    background-position: 24px 15px;
+    background-color: #fff;
+    font-weight: 700
+}
+
+.finder_cate_side li .current:hover {
+    background-color: #fff
+}
+
+.finder_cate_side li #finder_cate_qq_tab {
+    background-image: url(//static1.fanfou.com/img/ico-qq.gif)
+}
+
+.finder_cate_side li #finder_cate_msn_tab {
+    background-image: url(//static2.fanfou.com/img/icon-msn.gif)
+}
+
+.finder_cate_side li #finder_cate_gtalk_tab {
+    background-image: url(//static1.fanfou.com/img/ico-gtalk.gif)
+}
+
+.finder_cate_side li #finder_cate_email_tab {
+    background-image: url(//static2.fanfou.com/img/ico-email.gif)
+}
+
+#finder_cate_side_title {
+    padding-left: 27px;
+    background: #f7f7f7;
+    color: #333;
+    font-size: 14px
+}
+
+#contacts-form {
+    width: 500px;
+    margin: 0 auto
+}
+
+.contacts-box h3 {
+    margin-bottom: .4em;
+    color: #333;
+    line-height: 200%
+}
+
+.contacts-box .hd {
+    border: 1px solid #ccc;
+    background: #eee;
+    color: #333;
+    line-height: 200%
+}
+
+.contacts-box .hd input {
+    margin: 0 .5em
+}
+
+.contacts-box .bd {
+    height: 300px;
+    border: 1px solid #ccc;
+    border-top: 0;
+    overflow: auto
+}
+
+.contacts-box .bd table {
+    width: 100%;
+    *width: 95%;
+    border-collapse: collapse
+}
+
+.contacts-box .bd td {
+    vertical-align: middle;
+    cursor: pointer
+}
+
+.contacts-box .bd td.checkbox {
+    width: 20px
+}
+
+.contacts-box .bd td.checkbox input {
+    margin: 0 .5em
+}
+
+.contacts-box td {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee
+}
+
+.contacts-box td.image {
+    width: 48px;
+    padding-right: 6px
+}
+
+.contacts-box td.info {
+    color: #333
+}
+
+.contacts-box td.info h4 {
+    font-size: 14px;
+    margin-bottom: 5px
+}
+
+.contacts-box td.info p {
+    margin: 0;
+    line-height: 18px
+}
+
+.contacts-box td.network {
+    width: 5em;
+    color: #666
+}
+
+.contacts-box tr.alt {
+    background: #f3f3f3
+}
+
+#extranote {
+    width: 490px;
+    height: 50px
+}
+
+#finder_qq_vcode_w {
+    display: none;
+    margin-bottom: 0;
+    line-height: 26px;
+    dwidth: 306px
+}
+
+#finder_qq_vcode_w .capchaimg {
+    width: 130px
+}
+
+#finder_qq_vcode_w .refresh {
+    width: 180px;
+    vertical-align: bottom
+}
+
+#finder_qq_vcode_img {
+    vertical-align: bottom;
+    margin: 12px 6px 3px 0;
+    color: #c00
+}
+
+#finder_qq_vcode_refresh {
+    color: #666
+}
+
+#finder_qq_vcode_refresh:hover {
+    background: transparent
+}
+
+.finder_qq_tip {
+    margin: 10px 0 20px;
+    padding: 10px 15px
+}
+
+.finder_qq_tip h3 {
+    padding-left: 25px;
+    background: url(//static1.fanfou.com/img/signup-wrong.gif) no-repeat 0 1px;
+    font-size: 14px
+}
+
+.finder_qq_tip ol {
+    margin: 10px 0 10px 25px;
+    font-size: 12px
+}
+
+.finder_qq_tip .input_text {
+    width: 390px
+}
+
+#finder_result:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#finder_result {
+    zoom: 1
+}
+
+#finder_result h3 {
+    margin-bottom: 12px
+}
+
+#finder_result #contacts-form, #finder_willfollow {
+    float: left;
+    _display: block
+}
+
+#finder_willfollow h4 {
+    font-size: 12px;
+    color: #333
+}
+
+#finder_result #contacts-form {
+    width: 400px
+}
+
+#finder_willfollow {
+    width: 270px;
+    margin: 30px 0 0 20px
+}
+
+#finder_willfollow.push {
+    margin-top: 0
+}
+
+#finder_willfollow h3 {
+    margin-bottom: 12px;
+    font-size: 12px
+}
+
+#finder_willfollow img {
+    float: left;
+    width: 32px;
+    height: 32px;
+    margin: 6px 6px 6px 0
+}
+
+#finder_invite_preview {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff
+}
+
+#finder_invite_byemail .act {
+    position: relative
+}
+
+#finder_invite_preview_link {
+    position: absolute;
+    right: 4px;
+    _right: 24px;
+    top: 2px
+}
+
+#finder_wait .hd {
+    font-size: 14px
+}
+
+p.nc {
+    border: dashed #ddd;
+    border-width: 1px 0;
+    margin: 1em 0;
+    padding: 2em 0;
+    font-size: 16px;
+    text-indent: 5em
+}
+
+.solo {
+    border-top: 1px dashed #ddd
+}
+
+.ui-roundedbox {
+    *zoom: 1
+}
+
+.ui-roundedbox:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+.ui-roundedbox-reply {
+    padding: 20px 20px 20px 10px
+}
+
+.ui-roundedbox-reply h3 {
+    margin: -20px 0 12px
+}
+
+.ui-roundedbox-reply ol {
+    border-top: 1px dashed #ddd
+}
+
+.ui-roundedbox-reply ol li {
+    width: 448px !important
+}
+
+.ui-roundedbox-corner {
+    position: relative;
+    background: url(//static1.fanfou.com/img/radius.png) no-repeat;
+    _background-image: url(//static1.fanfou.com/img/radius.gif);
+    *zoom: 1
+}
+
+.ui-roundedbox-tl {
+    background-position: 0 0;
+    margin: 0 10px 10px 0;
+    top: 0;
+    left: 0
+}
+
+.ui-roundedbox-tr {
+    background-position: 100% 0;
+    top: 0;
+    right: -10px
+}
+
+.ui-roundedbox-bl {
+    background-position: 0 100%;
+    bottom: -10px;
+    left: -10px
+}
+
+.ui-roundedbox-br {
+    background-position: 100% 100%;
+    bottom: 0;
+    right: -10px
+}
+
+.ui-roundedbox-content {
+    position: relative;
+    left: -5px;
+    top: -5px;
+    background: #fff
+}
+
+#body .ui-roundedbox-br {
+    padding-bottom: 10px
+}
+
+#body .ui-roundedbox-content {
+    position: static;
+    left: 0;
+    top: 0;
+    margin-left: -10px
+}
+
+.inner-content {
+    padding: 0 25px;
+    *zoom: 1
+}
+
+.inner-content:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+.narrowlook {
+    padding-bottom: 3em
+}
+
+.narrowlook #header h1 {
+    width: 91px;
+    overflow: hidden
+}
+
+.narrowlook .global-header-content {
+    margin-top: 0;
+    background: transparent url(//static2.fanfou.com/img/fanfou_beta_narrow.svg) no-repeat 0 0
+}
+
+.narrowlook #nav-finder {
+    display: none
+}
+
+.beforelogin #header h1 {
+    width: 203px
+}
+
+.narrowlook #container {
+    width: 600px;
+    padding-top: 1.25em
+}
+
+.narrowlook #main {
+    width: 560px;
+    margin-top: 1.25em
+}
+
+.narrowlook #body {
+    margin-top: 1.25em
+}
+
+.narrowlook #body .ui-roundedbox-content {
+    padding: 25px 15px 10px
+}
+
+.narrowlook #update {
+    margin: 0 auto
+}
+
+#newform {
+    width: 360px;
+    margin: 1em auto 6em
+}
+
+#newform h2 {
+    margin-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+    line-height: 2em
+}
+
+#newform .act a {
+    float: right;
+    text-decoration: none
+}
+
+#profile-closed {
+    margin: 1.5em 0;
+    padding: 25px 20px 20px 120px;
+    border: 1px dashed #fc0;
+    background: #fffbcc url(//static2.fanfou.com/img/lock.gif) no-repeat 30px 6px
+}
+
+#profile-closed h3 {
+    margin-bottom: 1em;
+    color: #994800;
+    line-height: 150%
+}
+
+#profile-protected {
+    margin: 1.5em 0;
+    padding: 25px 20px 20px 120px;
+    border: 1px dashed #fc0;
+    background: #fffbcc url(//static2.fanfou.com/img/lock.gif) no-repeat 30px 20px
+}
+
+#profile-protected h3 {
+    margin-bottom: 1em;
+    color: #994800;
+    line-height: 150%
+}
+
+#profile-protected p {
+    margin: 10px 0;
+    line-height: 20px
+}
+
+#profile-protected p.actions {
+    *zoom: 1
+}
+
+#profile-protected p.actions:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#profile-protected p.actions a {
+    margin-right: .75em
+}
+
+#profile-register {
+    margin: 0 0 1.5em;
+    padding: 12px 19px;
+    border: 1px solid #ffed00;
+    background: #fffcaa;
+    color: #000;
+    *zoom: 1
+}
+
+#profile-register:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#profile-register h2 {
+    margin-bottom: .25em;
+    line-height: 1.5em;
+    font-size: 18px
+}
+
+#profile-register #register {
+    float: right;
+    width: 220px;
+    padding: 5px 0;
+    text-align: center;
+    color: #666
+}
+
+#profile-register #register p {
+    margin: .5em 0
+}
+
+.privatemsg #stream li.unlight span.op {
+    visibility: visible
+}
+
+.privatemsg #update {
+    position: relative;
+    z-index: 1
+}
+
+.privatemsg .input_text {
+    width: 222px;
+    padding: 5px 4px 4px
+}
+
+.privatemsg .hint {
+    color: #666
+}
+
+.privatemsg .select label {
+    font-weight: 700
+}
+
+.privatemsg .name-all-link {
+    position: absolute;
+    top: 1px;
+    *top: 2px;
+    _top: 3px;
+    left: 255px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(//static2.fanfou.com/img/privatemsg-select.gif) no-repeat 0 -48px;
+    outline: 0
+}
+
+.privatemsg .name-all-link:hover {
+    border-left: 1px solid #999;
+    background-color: silver;
+    background-position: 0 -72px
+}
+
+.privatemsg .name-all-unfold {
+    border-left: 1px solid #999;
+    background-color: silver;
+    background-position: 0 -24px
+}
+
+.privatemsg .name-all-unfold:hover {
+    background-position: 0 0
+}
+
+.privatemsg .name-list {
+    position: absolute;
+    visibility: hidden;
+    top: 26px;
+    *top: 25px;
+    _top: 26px;
+    left: 52px;
+    padding: 0;
+    width: 230px;
+    height: 166px;
+    *height: 168px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border: 1px solid;
+    border-color: #ccc #333 #333 #ccc;
+    background: #fff;
+    color: #000
+}
+
+.privatemsg .name-list ul {
+    list-style: none
+}
+
+.privatemsg .name-list li {
+    margin: 0;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 4px;
+    cursor: pointer;
+    overflow: hidden
+}
+
+.privatemsg .name-list li.current {
+    background: #06c;
+    color: #fff
+}
+
+.privatemsg .name-list li.current span {
+    color: #fff
+}
+
+.privatemsg .name-list li span {
+    color: #666
+}
+
+.bn {
+    margin-bottom: 10px
+}
+
+.bk {
+    float: right;
+    top: -25px
+}
+
+.bk, form#help {
+    position: relative
+}
+
+form#help {
+    padding-bottom: 30px
+}
+
+form#help .act {
+    padding-top: 10px
+}
+
+form#help .captcha-img, form#help .captcha-input {
+    position: absolute;
+    top: 100px;
+    left: 0
+}
+
+form#help .captcha-img {
+    top: 84px;
+    left: 200px
+}
+
+#requests {
+    padding: 5px 25px 25px
+}
+
+#requests h2 {
+    margin: 0 0 5px;
+    border-bottom: 1px solid #ccc;
+    color: #444;
+    font-size: 16px;
+    line-height: 200%
+}
+
+#requests #stream .wa li {
+    width: auto;
+    padding-right: 5px
+}
+
+#requests #stream p.lastmsg, #requests #stream p.location {
+    margin-top: 5px;
+    font-size: 12px
+}
+
+#requests .unlight p.location {
+    color: #666
+}
+
+#requests .unlight p.lastmsg {
+    color: #999
+}
+
+#friends.inner-content {
+    padding: 5px 25px 10px
+}
+
+#friends.inner-content h2 {
+    margin: 5px 0 0;
+    padding: 0 5px;
+    border-bottom: 1px dashed #ddd;
+    color: #666;
+    font-size: 14px;
+    line-height: 200%
+}
+
+#friends.inner-content #stream .wa li {
+    width: auto
+}
+
+#friends #stream .wa li {
+    padding-right: 5px
+}
+
+#friends #stream p.lastmsg, #friends #stream p.location {
+    margin-top: 5px;
+    font-size: 12px
+}
+
+#friends .unlight p.location {
+    color: #666
+}
+
+#friends .unlight p.lastmsg {
+    color: #999
+}
+
+textarea.code {
+    color: #444;
+    font-size: 11px
+}
+
+textarea#multi-url, textarea#single-url {
+    height: 1.2em
+}
+
+textarea#multi-ubb, textarea#multi-xhtml, textarea#single-ubb, textarea#single-xhtml {
+    height: 2.5em
+}
+
+textarea#friends_timeline, textarea#user_timeline {
+    height: 3.7em
+}
+
+textarea#flash_badge {
+    width: 320px;
+    height: 20em
+}
+
+#settings.inner-content {
+    padding: 5px 25px 30px
+}
+
+#settings_qq_tip {
+    margin: 20px 170px
+}
+
+#settings_qq_tip.errmsg {
+    font-size: 12px
+}
+
+#settings_qq_tip.errmsg p {
+    line-height: 1.2
+}
+
+.guide-nav {
+    text-align: center
+}
+
+.guide-nav p {
+    color: #666
+}
+
+.guide-nav a.next {
+    display: block;
+    margin: 10px auto;
+    width: 110px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none
+}
+
+.guide-nav a.next, .guide-nav a.next:hover {
+    background: url(//static2.fanfou.com/img/badge/bg-button.gif) no-repeat 50% 50%;
+    color: #fff
+}
+
+.guide-nav a.next:hover {
+    text-decoration: underline
+}
+
+#not_found #container {
+    padding-top: 3em
+}
+
+#not_found #header h1 {
+    float: none;
+    width: 203px;
+    margin: 0 auto
+}
+
+#not_found #body .ui-roundedbox-content {
+    padding: 25px 0 35px;
+    text-align: center
+}
+
+#not_found h2 {
+    color: #444;
+    font-size: 14px
+}
+
+#not_found .illus {
+    padding: 50px 0 60px
+}
+
+#goodapp {
+    width: 204px;
+    margin-bottom: 15px;
+    background: url(//static2.fanfou.com/img/pale.png);
+    _background: #fff;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px
+}
+
+#goodapp a {
+    display: block;
+    padding: 6px 10px
+}
+
+#goodapp a:hover {
+    text-decoration: none
+}
+
+#goodapp strong {
+    display: block;
+    font-weight: 700;
+    line-height: 17px;
+    *line-height: 18px
+}
+
+#goodapp a.new strong {
+    padding-left: 24px;
+    background: url(//static2.fanfou.com/img/apps-tip-new.gif?1.gif) 0 0 no-repeat
+}
+
+#goodapp a:hover strong {
+    text-decoration: underline
+}
+
+#goodapp span {
+    display: block;
+    padding-top: 2px;
+    color: #222;
+    line-height: 135%
+}
+
+#help #apps {
+    width: 530px;
+    margin: 0 0 0 5px;
+    padding: 0;
+    list-style: none;
+    *zoom: 1
+}
+
+#help #apps:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#help #apps li {
+    float: left;
+    width: 250px;
+    height: 380px;
+    margin: 0 15px 0 0;
+    overflow: hidden
+}
+
+#help #apps h4 {
+    margin: 0;
+    padding-left: 4px;
+    border: 0;
+    color: #444;
+    font-size: 16px;
+    line-height: 30px
+}
+
+#help #apps h4 a {
+    color: #444
+}
+
+#help #apps h4 a:hover {
+    color: #fff
+}
+
+#help #apps a {
+    text-decoration: none;
+    outline: none
+}
+
+#help #apps p {
+    margin: 0
+}
+
+#help #apps .desc {
+    padding-left: 4px;
+    color: #666;
+    min-height: 72px;
+    _height: 72px
+}
+
+#help #apps .desc strong {
+    color: #090
+}
+
+#help #apps .demo {
+    width: 215px;
+    height: 250px;
+    margin: 10px 0 20px
+}
+
+#guide-final {
+    width: 575px;
+    margin: 0 auto;
+    padding: 60px 0 100px
+}
+
+#guide-final .headline {
+    margin: 0 0 30px;
+    font-size: 16px;
+    text-align: center
+}
+
+#guide-final #update {
+    width: 575px;
+    height: 180px;
+    padding: 20px 0 0;
+    background: url(//static2.fanfou.com/img/guide-final-box.gif) 0 0 no-repeat
+}
+
+#guide-final #update form {
+    width: 500px;
+    margin: 0 auto
+}
+
+#guide-final #update p {
+    margin: 1em 0
+}
+
+#guide-final #update .act {
+    margin: .5em 0;
+    padding-left: 180px
+}
+
+#guide-final #update .later {
+    float: right;
+    width: 140px;
+    margin: 0;
+    text-align: center
+}
+
+#guide-final #update .formbutton {
+    width: 140px;
+    margin: 0;
+    padding: 0;
+    background: url(//static1.fanfou.com/img/blue_button.gif) no-repeat 50%;
+    height: 32px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 32px;
+    text-align: center;
+    text-decoration: none
+}
+
+#guide-final #update .tip {
+    margin: 0
+}
+
+.overlay-leavemsg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: none;
+    width: 575px;
+    height: 232px
+}
+
+.overlay-leavemsg .bg {
+    width: 577px;
+    background: url(//static1.fanfou.com/img/message-box-bg-new.png) no-repeat 0 0;
+    _background: transparent;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://static.fanfou.com/img/message-box-bg-new.png")
+}
+
+.overlay-leavemsg .bg, .overlay-leavemsg .bg-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 232px
+}
+
+.overlay-leavemsg .bg-right {
+    width: 575px;
+    background: url(//static1.fanfou.com/img/message-box-bg-right.png) no-repeat 0 0;
+    _background: transparent;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://static.fanfou.com/img/message-box-bg-right.png")
+}
+
+.overlay-leavemsg #update {
+    position: absolute;
+    top: 70px;
+    left: 35px;
+    z-index: 3
+}
+
+.overlay-leavemsg .close {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    background: url(//static2.fanfou.com/img/message-box-close-new.png) no-repeat 0 0;
+    cursor: pointer;
+    _background: transparent;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://static.fanfou.com/img/message-box-close-new.png")
+}
+
+.overlay-report {
+    top: 0;
+    left: 0;
+    *zoom: 1;
+    z-index: 2;
+    display: none;
+    background: #fff
+}
+
+.overlay-report, .overlay-report .bg {
+    position: absolute;
+    width: 575px;
+    height: 240px
+}
+
+.overlay-report .bg {
+    top: -5px;
+    left: -5px;
+    z-index: 1;
+    border: 5px solid #333;
+    opacity: .5;
+    filter: Alpha(opacity=50)
+}
+
+.overlay-report .close {
+    position: absolute;
+    top: 10px;
+    right: 9px;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    background: url(//static2.fanfou.com/img/message-box-close.png) no-repeat 0 0;
+    cursor: pointer;
+    _background: transparent;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://static.fanfou.com/img/message-box-close.png")
+}
+
+.overlay-report .content {
+    position: relative;
+    z-index: 2;
+    width: 500px;
+    margin: 0 auto;
+    padding-top: 20px
+}
+
+.overlay-report .reason {
+    margin: 30px 0 10px;
+    font-size: 14px
+}
+
+.overlay-report .title {
+    font-weight: 700
+}
+
+.overlay-report .reason label {
+    padding: 0 8px 0 5px;
+    *padding: 0
+}
+
+.overlay-report .succ {
+    margin: 90px auto;
+    text-align: center
+}
+
+.overlay-report .hint {
+    color: #666
+}
+
+.overlay-report #update {
+    position: relative;
+    top: 0;
+    left: 77px;
+    *left: 80px;
+    z-index: 2
+}
+
+.overlay-report #update h3 {
+    font-weight: 400
+}
+
+.overlay-report #update textarea {
+    width: 400px
+}
+
+#ZoomClose .close {
+    width: 30px;
+    height: 30px;
+    background: url(//static2.fanfou.com/img/message-box-close.png) no-repeat 0 0;
+    cursor: pointer;
+    _background: transparent;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://static.fanfou.com/img/message-box-close.png")
+}
+
+#ZoomCapDiv .left {
+    width: 13px;
+    height: 26px;
+    background: url(//static2.fanfou.com/img/zoom/zoom-caption-l.png) no-repeat 0 0;
+    _background: transparent;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://static.fanfou.com/img/zoom/zoom-caption-l-ie6.png")
+}
+
+#ZoomCapDiv .right {
+    width: 13px;
+    height: 26px;
+    background: url(//static1.fanfou.com/img/zoom/zoom-caption-r.png) no-repeat 0 0;
+    _background: transparent;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://static.fanfou.com/img/zoom/zoom-caption-r-ie6.png")
+}
+
+#ZoomCapDiv .center {
+    background: url(//static1.fanfou.com/img/zoom/zoom-caption-fill.png) repeat 0 0;
+    _background-image: none;
+    _background: #000;
+    font-weight: 700;
+    color: #fff;
+    font-size: 14px;
+    white-space: nowrap;
+    vertical-align: middle
+}
+
+#ZoomToAlbum {
+    position: absolute;
+    right: -25px;
+    top: 0
+}
+
+#ZoomToAlbum a {
+    background: url(//static2.fanfou.com/img/zoom/zoom-to-album.png) no-repeat 0 0;
+    text-indent: -9999px;
+    width: 23px;
+    height: 89px;
+    display: block
+}
+
+#ZoomToAlbum a:hover {
+    background-position: -23px 0
+}
+
+#imgbg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: #000;
+    opacity: .8;
+    z-index: 7
+}
+
+.sync-list {
+    margin: 30px 0 30px 104px
+}
+
+.sync-site {
+    height: 23px;
+    margin-bottom: 20px;
+    width: 250px;
+    float: left
+}
+
+.sync-icon {
+    margin: 0 2px 6px
+}
+
+#PopupBox {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 575px;
+    height: 211px;
+    background: url(//static1.fanfou.com/img/popupbg-new.png) no-repeat 0 0;
+    z-index: 2;
+    _background: transparent;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://static.fanfou.com/img/popupbg-new.png")
+}
+
+#PopupBox .close {
+    position: relative;
+    top: 14px;
+    left: 549px;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    background: url(//static2.fanfou.com/img/message-box-close-new.png) no-repeat 0 0;
+    cursor: pointer;
+    _background: transparent;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://static.fanfou.com/img/message-box-close-new.png")
+}
+
+#PopupSrc {
+    height: 20px;
+    color: #666;
+    margin: 0 -3px 0 1px;
+    padding-left: 5px;
+    line-height: 19px
+}
+
+#PopupUpdate {
+    position: relative;
+    width: 512px;
+    left: 30px;
+    top: 4px
+}
+
+#PopupUpdate textarea {
+    width: 495px;
+    font-size: 14px;
+    height: 4.6em
+}
+
+#PopupUpdate .formbutton {
+    position: relative;
+    left: 25px;
+    width: 115px;
+    height: 32px;
+    border: 0;
+    background: url(//static1.fanfou.com/img/button-send.gif) 0 0 no-repeat;
+    color: #444;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: .5em;
+    top: 2px
+}
+
+#PopupUpdate .tip {
+    width: 120px;
+    position: relative;
+    color: #999;
+    line-height: 14px;
+    top: -111px;
+    left: 450px
+}
+
+#PopupUpdate .tip .counter {
+    color: #444;
+    font-size: 20px;
+    font-weight: 700
+}
+
+#PopupUpdate .caution, #PopupUpdate .caution .counter {
+    color: #c00
+}
+
+.map-timeline .map-pad {
+    width: 700px;
+    height: 700px;
+    margin: 20px auto;
+    margin: 10px auto;
+    padding: 10px 0;
+    width: 740px;
+    height: 600px
+}
+
+.map-timeline .map-pad iframe {
+    border: 1px solid #ccc;
+    width: 730px;
+    height: 600px;
+    padding: 0;
+    margin: 0 auto
+}
+
+.newfeature:after {
+    content: "新!"
+}
+
+.newfeature:after, .test_feature:after {
+    color: red;
+    font-size: 8px;
+    vertical-align: top
+}
+
+.test_feature:after {
+    content: "测试!"
+}
+
+#ac_top_banner {
+    padding: .1em .5em;
+    color: #aaa
+}
+
+#userview_link a.label {
+    text-decoration: none;
+    padding-right: 5px
+}
+
+.share {
+    display: inline-block;
+    display: -moz-inline-stack;
+    width: 40px;
+    height: 16px;
+    overflow: hidden;
+    background: url(//static2.fanfou.com/img/msgicons.svg) 0 -16px no-repeat;
+    font-size: 0 !important;
+    line-height: 0;
+    text-indent: -999em;
+    vertical-align: middle;
+    *zoom: 1
+}
+
+.share:hover {
+    background-position: -40px -16px
+}
+
+.faved {
+    background-position: 0 -48px
+}
+
+.faved:hover {
+    background-position: -40px -48px
+}
+
+.delete {
+    display: inline-block;
+    display: -moz-inline-stack;
+    width: 40px;
+    height: 16px;
+    overflow: hidden;
+    background: url(//static2.fanfou.com/img/msgicons.svg) 0 -32px no-repeat;
+    font-size: 0 !important;
+    line-height: 0;
+    text-indent: -999em;
+    vertical-align: middle;
+    *zoom: 1
+}
+
+.delete:hover {
+    background-position: -40px -32px
+}
+
+a.bh, a.bl, a.bl-added, a.bl-long {
+    float: left;
+    display: inline-block;
+    display: -moz-inline-stack;
+    width: 80px;
+    height: 20px;
+    *height: 18px;
+    *padding-top: 2px;
+    line-height: 20px;
+    *line-height: 18px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-indent: 1px;
+    text-decoration: none;
+    overflow: hidden;
+    vertical-align: middle;
+    *zoom: 1
+}
+
+a.bh {
+    background: url(//static1.fanfou.com/img/button-h.gif) no-repeat 0 0;
+    color: #994800
+}
+
+a.bh:hover {
+    background: url(//static1.fanfou.com/img/button-on.gif) no-repeat 0 0;
+    color: #994800
+}
+
+a.bl {
+    background: url(//static1.fanfou.com/img/button-l.gif) no-repeat 0 0;
+    color: #333
+}
+
+a.bl:hover {
+    background: url(//static1.fanfou.com/img/button-on.gif) no-repeat 0 0;
+    color: #333
+}
+
+a.bl-long {
+    width: 140px;
+    background: url(//static2.fanfou.com/img/buttonl-l.gif) no-repeat 0 0;
+    color: #333
+}
+
+a.bl-long:hover {
+    background: url(//static1.fanfou.com/img/buttonl-on.gif) no-repeat 0 0;
+    color: #333
+}
+
+a.bl-added {
+    background: url(//static1.fanfou.com/img/button-l.gif) no-repeat 0 0;
+    color: #333;
+    cursor: default
+}
+
+a.bl-added:hover {
+    background-color: #fff;
+    color: #333
+}
+
+#sidebar #user_rec {
+    display: none;
+    margin-bottom: 15px
+}
+
+#sidebar #user_rec ul li a.rec_usr_img {
+    height: 50px;
+    position: absolute;
+    width: 50px;
+    float: left
+}
+
+#sidebar #user_rec ul li a.rec_usr_realname {
+    font-weight: 700;
+    padding-right: 3px;
+    width: 8em;
+    float: left
+}
+
+#sidebar #user_rec ul li.rec_usr_lastmsg, #sidebar #user_rec ul li a.rec_usr_loginname {
+    font-size: 12px;
+    color: #999
+}
+
+#sidebar #user_rec ul li a.dismiss {
+    float: right;
+    font-size: 12px;
+    padding: 0 18px 0 0;
+    color: #999
+}
+
+#sidebar #user_rec ul li a.dismiss span {
+    background: transparent url(//static1.fanfou.com/img/close_icon.gif) no-repeat top;
+    padding: 0;
+    margin: 0;
+    width: 8px;
+    height: 8px;
+    text-indent: -9999px;
+    display: block
+}
+
+#sidebar #user_rec ul li div.rec_user_info {
+    overflow: hidden;
+    position: absolute;
+    margin: 0 0 15px 52px;
+    width: 140px
+}
+
+#sidebar #user_rec ul li div.rec_user_info ul li {
+    overflow: hidden;
+    height: 1.5em
+}
+
+#sidebar #user_rec ul li div.rec_user_info ul li.rec_usr_lastmsg a {
+    color: #999
+}
+
+#sidebar #user_rec ul li.rec_usr {
+    height: 55px
+}
+
+.app_notify_num {
+    font-size: 12px;
+    color: red;
+    margin-left: 5px
+}
+
+.application-item {
+    display: block;
+    border-bottom: 1px dotted #ccc;
+    padding: 5px 0 5px 3px
+}
+
+.application-item h3 {
+    display: inline;
+    width: auto
+}
+
+.application-item:hover {
+    background-color: #eee
+}
+
+.police-info {
+    position: relative;
+    left: 100px;
+    float: left;
+    height: 36px
+}
+
+.police img {
+    height: 32px
+}
+
+#upload-button {
+    background: transparent url(//static2.fanfou.com/img/uploadicon.svg) no-repeat 0 0
+}
+
+#location-button, #upload-button {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-indent: -9999px;
+    width: 20px;
+    height: 20px;
+    position: relative
+}
+
+#location-button {
+    background: transparent url(//static1.fanfou.com/img/locationicon.svg) no-repeat 0 0
+}
+
+.upload-drag-hover {
+    border: 3px solid orange;
+    background: #fff777
+}
+
+.location-button-wrapper, .upload-button-wrapper {
+    cursor: pointer;
+    float: left
+}
+
+.textarea-wrapper {
+    width: 505px;
+    border-radius: 3px;
+    margin: .6em 0
+}
+
+.textarea-wrapper-active {
+    border: 4px solid #f3f9fe
+}
+
+.textarea-wrapper textarea {
+    resize: none;
+    box-shadow: inset 0 0 1px #aaa;
+    border: 1px solid #b9bcbe
+}
+
+.textarea-active {
+    border: 1px solid #7dc6dd
+}
+
+.textarea-wrapper textarea:focus {
+    outline: none
+}
+
+.web-upload-photo-file-name {
+    width: 300px;
+    position: relative;
+    float: left;
+    left: 5px
+}
+
+.upload-icon {
+    background: transparent url(//static2.fanfou.com/img/uploadicon.svg) no-repeat -2px -63px;
+    margin-right: 3px;
+    position: relative;
+    left: 0;
+    width: 20px;
+    height: 16px
+}
+
+.upload-close-handle {
+    cursor: pointer;
+    display: none;
+    padding: 4px;
+    font-weight: 800;
+    line-height: 23px;
+    color: #a6a6a6;
+    font-size: 12px
+}
+
+.sl-file {
+    height: 20px;
+    _height: 20px
+}
+
+.sl-file, .sl-location {
+    display: inline;
+    float: left;
+    position: relative;
+    width: 20px;
+    zoom: 1;
+    _zoom: 1;
+    cursor: pointer;
+    overflow: hidden;
+    vertical-align: middle
+}
+
+.sl-location {
+    padding: 0 5px
+}
+
+.sl-file .sl-input-file {
+    position: absolute;
+    right: 0;
+    top: 0;
+    _font-size: 100px;
+    _font-size: 12px;
+    _zoom: 1;
+    height: 20px;
+    _height: auto;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -ms-filter: "alpha(opacity=0)";
+    cursor: pointer
+}
+
+#update .act .actpost {
+    width: 165px
+}
+
+#PopupUpdate .act .loading, #update .act .loading {
+    margin-right: 53px
+}
+
+#PopupUpdate .actpost {
+    float: right;
+    width: 165px
+}
+
+.slogan {
+    text-indent: -9999px;
+    background: transparent url(//static1.fanfou.com/img/slogan.svg) no-repeat 0 0
+}
+
+.verify-wrapper {
+    width: 775px;
+    margin: auto;
+    position: relative;
+    height: 440px;
+    background: transparent url(//static1.fanfou.com/img/bg.png) no-repeat 0 0
+}
+
+.verify-banner {
+    height: 120px;
+    width: 490px;
+    margin: auto;
+    position: relative;
+    top: 20px;
+    text-indent: -9999px;
+    background: transparent url(//static1.fanfou.com/img/bg.png) no-repeat 0 -441px
+}
+
+.verify-list {
+    list-style: none;
+    list-style-type: none;
+    margin-bottom: 10px;
+    margin-left: 80px;
+    _margin-left: 90px
+}
+
+.verify-list li:before {
+    content: "★ "
+}
+
+.verify-list li {
+    font-size: 16px;
+    line-height: 30px;
+    color: #333
+}
+
+.verify-icon {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    margin: 0 2px;
+    background: transparent url(//static1.fanfou.com/img/bg.png) no-repeat 0 -633px;
+    text-indent: -9999px
+}
+
+.verify-note {
+    width: 680px;
+    height: 250px;
+    background-color: hsla(0, 0%, 100%, .65);
+    _background-color: #fff;
+    margin: auto;
+    position: relative;
+    top: 45px;
+    padding: 20px 0
+}
+
+.verify-note-header {
+    line-height: 26px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    color: #22a8de;
+    text-align: center
+}
+
+.verify-button {
+    text-decoration: none;
+    border: none;
+    outline: none
+}
+
+.verify-button-img {
+    height: 41px;
+    width: 142px;
+    background: transparent url(//static1.fanfou.com/img/bg.png) no-repeat 0 -585px;
+    margin: auto;
+    text-indent: -9999px;
+    margin-bottom: 20px;
+    border-radius: 2px
+}
+
+#phupdate {
+    width: 500px;
+    margin: 0 0 10px
+}
+
+#phupdate h2 {
+    font-size: 16px
+}
+
+#phupdate h2 select {
+    font-weight: 400
+}
+
+#phupdate form {
+    position: relative
+}
+
+#phupdate p {
+    margin: .6em 0
+}
+
+#phupdate textarea {
+    width: 482px;
+    height: 20px;
+    font-size: 14px
+}
+
+#phupdate .act {
+    display: none;
+    padding: 0;
+    *zoom: 1;
+    position: relative
+}
+
+#phupdate .act .actpost {
+    float: right;
+    width: 150px;
+    text-align: right
+}
+
+#phupdate .act .lastmsg {
+    margin-right: 160px;
+    color: #666;
+    word-wrap: break-word;
+    text-overflow: ellipsis
+}
+
+#phupdate .act .lastmsg p {
+    line-height: 1.2
+}
+
+#phupdate a {
+    color: #666
+}
+
+#phupdate a:hover {
+    background-color: transparent;
+    color: #666
+}
+
+#phupdate .act .time {
+    color: #999
+}
+
+#phupdate .act .loading {
+    margin-right: 5px;
+    visibility: hidden
+}
+
+#phupdate .act .loading-l {
+    margin-left: 5px;
+    visibility: hidden
+}
+
+#phupdate:after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+#phupdate .tip {
+    display: none;
+    position: absolute;
+    right: 121px;
+    margin: 0;
+    color: #999;
+    line-height: 20px;
+    top: 120px
+}
+
+#phupdate .tip .counter {
+    color: #444;
+    font-size: 20px;
+    font-family: Times New Roman, Times, serif;
+    font-weight: 700
+}
+
+#phupdate .caution, #phupdate .caution .counter {
+    color: #c00
+}
+
+#phupdate .formbutton {
+    width: 96px;
+    height: 28px;
+    border: 0;
+    background: url(//static1.fanfou.com/img/button-send-s.gif) 0 0 no-repeat;
+    color: #444;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: .5em
+}
+
+#phupdate .formbutton:hover {
+    color: #000
+}
+
+#phupdate .forbidden, #phupdate .forbidden:hover {
+    color: #999;
+    cursor: default
+}
+
+#phupdate .textarea-wrapper {
+    border: 4px solid #f3f7f8;
+    width: 492px;
+    border-radius: 3px;
+    margin: .6em 0
+}
+
+#phupdate .textarea-wrapper-active {
+    border: 4px solid #f3f9fe
+}
+
+#phupdate .textarea-wrapper textarea {
+    resize: none;
+    box-shadow: inset 0 0 1px #aaa;
+    border: 1px solid #b9bcbe
+}
+
+#phupdate .textarea-active {
+    border: 1px solid #7dc6dd
+}
+
+#phupdate .textarea-wrapper textarea:focus {
+    outline: none
+}
+
+.valen-puz-item {
+    overflow: auto;
+    width: 23px;
+    height: 24px;
+    position: absolute;
+    background-image: url(//static2.fanfou.com/img/puzzle.png);
+    zoom: 1
+}
+
+.logo20120206 {
+    margin-top: -13px;
+    width: 285px;
+    height: 65px;
+    background: transparent url(//static2.fanfou.com/img/moonlogo.png) no-repeat 0 0
+}
+
+.logo20130208 {
+    background: transparent url(//static2.fanfou.com/img/logo_13_spring_1.png) no-repeat 0 0
+}
+
+.logo20130208, .logo20130209 {
+    margin-top: -13px;
+    width: 300px;
+    height: 65px
+}
+
+.logo20130209 {
+    background: transparent url(//static2.fanfou.com/img/logo_13_spring_2.png) no-repeat 0 0
+}
+
+.logo20130210 {
+    margin-top: -13px;
+    width: 300px;
+    height: 65px;
+    background: transparent url(//static2.fanfou.com/img/logo_13_spring_3.png) no-repeat 0 0
+}
+
+.statement {
+    font-size: 14px;
+    line-height: 20px
+}
+
+#PopupBox .statement {
+    outline: 1px dotted #eee;
+    color: #333;
+    padding: 20px 0;
+    height: 20px
+}
+
+span#sharer_img img {
+    max-width: 100px;
+    width: expression(this.width > 100 ? 100:true)
+}
+
+.share_img_close {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    background: url(//static1.fanfou.com/img/icon-del.gif) no-repeat 0 0;
+    text-indent: -99em;
+/ / z-index: 10010;
+    margin-left: -25px;
+    margin-top: 5px;
+    border-radius: 8px;
+    background-color: #444
+}
+
+.share_img_close:hover {
+    background: url(//static2.fanfou.com/img/icon-del-on.gif) no-repeat 0 0;
+    background-color: #eee
+}

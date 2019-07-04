@@ -1,0 +1,7 @@
+http://www.jintiankansha.me/column/hhOPUIScVo
+
+
+UPDATE Article SET column_id = 'xuexixiaozu' WHERE column_id = 'hhOPUIScVo'
+
+
+DELETE FROM Article WHERE column_id = 'hhOPUIScVo'
